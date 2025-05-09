@@ -1,0 +1,35 @@
+{
+	"name": "plugin_location",
+	"routes": [
+		{
+			"url": "system/locations",
+			"container": "a2355d86-79b0-4fa5-855c-c8dd1fae87bd",
+			"js": "viewsDir/system/location/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"url": "system/location/{id}",
+			"container": null,
+			"js": "viewsDir/system/location/single",
+			"title": null,
+			"type": "single"
+		},
+		{
+			"url": "create/system/location",
+			"container": "a2355d86-79b0-4fa5-855c-c8dd1fae87bd",
+			"js": "viewsDir/system/location/create",
+			"title": "4100018x4",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"container": "a2355d86-79b0-4fa5-855c-c8dd1fae87bd",
+			"url": "edit/system/location/{id}",
+			"type": "tree-context",
+			"className": "LocationDTO",
+			"js": "viewsDir/system/location/edit"
+		}
+	]
+}

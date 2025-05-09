@@ -1,0 +1,183 @@
+{
+  "entityConfig": [
+    {
+      "id": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+      "name": "Project",
+      "icon": "account_tree",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [
+      ],
+      "contains": [
+        "d8c36d5a-f7b3-4978-8940-a73550895c59",
+        "50c528d7-9260-4d0d-b9a6-eecf84492397"
+      ],
+      "links": [
+      ],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "50c528d7-9260-4d0d-b9a6-eecf84492397",
+      "name": "DashBoard",
+      "icon": "dashboard",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [
+      ],
+      "contains": [
+        "38b402a2-ec21-42cf-b7be-e826e2a536a8"
+      ],
+      "links": [
+      ],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "38b402a2-ec21-42cf-b7be-e826e2a536a8",
+      "name": "DashBoard",
+      "icon": "dashboard",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataDashboardDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": true,
+      "customAttributes": [
+      ],
+      "contains": [
+      ],
+      "links": [
+      ],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "dashboard",
+          "title": "4100127x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "6576baa0-6fbf-11ed-a1eb-0242ac120002",
+      "name": "Hpc_job",
+      "icon": "fa fa-tachometer",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataDashboardDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": true,
+      "customAttributes": [
+      ],
+      "contains": [
+      ],
+      "links": [
+      ],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "files",
+          "title": "4100128x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "monitor",
+          "title": "4100129x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "pending_messages",
+          "title": "3000209x4",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

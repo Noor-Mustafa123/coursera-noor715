@@ -1,0 +1,171 @@
+{
+  "entityConfig": [
+    {
+      "id": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+      "name": "Project",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Custom Description",
+          "type": "textarea",
+          "value": "Default custom project description from configurations"
+        },
+        {
+          "name": "customatt2",
+          "title": "Alternative Name",
+          "type": "text",
+          "value": "Alt name from config"
+        },
+        {
+          "name": "customatt3",
+          "title": "Indicator",
+          "type": "select",
+          "options": [
+            "Red",
+            "Yellow",
+            "Green"
+          ],
+          "value": "Red"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [
+        "1bc384cb-5aa3-449e-8798-c158942a703c"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-red",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+          "key": "subproject",
+          "title": "SubProject",
+          "visible": true
+        },
+        {
+          "typeId": "1bc384cb-5aa3-449e-8798-c158942a703c",
+          "key": "dataobject",
+          "title": "DataObject",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "1bc384cb-5aa3-449e-8798-c158942a703c",
+      "name": "DataObjectCustom",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Description",
+          "type": "textarea",
+          "value": "Default description from configurations"
+        },
+        {
+          "name": "customatt2",
+          "title": "Alternative Name",
+          "type": "text",
+          "value": "Default object name from config"
+        },
+        {
+          "name": "customatt3",
+          "title": "Indicator",
+          "type": "select",
+          "options": [
+            "Red",
+            "Yellow",
+            "Green"
+          ],
+          "value": "Red"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-black",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "key": "files",
+          "title": "Files",
+          "visible": false
+        }
+      ]
+    }
+  ]
+}

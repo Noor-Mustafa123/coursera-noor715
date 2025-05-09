@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="suswiz-feature"
+	xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+	<repository>
+		mvn:de.soco.software.simuspace/suscore-features/${pom.version}/xml</repository>
+
+	<feature name="suswiz-conf" version="${pom.version}">
+		<configfile finalname="conf/dummy_config.json">
+			mvn:de.soco.software.simuspace/suscore-data/${pom.version}/cfg/dummy_config.json</configfile>
+		<configfile finalname="conf/run_QADyna.json">
+			mvn:de.soco.software.simuspace/suscore-data/${pom.version}/cfg/run_QADyna.json</configfile>
+	</feature>
+
+	<feature name="suswiz-dependencies" version="${pom.version}">
+	</feature>
+
+	<feature name="simuspace-wizards" version="${pom.version}">
+		<feature version="${pom.version}">suswiz-conf</feature>
+		<feature version="${pom.version}">suswiz-dependencies</feature>
+		<bundle start-level='90'>
+			mvn:de.soco.software.simuspace/suswiz-assembly/${pom.version}</bundle>
+	</feature>
+
+</features>

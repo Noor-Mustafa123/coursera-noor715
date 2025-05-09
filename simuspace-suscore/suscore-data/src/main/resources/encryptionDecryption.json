@@ -1,0 +1,25 @@
+{
+  "active": false,
+  "availableMethods": [
+    {
+      "method": "AES",
+	"active": false,
+      "salt": "aS43adDF3451df24"
+    },
+    {
+      "method": "DES",
+	"active": false,
+      "salt": "3451df24"
+    },
+    {
+      "method": "DESede",
+	"active": false,
+      "salt": "89abcdef0123456789abcdef"
+    },
+    {
+      "method": "RSA",
+	"active": false,
+      "salt": "aS43adDF3451df24"
+    }
+  ]
+}

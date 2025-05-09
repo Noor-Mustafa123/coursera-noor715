@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+	<!-- <changeSet author="sces126" id="stab2-to-stab4"> <preConditions onFail="MARK_RAN"> <not> <columnExists tableName="susEntity" columnName="jobId" 
+		/> </not> </preConditions> <addColumn tableName="susentity"> <column name="jobid" type="varchar2(255)" /> </addColumn> <modifyDataType columnName="job_log_path" 
+		newDataType="varchar2(2048)" tableName="susentity" /> <modifyDataType columnName="job_dir" newDataType="varchar2(2048)" tableName="susentity" 
+		/> </changeSet> <changeSet author="sces126" id="2.0.0-to-2.0.1-copy-created-by-value-to-owner"> <sql>update susentity set owner_id=created_by</sql> 
+		</changeSet> <changeSet id="add-final-parent-object-permission-column-in-acl-object-identity-table" author="sces126"> <preConditions onFail="MARK_RAN"> 
+		<not> <columnExists tableName="acl_object_identity" columnName="final_acl_permission" /> </not> </preConditions> <addColumn tableName="acl_object_identity"> 
+		<column name="final_acl_permission" type="varchar(255)"> <constraints foreignKeyName="fk_acl_object_identity_final_parent" references="acl_object_identity(id)" 
+		/> </column> </addColumn> <sql>UPDATE acl_object_identity SET final_acl_permission = id where entries_inheriting = false </sql> </changeSet> 
+		<changeSet id="copy-name-values-to-qualified-name-in-acl-class-table" author="sces126-release-16"> <preConditions onFail="MARK_RAN"> <columnExists 
+		tableName="acl_class" columnName="name" /> </preConditions> <addColumn tableName="acl_class"> <column name="qualified_name" type="varchar2(255)"> 
+		</column> </addColumn> <sql>update acl_class SET qualified_name = name</sql> <addNotNullConstraint columnDataType="varchar2(255)" tableName="acl_class" 
+		columnName="qualified_name" /> </changeSet> <changeSet author="sces120" id="copy-uid-to-userUid-in-login_attempt"> <renameColumn newColumnName="user_uid" 
+		oldColumnName="uid" tableName="login_attempt" /> </changeSet> <changeSet author="sces120" id="size-to-entitySize-in-susentity"> <renameColumn 
+		newColumnName="entity_size" oldColumnName="size" tableName="susentity" /> </changeSet> <changeSet author="sces120" id="size-to-entitySize-in-user_entity"> 
+		<renameColumn newColumnName="user_uid" oldColumnName="uid" tableName="user_entity" /> </changeSet> <changeSet author="sces120" id="increase-object_loadcase_json-length_wizard"> 
+		<modifyDataType columnName="object_loadcase_json" newDataType="BLOB" tableName="variant_wizard" /> </changeSet> <changeSet author="sces120" id="increase-loadcase_submit_json-length_wizard"> 
+		<modifyDataType columnName="loadcase_submit_json" newDataType="BLOB" tableName="variant_wizard" /> </changeSet> <changeSet author="sces120" id="increase-assemble_json-length_wizard"> 
+		<modifyDataType columnName="assemble_json" newDataType="BLOB" tableName="variant_wizard" /> </changeSet> <changeSet author="sces120" id="increase-solve_json-length_wizard"> 
+		<modifyDataType columnName="solve_json" newDataType="BLOB" tableName="variant_wizard" /> </changeSet> <changeSet author="sces120" id="increase-post_json-length_wizard"> 
+		<modifyDataType columnName="post_json" newDataType="BLOB" tableName="variant_wizard" /> </changeSet> <changeSet id="update-relation-set-link-type-to-0-where-null-exists" 
+		author="sces126-release-16"> <update tableName="relation"> <column name="link_type" value="0" /> <where>link_type is null</where> </update> </changeSet> 
+		<changeSet author="sces120" id="add-isFrozen-to-variant-1"> <addColumn tableName="variant_wizard"> <column name="frozen" type="BOOLEAN" defaultValue="false"/> 
+		</addColumn> </changeSet> -->
+
+	<!-- <changeSet author="sces126" id="add-JobType-to-susentity"> <addDefaultValue columnDataType="INT" columnName="jobtype" defaultValue="3" 
+		tableName="susentity" /> </changeSet> <changeSet author="sces117" id="min-to-designVariableMin-in-design_variables"> <renameColumn newColumnName="designVariableMin" 
+		oldColumnName="min" tableName="design_variables" /> </changeSet> <changeSet author="sces117" id="max-to-designVariableMax-in-design_variables"> 
+		<renameColumn newColumnName="designVariableMax" oldColumnName="max" tableName="design_variables" /> </changeSet> <changeSet author="sces117" 
+		id="type-to-designVariableType-in-design_variables"> <renameColumn newColumnName="designVariableType" oldColumnName="type" tableName="design_variables" 
+		/> </changeSet> <changeSet author="sces117" id="values-to-designVariableValues-in-design_variables"> <renameColumn newColumnName="designVariableValues" 
+		oldColumnName="values" tableName="design_variables" /> </changeSet> <changeSet author="sces117" id="update-susentity-hidden-value-to-false"> 
+		<update schemaName="public" tableName="susentity"> <column name="is_hidden" type="boolean"/> <where>is_hidden is null</where> </update> </changeSet> -->
+	<changeSet author="sces120" id="delete-objects-permanently">
+		<sql>DELETE FROM susentity sus WHERE sus.is_delete = true</sql>
+	</changeSet>
+
+	<!-- first delete child recursively by parent id -->
+	<changeSet author="sces120" id="delete-container-child-recursively-by-parent-id">
+		<sql>delete from susentity where id in (WITH RECURSIVE createdChild AS (
+			SELECT
+			child_oid
+			FROM
+			relation
+			WHERE
+			parent_oid =
+			'81db141f-a254-4480-8962-8864472ea0a1'
+			UNION
+			SELECT
+			e.child_oid
+			FROM
+			relation e
+			INNER JOIN createdChild s ON s.child_oid = e.parent_oid
+			) SELECT
+			*
+			FROM
+			createdChild)
+		</sql>
+	</changeSet>
+
+	<!-- now delete the parent -->
+	<changeSet author="sces120" id="delete-container">
+		<sql>delete from susentity where id='81db141f-a254-4480-8962-8864472ea0a1'</sql>
+	</changeSet>
+
+	<!-- delete audit log -->
+	<changeSet author="sces120" id="delete-audit-log">
+		<sql>delete from audit_log</sql>
+	</changeSet>
+
+</databaseChangeLog>
+ 
+ 
+ 

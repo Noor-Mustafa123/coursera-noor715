@@ -1,0 +1,115 @@
+{
+  "name": "test_plugin",
+  "routes": [
+    {
+      "url": "system/license",
+      "container": "3008fb63-1880-449a-956e-85c0470f6eac",
+      "js": "viewsDir/system/license/overview",
+      "type": "table"
+    },
+    {
+      "title": "Create",
+      "url": "create/system/license",
+      "icon": "fa fa-create",
+      "container": "3008fb63-1880-449a-956e-85c0470f6eac",
+      "js": "viewsDir/system/license/create",
+      "type": "tree-context"
+    },
+    {
+      "title": "Manage",
+      "url": "manage/system/license",
+      "icon": "fa fa-edit",
+      "container": "3008fb63-1880-449a-956e-85c0470f6eac",
+      "js": "viewsDir/system/license/manage",
+      "type": "tree-context"
+    },
+    {
+      "title": "Edit",
+      "icon": "fa fa-edit",
+      "url": "edit/system/license/{id}",
+      "type": "tree-context",
+      "className" : "TreeNode",
+      "js": "viewsDir/system/license/edit"
+    },
+    {
+      "title": "Delete",
+      "icon": "fa fa-trash-o",
+      "url": "delete/system/license/{id}{?query}",
+      "js": "viewsDir/system/license/delete",
+      "className" : "TreeNode",
+      "type": "tree-context"
+    },
+    {
+      "className":"ProjectDTO",
+      "url": "view/data/project/{projectId}",
+      "js": "viewsDir/data/project/overview",
+      "title": "View Objects",
+      "type": "table"
+    },
+    {
+      "className":"ObjectDTO",
+      "url": "view/data/object/{parentId}",
+      "js": "viewsDir/data/object/single",
+      "title": "Single View",
+      "type": "single"
+	},
+	{
+      "url": "system/auditlog",
+      "container": "d2134fde-45d9-4045-b821-788e41e70398",
+      "js": "viewsDir/system/auditlog/overview",
+      "title": null,
+      "type": "table"
+    },
+    {
+      "className":"ProjectDTO",
+      "url": "create/data/project/{parentId}",
+      "container": "97fe736a-011f-46e3-971a-8ba77f711020",
+      "js": "viewsDir/data/project/create",
+      "title": "Create Project",
+      "type": "tree-context"
+    },
+    {
+      "className":"ProjectDTO",
+      "url": "update/data/project/{parentId}",
+      "js": "viewsDir/data/project/edit",
+      "title": "Edit Project",
+      "type": "tree-context"
+    },
+    {
+      "className":"ProjectDTO",
+      "url": "view/data/project/{projectId}",
+      "js": "viewsDir/data/project/overview",
+      "title": "View Objects",
+      "type": "table"
+    },
+    {
+      "className":"DataObjectDTO",
+      "url": "view/data/object/{parentId}",
+      "js": "viewsDir/data/object/single",
+      "title": "Single View",
+      "type": "single"
+	},
+	{
+      "className":"DataObjectDTO",
+      "url": "create/data/object/{parentId}",
+      "js": "viewsDir/data/object/create",
+      "title": "Create Object",
+      "type": "tree-context"
+    },
+    {
+			"className": "MenuDTO",
+			"url": "create/data/project/{parentId}",
+			"container": "97fe736a-011f-46e3-971a-8ba77f711020",
+			"js": "viewsDir/data/project/create",
+			"title": "Create",
+			"type": "tree-context"
+		},
+		{
+			"className": "MenuDTO",
+			"url": "data/project/ui/edit/{parentId}",
+			"js": "viewsDir/data/project/edit",
+			"title": "Edit",
+			"type": "tree-context"
+		}
+  ]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="suscore-plugin-feature" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+	<feature name="plugin-feature" version="${pom.version}">
+
+		<bundle start-level='29'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.8.3
+		</bundle>
+		<bundle start-level='29'>mvn:com.fasterxml.jackson.core/jackson-core/2.8.3
+		</bundle>
+		<bundle start-level='29'>mvn:com.fasterxml.jackson.core/jackson-databind/2.8.3
+		</bundle>
+
+
+
+	</feature>
+
+
+</features>

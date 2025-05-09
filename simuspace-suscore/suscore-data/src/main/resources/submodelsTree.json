@@ -1,0 +1,52 @@
+                         "title": "M99_X_Kontakte",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Kontakte",
+                          "url": "2;AAMNnQ:AGk",
+                          "children": null
+                        },
+                        {
+                          "id": "1J3zoeyEQxbj0aDujR6x4RdAZikyYKKf77w2ABeiJcU.",
+                          "title": "M99_X_Massen",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Massen",
+                          "url": "2;AAMSVw:AGk",
+                          "children": null
+                        },
+                        {
+                          "id": "EoVo7podWMUnUjfpna1CEBBQMCYSeQkT3TZqc7LPA90.",
+                          "title": "M99_X_Massen_Lastfall",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Massen_Lastfall",
+                          "url": "2;AAMMBQ:AGk",
+                          "children": null
+                        },
+                        {
+                          "id": "4SG09nn37OIlybI06QV94kLMI5cUAld7KrjOTPRFvzA.",
+                          "title": "M99_X_Massen_Leergewicht",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Massen_Leergewicht",
+                          "url": "2;AAMNsw:AGk",
+                          "children": null
+                        },
+                        {
+                          "id": "KBvLhaRWTMr-V8CPL1KuWiHY6vOaYknavg6UkWLatAk.",
+                          "title": "M99_X_Randbedingungen",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Randbedingungen",
+                          "url": "2;AAMPOA:AGk",
+                          "children": null
+                        },
+                        {
+                          "id": "EpN7N33518ZGTBqilVC8wOcXne5r6PGeqprI-nJQ-Dg.",
+                          "title": "M99_X_Sonstiges",
+                          "path": "/Data/VE/XZV-STW/Preprocessing/Items/M99_X_Sonstiges",
+                          "url": "2;AAMMqw:AGk",
+                          "children": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+de/soco/software/simuspace/suscore/auth/connect/ad/authentication/ActiveDirectoryCustomRealm.class
+de/soco/software/simuspace/suscore/auth/connect/ad/authentication/PropertiesFileReader.class
+de/soco/software/simuspace/suscore/auth/connect/ad/authentication/impl/ActiveDirectoryCustomRealmImpl.class
+de/soco/software/simuspace/suscore/auth/connect/ad/authentication/LdapAuthentication.class

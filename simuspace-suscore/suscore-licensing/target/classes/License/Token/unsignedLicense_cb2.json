@@ -1,0 +1,21 @@
+{
+  "customer": "BMW",
+  "vendor": "SOCO",
+  "reseller": "SOCO",
+  "type": "Eval",
+  "module": "SIMuSPACE.cb2-connector",
+  "userLimit": {
+    "allowedUsers": 50,
+    "restrictedUsers": 50
+  },
+  "addons": {
+    "Location": 2,
+    "archive": true
+  },
+  "features": [
+    "Cb2 connector"
+  ],
+  "licenseType": "token",
+  "expiryTime": "2022-01-28T11:14:46+05:00",
+  "macAddress": "38:60:77:3F:BB:3F"
+}

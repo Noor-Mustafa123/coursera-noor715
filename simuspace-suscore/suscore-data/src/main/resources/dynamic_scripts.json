@@ -1,0 +1,34 @@
+{
+  "actionScripts": [
+    {
+      "name": "cb2_workflow",
+      "path": "${karaf.script}/assembleAndSimulate/cb2_assemble_simulate_wf.py",
+      "type": "python",
+      "envCmd": ""
+    }
+  ],
+  "selectScripts": [
+    {
+      "name": "dummy_select",
+      "path": "${karaf.script}/select_scripts/dummy_select.py",
+      "type": "python",
+      "envCmd": ""
+    }
+  ],
+  "fieldScripts": [
+    {
+      "name": "dummy_fields",
+      "path": "${karaf.script}/field_scripts/dummy_fields.py",
+      "type": "python",
+      "envCmd": ""
+    }
+  ],
+  "dashboardScript": [
+    {
+      "name": "pst",
+      "path": "${karaf.script}/dashboard/pst/pst_planning.py",
+      "type": "python",
+      "envCmd": ""
+    }
+  ]
+}

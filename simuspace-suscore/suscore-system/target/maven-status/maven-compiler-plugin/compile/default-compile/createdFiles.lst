@@ -1,0 +1,5 @@
+de/soco/software/simuspace/suscore/system/model/SystemDTO.class
+de/soco/software/simuspace/suscore/system/manager/impl/SystemManagerImpl.class
+de/soco/software/simuspace/suscore/system/manager/SystemManager.class
+de/soco/software/simuspace/suscore/system/service/rest/SystemService.class
+de/soco/software/simuspace/suscore/system/service/rest/impl/SystemServiceImpl.class

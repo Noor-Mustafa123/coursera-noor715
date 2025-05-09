@@ -1,0 +1,51 @@
+{
+	"name": "test_plugin",
+	"routes": [
+		{
+			"url": "system/license",
+			"container": "3008fb63-1880-449a-956e-85c0470f6eac",
+			"js": "viewsDir/system/license/overview",
+			"type": "table"
+		},
+		{
+			"title": "4100018x4",
+			"url": "create/system/license",
+			"icon": "fa fa-create",
+			"container": "3008fb63-1880-449a-956e-85c0470f6eac",
+			"js": "viewsDir/system/license/create",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100006x4",
+			"url": "manage/system/license",
+			"icon": "fa fa-edit",
+			"container": "3008fb63-1880-449a-956e-85c0470f6eac",
+			"js": "viewsDir/system/license/manage",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"url": "edit/system/license/{id}",
+			"type": "tree-context",
+			"className": "TreeNode",
+			"js": "viewsDir/system/license/edit"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "delete/system/license/{id}{?query}",
+			"js": "viewsDir/system/license/delete",
+			"className": "TreeNode",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "delete/data/object/{id}/metadata/{key}{?query}",
+			"type": "tree-context",
+			"className": "Map",
+			"js": "viewsDir/data/object/delete_metadata"
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+  "customer": "tester",
+  "vendor": "SOCO",
+  "reseller": "soco",
+  "type": "commercial",
+  "module": "RunSim",
+  "userLimit": {
+    "allowedUsers": 15,
+    "restrictedUsers": 4
+  },
+  "addons": {
+    "Location": 2,
+    "archive": true
+  },
+  "features": [
+    "Data",
+    "Permissions",
+   "Audit Logs",
+    "Directories",
+    "Groups",
+    " Role",
+    "License",
+    "System",
+    "Users"
+  ],
+  "licenseType": "named",
+  "expiryTime": "2018-10-25T16:22:46+05:00",
+  "macAddress": "10:C3:7B:6C:DF:C2"
+}

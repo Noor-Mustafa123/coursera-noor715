@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
+             ">
+
+	<!-- ########################### Internal Services Expose ################################ -->
+
+
+	<!-- ########################### External Services Imports ################################ -->
+
+	<reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" />
+
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+
+	<reference id="lifeCycleManager" interface="de.soco.software.simuspace.suscore.lifecycle.manager.LifeCycleManager" />
+
+	<reference id="dataManager" interface="de.soco.software.simuspace.suscore.object.manager.DataManager" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ################################## Suscore BUS ####################################### -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ################################ Services Exports ####################################### -->
+
+
+	<!-- ############################## CXF Swagger2Feature ###################################### -->
+
+
+	<!-- #################################### Jax RS Server ###################################### -->
+
+	<jaxrs:server id="projectSusDashService" address="/dashboard/project">
+		<jaxrs:serviceBeans>
+			<ref component-id="projectDashboardServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Service Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+	</bean>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor">
+	</bean>
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor">
+	</bean>
+
+	<bean id="projectDashboardServiceBean"
+		class="de.soco.software.simuspace.susdash.project.service.rest.impl.ProjectDashboardServiceImpl">
+		<property name="projectDashboardManager" ref="projectDashboardManager" />
+	</bean>
+
+	<!-- ############################################# Manager Beans ############################################# -->
+
+	<bean id="projectDashboardManager" class="de.soco.software.simuspace.susdash.project.manager.impl.ProjectDashboardManagerImpl" init-method="init" destroy-method="destroy">
+		<property name="susDAO" ref="susDAO" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="dataManager" ref="dataManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+</blueprint>

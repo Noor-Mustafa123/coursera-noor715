@@ -1,0 +1,254 @@
+=
+          "title": "4100100x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "2043697c-e2f2-4a4c-b3c6-468439b10bfa",
+      "name": "SAN",
+      "icon": "grain",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "inheritType": true,
+      "inheritConfig": true,
+      "overviewPlugin": "vmclOverview",
+      "deletionDays": "256",
+      "deletionLifeCycle": [],
+      "deletionPolicy": false,
+      "customAttributes": [],
+      "contains": [
+        "d98f1fcf-b0ad-4557-8a84-6cd607ee0a0e"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "html",
+          "title": "4100106x4",
+          "visible": true
+        },
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkTo",
+          "title": "4100099x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkFrom",
+          "title": "4100100x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "d98f1fcf-b0ad-4557-8a84-6cd607ee0a0e",
+      "name": "GS93016 SAN UVB",
+      "icon": "group_work",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "inheritType": true,
+      "inheritConfig": true,
+      "overviewPlugin": "vmclOverview",
+      "deletionDays": "256",
+      "deletionLifeCycle": [],
+      "deletionPolicy": false,
+      "customAttributes": [],
+      "contains": [
+        "a326f325-4bd0-430e-ad92-2e51d35fabea"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "html",
+          "title": "4100106x4",
+          "visible": true
+        },
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkTo",
+          "title": "4100099x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkFrom",
+          "title": "4100100x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "a326f325-4bd0-430e-ad92-2e51d35fabea",
+      "name": "Luran HH120 SPF50",
+      "icon": "token",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "inheritType": true,
+      "inheritConfig": true,
+      "overviewPlugin": "vmclOverview",
+      "deletionDays": "256",
+      "deletionLifeCycle": [],
+      "deletionPolicy": false,
+      "customAttributes": [],
+      "contains": [
+        "1c84fca8-d799-4e2c-acf1-54f0e64ff1e6",
+        "070eb430-b2b8-4fca-af47-eac5df87d378",
+        "af6e9c08-496d-490c-bcd6-8f6cf4bfb69b",
+        "de002e9b-f462-4e45-a850-2a54a10f4d6c",
+        "9053cce5-b497-4a7a-8c48-bac8f3bff09d",
+        "a43b9c3a-964a-4391-963b-4b25a58a5216",
+        "36d62145-c9b6-4df1-9cff-9a898b01fd55"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "html",
+          "title": "4100106x4",
+          "visible": true
+        },
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkTo",
+          "title": "4100099x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "linkFrom",
+          "title": "4100100x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

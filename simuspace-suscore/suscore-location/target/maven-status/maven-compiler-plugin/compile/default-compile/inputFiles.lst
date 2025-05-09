@@ -1,0 +1,12 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/service/rest/LocationService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/service/rest/impl/LocationServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/dao/impl/LocationDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/dao/SsfsDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/manager/impl/SsfsManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/dao/LocationDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/manager/SsfsManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/manager/LocationManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/dao/impl/SsfsDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/manager/impl/LocationManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/service/rest/SsfsService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-location/src/main/java/de/soco/software/simuspace/suscore/location/service/rest/impl/SsfsServiceImpl.java

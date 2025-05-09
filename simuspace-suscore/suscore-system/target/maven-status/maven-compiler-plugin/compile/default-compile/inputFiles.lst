@@ -1,0 +1,5 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-system/src/main/java/de/soco/software/simuspace/suscore/system/model/SystemDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-system/src/main/java/de/soco/software/simuspace/suscore/system/service/rest/SystemService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-system/src/main/java/de/soco/software/simuspace/suscore/system/manager/SystemManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-system/src/main/java/de/soco/software/simuspace/suscore/system/manager/impl/SystemManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-system/src/main/java/de/soco/software/simuspace/suscore/system/service/rest/impl/SystemServiceImpl.java

@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "id": "vmclOverview",
+      "name": "vMCL Overview",
+      "languages": [
+        "en",
+        "de"
+      ]
+    }
+  ]
+}

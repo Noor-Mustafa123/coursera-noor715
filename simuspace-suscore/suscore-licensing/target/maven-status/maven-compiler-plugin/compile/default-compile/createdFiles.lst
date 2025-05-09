@@ -1,0 +1,16 @@
+de/soco/software/simuspace/suscore/license/model/LicenseManageForm.class
+de/soco/software/simuspace/suscore/license/service/rest/LicenseConfigurationService.class
+de/soco/software/simuspace/suscore/license/manager/LicenseManager.class
+de/soco/software/simuspace/suscore/license/dao/impl/LicenseFeatureDAOImpl.class
+de/soco/software/simuspace/suscore/license/manager/LicenseConfigurationManager.class
+de/soco/software/simuspace/suscore/license/model/LicenseForm.class
+de/soco/software/simuspace/suscore/license/manager/impl/MonitorLicenseManagerImpl.class
+de/soco/software/simuspace/suscore/license/model/UserLicensesDTO.class
+de/soco/software/simuspace/suscore/license/dao/LicenseFeatureDAO.class
+de/soco/software/simuspace/suscore/license/service/rest/impl/LicenseConfigurationServiceImpl.class
+de/soco/software/simuspace/suscore/license/manager/MonitorLicenseManager.class
+de/soco/software/simuspace/suscore/license/utils/ConstantsLicenseConfigurationServiceEndPoints.class
+de/soco/software/simuspace/suscore/license/dao/MonitorLicenseDAO.class
+de/soco/software/simuspace/suscore/license/manager/impl/LicenseManagerImpl.class
+de/soco/software/simuspace/suscore/license/manager/impl/LicenseConfigurationManagerImpl.class
+de/soco/software/simuspace/suscore/license/dao/impl/MonitorLicenseDAOImpl.class

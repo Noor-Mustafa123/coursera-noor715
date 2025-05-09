@@ -1,0 +1,23 @@
+{
+  "customer": "Festo",
+  "vendor": "SOCO",
+  "reseller": "soco",
+  "type": "commercial",
+  "module": "RunSim",
+  "userLimit": {
+    "allowedUsers": 2,
+    "restrictedUsers": 2
+  },
+  "addons": {
+    "Location": 2,
+    "archive": true
+  },
+  "features": [
+    "licenseserver",
+    "solver"
+  ],
+  "licenseType": "named",
+  "expiryTime": "2018-10-25T16:22:46+05:00",
+  "macAddress": "38:60:77:2A:23:14",
+  "keyInformation": "nYSM6ipDQvVl8Pwsq50RPUYFJkSl4yKsSNOpmcIeNTANBhEIR4a8Dm4sELRh5alGo7ZyZ3O4T9S2HxpRUbDe0FDT689aeqIUiFm+mH/eeGZohfKdU3SBswBGqJDENO9VPjfwh0/gHsARghpmyHBpz5mAWIN4bekbywOxsBpqVtc="
+}

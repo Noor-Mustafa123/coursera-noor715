@@ -1,0 +1,12 @@
+de/soco/software/simuspace/suscore/plugin/karaf/client/KarafClient.class
+de/soco/software/simuspace/suscore/plugin/service/rest/impl/PluginServiceImpl.class
+de/soco/software/simuspace/suscore/plugin/manager/impl/PluginManagerImpl.class
+de/soco/software/simuspace/suscore/plugin/karaf/client/KarafClient$1$1.class
+de/soco/software/simuspace/suscore/plugin/dao/impl/PluginDAOImpl.class
+de/soco/software/simuspace/suscore/plugin/constants/ConstantsPluginServiceEndPoints.class
+de/soco/software/simuspace/suscore/plugin/manager/PluginManager.class
+de/soco/software/simuspace/suscore/plugin/karaf/client/KarafClient$1.class
+de/soco/software/simuspace/suscore/plugin/dto/PluginDTO.class
+de/soco/software/simuspace/suscore/plugin/dao/PluginDAO.class
+de/soco/software/simuspace/suscore/plugin/constants/ConstantsPlugins.class
+de/soco/software/simuspace/suscore/plugin/service/rest/PluginService.class

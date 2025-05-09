@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+	<service id="userManagerImpl" interface="de.soco.software.simuspace.suscore.user.manager.UserManager" ref="userManager" />
+
+	<service id="userGroupManagerImpl" interface="de.soco.software.simuspace.suscore.user.manager.UserGroupManager"
+		ref="userGroupManager" />
+
+	<service id="userLoginAttemptDAOService" interface="de.soco.software.simuspace.suscore.user.dao.UserLoginAttemptDAO"
+		ref="userLoginAttemptDAO" />
+
+	<service id="userDetailDAOService" interface="de.soco.software.simuspace.suscore.user.dao.UserDetailDAO" ref="userDetailDAO" />
+
+	<service id="userDAOService" interface="de.soco.software.simuspace.suscore.user.dao.UserDAO" ref="userDAO" />
+
+	<service id="userGroupDaoService" interface="de.soco.software.simuspace.suscore.user.dao.UserGroupDAO" ref="userGroupDao" />
+
+	<!-- Exporting  Directory Manager	-->
+	<service id="DirectoryManager" interface="de.soco.software.simuspace.suscore.user.manager.DirectoryManager" ref="directoryManager" />
+  <!-- id names are set in capital because there is existing bean with same id   -->
+	<!-- Exporting Directory DAO	-->
+	<service id="DirectoryDAO" interface="de.soco.software.simuspace.suscore.user.dao.DirectoryDAO" ref="directoryDAO"/>
+
+	<!-- ############################################# External Services Imports ############################################# -->
+
+	<reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager" />
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+
+	<reference id="ldapCustomAuthRealm"
+		interface="de.soco.software.simuspace.suscore.auth.connect.ldap.authentication.LdapCustomAuthRealm" />
+
+	<reference id="activeDirectoryCustomRealm"
+		interface="de.soco.software.simuspace.suscore.auth.connect.ad.authentication.ActiveDirectoryCustomRealm" />
+
+	<reference id="userTokenDAO" interface="de.soco.software.simuspace.suscore.interceptors.dao.UserTokenDAO" />
+
+	<reference id="contextMenuManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" />
+
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+
+	<reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" />
+
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+
+	<reference id="documentManager" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager" />
+
+	<reference id="groupRoleCommonDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.GroupRoleCommonDAO" />
+
+	<reference id="roleCommonDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.RoleCommonDAO" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="userWorkflowService" address="/system/user">
+		<jaxrs:serviceBeans>
+			<ref component-id="userServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="userDirectoryService" address="/system/user-directory">
+		<jaxrs:serviceBeans>
+			<ref component-id="directoryServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="userGroupService" address="/system/permissions/group">
+		<jaxrs:serviceBeans>
+			<ref component-id="UserGroupServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Service Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<bean id="userServiceBean" class="de.soco.software.simuspace.suscore.user.service.rest.impl.UserServiceImpl">
+		<property name="userManager" ref="userManager" />
+	</bean>
+
+	<bean id="UserGroupServiceBean" class="de.soco.software.simuspace.suscore.user.service.rest.impl.UserGroupServiceImpl">
+		<property name="userGroupManager" ref="userGroupManager" />
+	</bean>
+
+	<bean id="directoryServiceBean" class="de.soco.software.simuspace.suscore.user.service.rest.impl.DirectoryServiceImpl">
+		<property name="directoryManager" ref="directoryManager" />
+	</bean>
+
+	<!-- ############################################# Manager Beans ############################################# -->
+
+	<bean id="userManager" class="de.soco.software.simuspace.suscore.user.manager.impl.UserManagerImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="userDAO" ref="userDAO" />
+		<property name="userDetailDAO" ref="userDetailDAO" />
+		<property name="userLoginAttemptDAO" ref="userLoginAttemptDAO" />
+		<property name="directoryManager" ref="directoryManager" />
+		<property name="ldapAuthRealm" ref="ldapCustomAuthRealm" />
+		<property name="adCustomRealm" ref="activeDirectoryCustomRealm" />
+		<property name="userTokenDAO" ref="userTokenDAO" />
+		<property name="languageDAO" ref="languageDAO" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="securityIdentityDAO" ref="securityIdentityDAO" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="userGroupManager" ref="userGroupManager" />
+		<property name="userGroupDAO" ref="userGroupDao" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="documentManager" ref="documentManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="tokenManager" ref="tokenManager" />
+	</bean>
+
+	<bean id="userGroupManager" class="de.soco.software.simuspace.suscore.user.manager.impl.UserGroupManagerImpl">
+		<property name="userGroupDao" ref="userGroupDao" />
+		<property name="userManager" ref="userManager" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="groupRoleCommonDAO" ref="groupRoleCommonDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="directoryManager" class="de.soco.software.simuspace.suscore.user.manager.impl.DirectoryManagerImpl">
+		<property name="directoryDAO" ref="directoryDAO" />
+		<property name="userDirectoryAttributeDAO" ref="userDirectoryAttributeDAO" />
+		<property name="ldapAuthRealm" ref="ldapCustomAuthRealm" />
+		<property name="adCustomRealm" ref="activeDirectoryCustomRealm" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="userManager" ref="userManager" />
+		<property name="tokenManager" ref="tokenManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- ############################################# Dao Beans ############################################# -->
+
+	<bean id="userDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.UserDAOImpl">
+	</bean>
+
+	<bean id="userDetailDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.UserDetailDAOImpl">
+	</bean>
+
+	<bean id="userLoginAttemptDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.UserLoginAttemptDAOImpl">
+	</bean>
+
+	<bean id="directoryDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.DirectoryDAOImpl">
+	</bean>
+
+	<bean id="languageDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.LanguageDAOImpl">
+	</bean>
+
+	<bean id="userGroupDao" class="de.soco.software.simuspace.suscore.user.dao.impl.UserGroupDAOImpl">
+	</bean>
+
+	<bean id="userDirectoryAttributeDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.UserDirectoryAttributeDAOImpl">
+	</bean>
+
+	<bean id="securityIdentityDAO" class="de.soco.software.simuspace.suscore.user.dao.impl.AclSecurityIdentityDAOImpl">
+	</bean>
+
+</blueprint>

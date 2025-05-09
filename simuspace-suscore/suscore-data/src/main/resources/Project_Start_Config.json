@@ -1,0 +1,619 @@
+{
+  "entityConfig": [
+    {
+      "id": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+      "name": "Project",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "My Custom Attribute",
+          "type": "select",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [
+        "1bc384cb-5aa3-449e-8798-c158942a703c",
+        "29454761-0667-4629-ad16-2364fba53a5a",
+        "8f2eef5a-c412-492d-88aa-234b33336108",
+        "8f2eef5a-c412-492d-88aa-234b33332020",
+        "4d4cbaed-7f8e-4bea-b777-b53a3f06affa",
+        "77e21396-1db1-4f31-a0ea-5f6708ce5daf",
+        "9c363bb4-f6fe-4cef-9e09-cc59aa595425"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-red",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+          "key": "subproject",
+          "title": "SubProject",
+          "visible": true
+        },
+        {
+          "typeId": "1bc384cb-5aa3-449e-8798-c158942a703c",
+          "key": "dataobject",
+          "title": "DataObject",
+          "visible": true
+        },
+        {
+          "typeId": "8f2eef5a-c412-492d-88aa-234b33336108",
+          "key": "library",
+          "title": "Library",
+          "visible": true
+        },
+        {
+          "typeId": "29454761-0667-4629-ad16-2364fba53a5a",
+          "key": "variant",
+          "title": "Variant",
+          "visible": true
+        },
+        {
+          "typeId": "8f2eef5a-c412-492d-88aa-234b33332020",
+          "key": "objectfile",
+          "title": "ObjectFile",
+          "visible": true
+        },
+        {
+          "typeId": "77e21396-1db1-4f31-a0ea-5f6708ce5daf",
+          "key": "dataobjectmovie",
+          "title": "DataObject Movie",
+          "visible": true
+        },
+        {
+          "typeId": "9c363bb4-f6fe-4cef-9e09-cc59aa595425",
+          "key": "DataObjectImage",
+          "title": "DataObject Image",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "1bc384cb-5aa3-449e-8798-c158942a703c",
+      "name": "DataObject",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-black",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "files",
+          "title": "Files",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "id": "4d4cbaed-7f8e-4bea-b777-b53a3f06affa",
+      "name": "DataObjectCurve",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectCurveDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "data": "customatt1",
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-black",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "files",
+          "title": "Files",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "curve",
+          "title": "Curves",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "77e21396-1db1-4f31-a0ea-5f6708ce5daf",
+      "name": "DataObjectMovie",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectMovieDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "data": "customatt1",
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-black",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "files",
+          "title": "Files",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "movie",
+          "title": "Movie",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "9c363bb4-f6fe-4cef-9e09-cc59aa595425",
+      "name": "DataObjectImage",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectImageDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "data": "customatt1",
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-black",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "files",
+          "title": "Files",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "movie",
+          "title": "Movie",
+          "visible": false
+        }
+      ]
+    },
+    {
+      "id": "29454761-0667-4629-ad16-2364fba53a5a",
+      "name": "Variant",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [
+        "1bc384cb-5aa3-449e-8798-c158942a703c"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-orange",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": "1bc384cb-5aa3-449e-8798-c158942a703c",
+          "key": "dataobject",
+          "title": "DataObject",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "8f2eef5a-c412-492d-88aa-234b33336108",
+      "name": "Library",
+      "className": "de.soco.software.simuspace.suscore.data.model.LibraryDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        },
+        {
+          "name": "customatt2",
+          "title": "Shelf",
+          "type": "text",
+          "value": ""
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [
+        "1bc384cb-5aa3-449e-8798-c158942a703c"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-green",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": "1bc384cb-5aa3-449e-8798-c158942a703c",
+          "key": "dataobject",
+          "title": "DataObject",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "8f2eef5a-c412-492d-88aa-234b33332020",
+      "name": "DataObjectFile",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectFileDTO",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "name": "customatt1",
+          "title": "Object Custom Attribute",
+          "type": "select",
+          "options": [
+            "3",
+            "2",
+            "1"
+          ],
+          "value": "1"
+        },
+        {
+          "name": "customatt2",
+          "title": "Shelf",
+          "type": "text",
+          "value": ""
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [
+        "1bc384cb-5aa3-449e-8798-c158942a703c"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-green",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "Abaqus": {
+    "extract": "${karaf.script}/wfschemes/parser/abaqus_extract.py",
+    "replace": "${karaf.script}/wfschemes/parser/abaqus_update.py"
+  },
+  "Lsdyna": {
+    "extract": "${karaf.script}/wfschemes/parser/lsdyna_extract.py",
+    "replace": "${karaf.script}/wfschemes/parser/lsdyna_update.py"
+  },
+  "Nastran": {
+    "extract": "${karaf.script}/wfschemes/parser/nastran_extract.py",
+    "replace": "${karaf.script}/wfschemes/parser/nastran_update.py"
+  },
+  "MDF": {
+    "extract": "${karaf.script}/wfschemes/parser/mdf_signals_extract.py"
+  },
+  "Subdirectories": {
+    "extract": "${karaf.script}/wfschemes/parser/subdirectories_extract.py"
+  }
+}

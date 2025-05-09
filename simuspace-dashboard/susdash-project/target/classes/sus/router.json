@@ -1,0 +1,11 @@
+{
+  "name": "project_dashboard",
+  "routes": [
+    {
+      "url": "dashboard/project/{objectId}/selection/{selectionId}/lifecycle/{statusId}",
+      "js": "viewsDir/plugins/project_dashboard/lifecycle",
+      "type": "single",
+      "title": "4100034x4"
+    }
+  ]
+}

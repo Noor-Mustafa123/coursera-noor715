@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+  xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+  <!-- ############################################# Internal Services Expose ############################################# -->
+  <service id="jobManagerImpl" interface="de.soco.software.simuspace.server.manager.JobManager" ref="jobManager"/>
+  <service id="workflowManagerImpl" interface="de.soco.software.simuspace.server.manager.WorkflowManager" ref="workflowManager"/>
+
+  <!-- ############################################# External Services Imports ############################################# -->
+  <reference id="userManager" interface="de.soco.software.simuspace.suscore.user.manager.UserManager"/>
+  <reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO"/>
+  <reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager"/>
+  <reference id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager"/>
+  <reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager"/>
+  <reference id="wfEecutionManager" interface="de.soco.software.simuspace.workflow.processing.WFExecutionManager"/>
+  <reference id="contextMenuManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager"/>
+  <reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager"/>
+  <reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager"/>
+  <reference id="lifeCycleManager" interface="de.soco.software.simuspace.suscore.lifecycle.manager.LifeCycleManager"/>
+  <reference id="objectTypeConfigCacheManager"
+    interface="de.soco.software.simuspace.suscore.lifecycle.manager.ObjectTypeConfigManager"/>
+  <reference id="linkDAO" interface="de.soco.software.simuspace.suscore.core.dao.LinkDAO"/>
+  <reference id="locationManager" interface="de.soco.software.simuspace.suscore.location.manager.LocationManager"/>
+  <reference id="documentManager" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager"/>
+  <reference id="parserSchemaDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.ParserSchemaDAO"/>
+  <reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager"/>
+  <reference id="bmwCaeBenchDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.BmwCaeBenchDAO"/>
+  <reference id="bmwCaeBenchNodeDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.BmwCaeBenchNodeDAO"/>
+  <reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory"/>
+  <reference id="translationDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.TranslationDAO"/>
+  <reference id="documentDAO" interface="de.soco.software.simuspace.suscore.document.dao.DocumentDAO"/>
+  <reference id="jobDao" interface="de.soco.software.simuspace.suscore.data.common.dao.JobDAO"/>
+
+  <!-- ############################################# Simuspace BUS ############################################# -->
+
+  <cxf:bus id="suscore_bus">
+    <cxf:inInterceptors>
+      <ref component-id="susLoggingInInterceptor"/>
+    </cxf:inInterceptors>
+    <cxf:outInterceptors>
+      <ref component-id="susLoggingOutInterceptor"/>
+    </cxf:outInterceptors>
+  </cxf:bus>
+
+  <!-- ############################################# Services Exports ############################################# -->
+
+  <!-- ############################################# Jax RS Server ############################################# -->
+
+  <jaxrs:server id="propertiesServiceServer" address="/properties">
+    <jaxrs:serviceBeans>
+      <ref component-id="propertiesServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="workflowService" address="/workflow">
+    <jaxrs:serviceBeans>
+      <ref component-id="workflowServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="parserService" address="/workflow/parser">
+    <jaxrs:serviceBeans>
+      <ref component-id="parserServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="regexService" address="/workflow/scheme/regex">
+    <jaxrs:serviceBeans>
+      <ref component-id="regexServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="templateService" address="/workflow/scheme/template">
+    <jaxrs:serviceBeans>
+      <ref component-id="templateServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="jobService" address="/job">
+    <jaxrs:serviceBeans>
+      <ref component-id="jobServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="SchemeService" address="/algorithms/scheme">
+    <jaxrs:serviceBeans>
+      <ref component-id="wfSchemeServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="TrainingAlgoService" address="/algorithms/training">
+    <jaxrs:serviceBeans>
+      <ref component-id="trainingAlgoServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <jaxrs:server id="AlgorithmService" address="/algorithms">
+    <jaxrs:serviceBeans>
+      <ref component-id="algorithmServiceBean"/>
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <ref component-id="jsonProvider"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+  <!-- ############################################# Beans ############################################# -->
+
+  <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
+
+  <bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor"/>
+
+  <bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor"/>
+
+  <bean id="jobServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.JobServiceImpl">
+    <property name="jobManager" ref="jobManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+  </bean>
+
+  <bean id="propertiesServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.PropertiesServiceImpl">
+    <property name="propertiesManager" ref="propertiesManager"/>
+  </bean>
+
+  <bean id="workflowServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.WorkflowServiceImpl">
+    <property name="workflowManager" ref="workflowManager"/>
+    <property name="jobManager" ref="jobManager"/>
+    <property name="categoryManager" ref="categoryManager"/>
+    <property name="workflowCategoryManager" ref="workflowCategoryManager"/>
+    <property name="licenseTokenManager" ref="licenseTokenManager"/>
+    <property name="favoriteManager" ref="favoriteManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+  </bean>
+
+  <bean id="parserServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.ParserServiceImpl">
+    <property name="parserManager" ref="parserManager"/>
+  </bean>
+
+  <bean id="parserManager" class="de.soco.software.simuspace.server.manager.impl.ParserManagerImpl">
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="contextMenuManager" ref="contextMenuManager"/>
+    <property name="parserSchemaDAO" ref="parserSchemaDAO"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+    <property name="bmwCaeBenchDAO" ref="bmwCaeBenchDAO"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    <property name="licenseManager" ref="licenseManager"/>
+  </bean>
+
+  <bean id="regexServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.RegexServiceImpl">
+    <property name="regexManager" ref="regexManager"/>
+  </bean>
+
+  <bean id="templateServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.TemplateServiceImpl">
+    <property name="templateManager" ref="templateManager"/>
+  </bean>
+
+  <bean id="propertiesManager" class="de.soco.software.simuspace.server.manager.impl.PropertiesManagerImpl">
+  </bean>
+
+  <bean id="regexManager" class="de.soco.software.simuspace.server.manager.impl.RegexManagerImpl">
+    <property name="regexDAO" ref="regexDAO"/>
+    <property name="wfSchemeManager" ref="wfSchemeManager"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="bmwCaeBenchDAO" ref="bmwCaeBenchDAO"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    <property name="licenseManager" ref="licenseManager"/>
+  </bean>
+
+  <bean id="templateManager" class="de.soco.software.simuspace.server.manager.impl.TemplateManagerImpl">
+    <property name="templateDAO" ref="templateDAO"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    <property name="bmwCaeBenchDAO" ref="bmwCaeBenchDAO"/>
+  </bean>
+
+  <bean id="regexDAO" class="de.soco.software.simuspace.server.dao.impl.RegexDAOImpl">
+  </bean>
+
+  <bean id="templateDAO" class="de.soco.software.simuspace.server.dao.impl.TemplateDAOImpl">
+  </bean>
+
+  <bean id="trainingAlgoManager" class="de.soco.software.simuspace.server.manager.impl.TrainingAlgoManagerImpl">
+    <property name="userCommonManager" ref="userCommonManagerService"/>
+    <property name="trainingAlgoDAO" ref="trainingAlgoDAO"/>
+    <property name="userManager" ref="userManager"/>
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="documentManager" ref="documentManager"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="contextMenuManager" ref="contextMenuManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="algorithmManager" class="de.soco.software.simuspace.server.manager.impl.AlgorithmManagerImpl">
+    <property name="trainingAlgoDAO" ref="trainingAlgoDAO"/>
+    <property name="wFSchemeDAO" ref="wFSchemeDAO"/>
+    <property name="userManager" ref="userManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="workflowManager" class="de.soco.software.simuspace.server.manager.impl.WorkflowManagerImpl" init-method="init">
+    <property name="workflowDao" ref="workflowDao"/>
+    <property name="userManager" ref="wfUserManager"/>
+    <property name="licenseTokenManager" ref="licenseTokenManager"/>
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="permissionManager" ref="permissionManager"/>
+    <property name="userCommonManager" ref="userCommonManagerService"/>
+    <property name="executionManager" ref="wfEecutionManager"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="contextMenuManager" ref="contextMenuManager"/>
+    <property name="licenseManager" ref="licenseManager"/>
+    <property name="lifeCycleManager" ref="lifeCycleManager"/>
+    <property name="configManager" ref="objectTypeConfigCacheManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+    <property name="linkDAO" ref="linkDAO"/>
+    <property name="locationManager" ref="locationManager"/>
+    <property name="variableDAO" ref="variableDAO"/>
+    <property name="schemeSchemaDAO" ref="schemeSchemaDAO"/>
+    <property name="parserManager" ref="parserManager"/>
+    <property name="tokenManager" ref="tokenManager"/>
+    <property name="bmwCaeBenchDAO" ref="bmwCaeBenchDAO"/>
+    <property name="jobManager" ref="jobManager"/>
+    <property name="regexManager" ref="regexManager"/>
+    <property name="templateManager" ref="templateManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    <property name="translationDAO" ref="translationDAO"/>
+    <property name="shapeModuleManager" ref="shapeModuleManager"/>
+    <property name="jobDao" ref="jobDao"/>
+  </bean>
+
+  <bean id="jobManager" class="de.soco.software.simuspace.server.manager.impl.JobManagerImpl">
+    <property name="jobDao" ref="jobDao"/>
+    <property name="jobIdsDAO" ref="jobIdsDAO"/>
+    <property name="workflowManager" ref="workflowManager"/>
+    <property name="permissionManager" ref="permissionManager"/>
+    <property name="userManager" ref="wfUserManager"/>
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="contextMenuManager" ref="contextMenuManager"/>
+    <property name="licenseManager" ref="licenseManager"/>
+    <property name="configManager" ref="objectTypeConfigCacheManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+    <property name="userCommonManager" ref="userCommonManagerService"/>
+    <property name="locationManager" ref="locationManager"/>
+    <property name="jobGlobalVariableDAO" ref="jobGlobalVariableDAO"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="tokenManager" ref="tokenManager"/>
+    <property name="variableDAO" ref="variableDAO"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="categoryManager" class="de.soco.software.simuspace.server.manager.impl.CategoryManagerImpl">
+    <property name="categoryDAO" ref="categoryDAO"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="workflowCategoryManager" class="de.soco.software.simuspace.server.manager.impl.WorkflowCategoryManagerImpl">
+    <property name="categoryManager" ref="categoryManager"/>
+    <property name="workflowManager" ref="workflowManager"/>
+    <property name="workflowCategoryDao" ref="workflowCategoryDao"/>
+    <property name="licenseManager" ref="licenseManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="wfUserManager" class="de.soco.software.simuspace.server.manager.impl.WorkflowUserManagerImpl">
+    <property name="userDao" ref="userDao"/>
+  </bean>
+
+  <bean id="licenseTokenManager" class="de.soco.software.simuspace.server.manager.impl.LicenseTokenManagerImpl" init-method="init">
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="favoriteManager" class="de.soco.software.simuspace.server.manager.impl.FavoriteManagerImpl">
+    <property name="favoriteDAO" ref="favoriteDAO"/>
+    <property name="workflowManager" ref="workflowManager"/>
+    <property name="licenseManager" ref="licenseManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="wfSchemeServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.WFSchemeServiceImpl">
+    <property name="wfSchemeManager" ref="wfSchemeManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+    <property name="jobManager" ref="jobManager"/>
+    <property name="workflowManager" ref="workflowManager"/>
+  </bean>
+
+  <bean id="trainingAlgoServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.TrainingAlgoServiceImpl">
+    <property name="trainingAlgoManager" ref="trainingAlgoManager"/>
+    <property name="objectViewManager" ref="objectViewManager"/>
+  </bean>
+
+  <bean id="algorithmServiceBean" class="de.soco.software.simuspace.server.service.rest.impl.AlgorithmServiceImpl">
+    <property name="algorithmManager" ref="algorithmManager"/>
+  </bean>
+
+  <bean id="shapeModuleManager"
+    class="de.soco.software.simuspace.server.manager.impl.ShapeModuleManagerImpl">
+  </bean>
+
+  <bean id="wfSchemeManager" class="de.soco.software.simuspace.server.manager.impl.WFSchemeManagerImpl">
+    <property name="susDAO" ref="susDAO"/>
+    <property name="documentDAO" ref="documentDAO"/>
+    <property name="userCommonManager" ref="userCommonManagerService"/>
+    <property name="userManager" ref="userManager"/>
+    <property name="documentManager" ref="documentManager"/>
+    <property name="selectionManager" ref="selectionManager"/>
+    <property name="contextMenuManager" ref="contextMenuManager"/>
+    <property name="permissionManager" ref="permissionManager"/>
+    <property name="variableDAO" ref="variableDAO"/>
+    <property name="workflowManager" ref="workflowManager"/>
+    <property name="schemeSchemaDAO" ref="schemeSchemaDAO"/>
+    <property name="parserManager" ref="parserManager"/>
+    <property name="wFSchemeDAO" ref="wFSchemeDAO"/>
+    <property name="workflowDao" ref="workflowDao"/>
+    <property name="regexDAO" ref="regexDAO"/>
+    <property name="designVariableLabelDAO" ref="designVariableLabelDAO"/>
+    <property name="licenseManager" ref="licenseManager"/>
+    <property name="templateManager" ref="templateManager"/>
+    <property name="entityManagerFactory" ref="entityManagerFactory"/>
+  </bean>
+
+  <bean id="schemeSchemaDAO" class="de.soco.software.simuspace.server.dao.impl.SchemeSchemaDAOImpl">
+  </bean>
+
+  <bean id="wFSchemeDAO" class="de.soco.software.simuspace.server.dao.impl.WFSchemeDAOImpl">
+  </bean>
+
+  <bean id="variableDAO" class="de.soco.software.simuspace.server.dao.impl.VariableDAOImpl">
+  </bean>
+
+  <bean id="jobGlobalVariableDAO" class="de.soco.software.simuspace.server.dao.impl.JobGlobalVariableDAOImpl">
+  </bean>
+
+  <bean id="designVariableLabelDAO" class="de.soco.software.simuspace.server.dao.impl.DesignVariableLabelDAOImpl">
+  </bean>
+
+  <bean id="workflowDao" class="de.soco.software.simuspace.server.dao.impl.WorkflowDAOImpl">
+  </bean>
+
+  <bean id="jobIdsDAO" class="de.soco.software.simuspace.server.dao.impl.JobIdsDAOImpl">
+  </bean>
+  
+  <bean id="userDao" class="de.soco.software.simuspace.server.dao.impl.WorkflowUserDAOImpl">
+  </bean>
+
+  <bean id="categoryDAO" class="de.soco.software.simuspace.server.dao.impl.CategoryDAOImpl">
+  </bean>
+
+  <bean id="workflowCategoryDao" class="de.soco.software.simuspace.server.dao.impl.WorkflowCategoryDAOImpl">
+  </bean>
+
+  <bean id="favoriteDAO" class="de.soco.software.simuspace.server.dao.impl.FavoriteDAOImpl">
+  </bean>
+
+  <bean id="trainingAlgoDAO" class="de.soco.software.simuspace.server.dao.impl.TrainingAlgoDAOImpl">
+  </bean>
+</blueprint>

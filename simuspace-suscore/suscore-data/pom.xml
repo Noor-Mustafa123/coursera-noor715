@@ -1,0 +1,593 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+
+	</parent>
+
+	<artifactId>suscore-data</artifactId>
+	<packaging>bundle</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
+		<dependency>
+			<groupId>org.reflections</groupId>
+			<artifactId>reflections</artifactId>
+			<version>0.10.2</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>31.1-jre</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.github.valdr</groupId>
+			<artifactId>valdr-bean-validation</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>5.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.3.29</version>
+		</dependency>
+
+		<!-- Spring Beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>5.3.29</version>
+		</dependency>
+
+		<!-- Spring Context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.29</version>
+		</dependency>
+
+		<!-- Spring JDBC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.29</version>
+		</dependency>
+
+		<!-- OSGi Bundle Plugin -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr</artifactId>
+			<version>2.1.26</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.geronimo.specs/geronimo-jta_1.1_spec -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jta_1.1_spec</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.ops4j.pax.jdbc/pax-jdbc-pool-common -->
+		<dependency>
+			<groupId>org.ops4j.pax.jdbc</groupId>
+			<artifactId>pax-jdbc-pool-common</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.ops4j.pax.jdbc/pax-jdbc-pool-hikaricp -->
+		<dependency>
+			<groupId>org.ops4j.pax.jdbc</groupId>
+			<artifactId>pax-jdbc-pool-hikaricp</artifactId>
+			<version>1.5.3</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.osgi/org.osgi.service.http -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.http</artifactId>
+			<version>1.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>3.5.9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient-osgi</artifactId>
+			<version>4.5.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.3.32</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.hibernate.search</groupId> <artifactId>hibernate-search-mapper-orm</artifactId> <version>6.1.5.Final</version>
+			</dependency> -->
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Activator>de.soco.software.simuspace.suscore.data.activator.Activator</Bundle-Activator>
+
+						<Export-Package>
+							de.soco.software.simuspace.suscore.data.activator,
+							de.soco.software.simuspace.suscore.data.model,
+							de.soco.software.simuspace.suscore.data.common.model,
+							de.soco.software.simuspace.suscore.data.common.dao,
+							de.soco.software.simuspace.suscore.data.common.dao.impl,
+							de.soco.software.simuspace.suscore.data.manager.base,
+							de.soco.software.simuspace.suscore.data.manager.impl.base,
+							de.soco.software.simuspace.suscore.data.config,
+							de.soco.software.simuspace.suscore.data.dbhelper,
+							de.soco.software.simuspace.suscore.data.entity,
+							de.soco.software.simuspace.suscore.data.entity.base,
+							de.soco.software.simuspace.suscore.data.service.base,
+							de.soco.software.suscore.jsonschema.reader,
+							de.soco.software.simuspace.suscore.data.utility,
+							de.soco.software.simuspace.suscore.data.simflow.server.entity,
+							de.soco.software.simuspace.suscore.data.simflow.server.entity.impl,
+							de.soco.software.simuspace.suscore.data.simflow.server.base
+
+						</Export-Package>
+
+						<Import-Package>*</Import-Package>
+
+
+						<DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>copy-installed</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<type>${project.packaging}</type>
+
+								</artifactItem>
+							</artifactItems>
+
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+
+							<artifacts>
+
+								<!-- SUS CONFIGURATIONS -->
+								<artifact>
+									<file>target/classes/MasterConfig.json</file>
+									<type>cfg</type>
+									<classifier>MasterConfig.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.hibernate.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.hibernate.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/lifeCycle.json</file>
+									<type>cfg</type>
+									<classifier>lifeCycle.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Workflow_config.json</file>
+									<type>cfg</type>
+									<classifier>Workflow_config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/HPCMonitor.json</file>
+									<type>cfg</type>
+									<classifier>HPCMonitor.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/PlungerLift.json</file>
+									<type>cfg</type>
+									<classifier>PlungerLift.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/HATVATProject.json</file>
+									<type>cfg</type>
+									<classifier>HATVATProject.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/ImageMovieFormat.json</file>
+									<type>cfg</type>
+									<classifier>ImageMovieFormat.json</classifier>
+								</artifact>
+
+								<!-- DEV PROJ CONFIGURATIONS -->
+								<artifact>
+									<file>target/classes/Project_Start_Config.json</file>
+									<type>cfg</type>
+									<classifier>Project_Start_Config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Project_Custom_Config.json</file>
+									<type>cfg</type>
+									<classifier>Project_Custom_Config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Project_Import_Config.json</file>
+									<type>cfg</type>
+									<classifier>Project_Import_Config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Project_default.json</file>
+									<type>cfg</type>
+									<classifier>Project_default.json</classifier>
+								</artifact>
+
+								<!-- CUSTOMER WORKFLOW PROJ CONFIGURATIONS -->
+
+								<artifact>
+									<file>target/classes/WorkflowProjectConfig.json</file>
+									<type>cfg</type>
+									<classifier>WorkflowProjectConfig.json</classifier>
+								</artifact>
+
+								<!-- CUSTOMER PROJ CONFIGURATIONS -->
+
+								<artifact>
+									<file>target/classes/BikeExampleConfiguration.json</file>
+									<type>cfg</type>
+									<classifier>BikeExampleConfiguration.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/LoadcaseVariantStrict.json</file>
+									<type>cfg</type>
+									<classifier>LoadcaseVariantStrict.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Unrestricted.json</file>
+									<type>cfg</type>
+									<classifier>Unrestricted.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/VariantLoadcaseStrict.json</file>
+									<type>cfg</type>
+									<classifier>VariantLoadcaseStrict.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/ffmpeg.json</file>
+									<type>cfg</type>
+									<classifier>ffmpeg.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/StoryBoard.json</file>
+									<type>cfg</type>
+									<classifier>StoryBoard.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/BMWDummyProject.json</file>
+									<type>cfg</type>
+									<classifier>BMWDummyProject.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/BMWQADynaProject.json</file>
+									<type>cfg</type>
+									<classifier>BMWQADynaProject.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/lifeCycle_policy.json</file>
+									<type>cfg</type>
+									<classifier>lifeCycle_policy.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/scheme_plot.json</file>
+									<type>cfg</type>
+									<classifier>scheme_plot.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.parser.json</file>
+									<type>cfg</type>
+									<classifier>sus.parser.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.serverfiles.json</file>
+									<type>cfg</type>
+									<classifier>sus.serverfiles.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Hpc_config.json</file>
+									<type>cfg</type>
+									<classifier>Hpc_config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/dynamic_scripts.json</file>
+									<type>cfg</type>
+									<classifier>dynamic_scripts.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/py.env.json</file>
+									<type>cfg</type>
+									<classifier>py.env.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/dummy_config.json</file>
+									<type>cfg</type>
+									<classifier>dummy_config.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/run_QADyna.json</file>
+									<type>cfg</type>
+									<classifier>run_QADyna.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/executor.json</file>
+									<type>cfg</type>
+									<classifier>executor</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/MaterialsProject.json</file>
+									<type>cfg</type>
+									<classifier>MaterialsProject.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.simuspace.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.simuspace.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.superuser.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.superuser.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/SuSSISystem.json</file>
+									<type>cfg</type>
+									<classifier>SuSSISystem.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/workflow_execution.cfg</file>
+									<type>cfg</type>
+									<classifier>workflow_execution.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.cb2.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.cb2.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.audit.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.audit.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.dashboards.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.dashboards.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/org.apache.cxf.osgi.cfg</file>
+									<type>cfg</type>
+									<classifier>org.apache.cxf.osgi.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.version.json</file>
+									<type>cfg</type>
+									<classifier>sus.version.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/dynamic_properties.json</file>
+									<type>cfg</type>
+									<classifier>dynamic_properties.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/dashboard_plugins.json</file>
+									<type>cfg</type>
+									<classifier>dashboard_plugins.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/Homepage.json</file>
+									<type>cfg</type>
+									<classifier>Homepage.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/overview_plugins.json</file>
+									<type>cfg</type>
+									<classifier>overview_plugins.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/TrainModel.json</file>
+									<type>cfg</type>
+									<classifier>TrainModel.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/encryptionDecryption.json</file>
+									<type>cfg</type>
+									<classifier>encryptionDecryption.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/ceetron.json</file>
+									<type>cfg</type>
+									<classifier>ceetron.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.bmw.wen.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.bmw.wen.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.elastic.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.elastic.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.hpc_costcenters.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.hpc_costcenters.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.sm.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.sm.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.vmcl.cfg</file>
+									<type>cfg</type>
+									<classifier>sus.vmcl.cfg</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.languages.json</file>
+									<type>cfg</type>
+									<classifier>sus.languages.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/custom_views.json</file>
+									<type>cfg</type>
+									<classifier>custom_views.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/sus.execution_host.json</file>
+									<type>cfg</type>
+									<classifier>sus.execution_host.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/file_extensions.json</file>
+									<type>cfg</type>
+									<classifier>file_extensions.json</classifier>
+								</artifact>
+								<artifact>
+									<file>target/classes/blacklist.txt</file>
+									<type>cfg</type>
+									<classifier>blacklist.txt</classifier>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>exec-maven-plugin</artifactId>
+										<versionRange>[1.2.1,)</versionRange>
+										<goals>
+											<goal>java</goal>
+											<goal>exec</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+
+	</build>
+
+</project>

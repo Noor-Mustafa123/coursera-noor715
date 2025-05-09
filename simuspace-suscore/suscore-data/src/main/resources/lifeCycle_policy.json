@@ -1,0 +1,82 @@
+{
+  "lifeCyclePolicyDTO": [
+    {
+      "lifeCyclePolicyApply": "vault",
+      "schedulerTimeMinutes": "300",
+      "policyProcess": [
+        {
+          "processName": "DataObject",
+          "processTimeHours": "120"
+        }
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "fe_static",
+      "schedulerTimeMinutes": "3600",
+      "policyProcess": [
+        {
+          "processName": "DataObject",
+          "processTimeHours": "720"
+        }
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "accountUnlock",
+      "schedulerTimeMinutes": "1",
+      "policyProcess": [
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "staging",
+      "schedulerTimeMinutes": "300",
+      "policyProcess": [
+        {
+          "processName": "Completed",
+          "processTimeHours": "720"
+        },
+        {
+          "processName": "Aborted",
+          "processTimeHours": "720"
+        },
+        {
+          "processName": "Failed",
+          "processTimeHours": "720"
+        }
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "tokenLicense",
+      "schedulerTimeMinutes": "1",
+      "policyProcess": [
+        {
+          "processName": "TokenizedLicenceMapUpdate",
+          "processTimeHours": "1"
+        }
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "cb2",
+      "schedulerTimeMinutes": "10",
+      "policyProcess": [
+        {
+          "processName": "updateSession",
+          "processTimeHours": "5"
+        },
+        {
+          "processName": "updateTree",
+          "processTimeHours": "5"
+        }
+      ]
+    },
+    {
+      "lifeCyclePolicyApply": "jobprocessName",
+      "schedulerTimeMinutes": "1",
+      "policyProcess": []
+    },
+    {
+      "lifeCyclePolicyApply": "selectionClear",
+      "schedulerTimeMinutes": "60",
+      "policyProcess": []
+    }
+  ]
+}

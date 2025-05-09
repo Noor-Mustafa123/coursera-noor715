@@ -1,0 +1,4 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-auth-connect-active-directory/src/main/java/de/soco/software/simuspace/suscore/auth/connect/ad/authentication/ActiveDirectoryCustomRealm.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-auth-connect-active-directory/src/main/java/de/soco/software/simuspace/suscore/auth/connect/ad/authentication/impl/ActiveDirectoryCustomRealmImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-auth-connect-active-directory/src/main/java/de/soco/software/simuspace/suscore/auth/connect/ad/authentication/LdapAuthentication.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-auth-connect-active-directory/src/main/java/de/soco/software/simuspace/suscore/auth/connect/ad/authentication/PropertiesFileReader.java

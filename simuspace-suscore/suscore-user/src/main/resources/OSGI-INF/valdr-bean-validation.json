@@ -1,0 +1,7 @@
+{
+  "modelPackages": ["de.soco.software.simuspace.suscore.user.model"],
+  "customAnnotationClasses": ["org.hibernate.validator.constraints.CreditCardNumber"],
+  "corsAllowOriginPattern": "*",
+  "outputFullTypeName": false,
+  "outputFile": "${project.build.directory}/${project.build.finalName}/validation.json"
+}

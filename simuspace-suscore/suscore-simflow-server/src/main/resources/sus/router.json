@@ -1,0 +1,297 @@
+{
+  "name": "plugin_workflow",
+  "routes": [
+    {
+      "url": "run/workflow/dialog/{id}",
+      "container": null,
+      "js": "viewsDir/workflow/run_dialog",
+      "type": null,
+      "title": "4100035x4",
+      "icon": null,
+      "className": null,
+      "visibility": "both"
+    },
+    {
+      "url": "view/workflow/{workflowId}",
+      "container": null,
+      "js": "viewsDir/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "url": "create/workflow/{parentId}",
+      "container": null,
+      "js": "viewsDir/workflow/create",
+      "type": "single",
+      "title": "4100036x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "className": "",
+      "url": "update/workflow/{objectId}",
+      "js": "viewsDir/workflow/edit",
+      "title": "4100037x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "url": "create/workflow/{parentId}",
+      "container": null,
+      "js": "viewsDir/workflow/create",
+      "type": "single",
+      "title": "4100038x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "url": "view/workflow/{workflowId}/version/{versionId}",
+      "container": null,
+      "js": "viewsDir/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "url": "view/workflow/{?query}",
+      "container": null,
+      "js": "viewsDir/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "className": "LatestWorkFlowDTO",
+      "url": "view/workflow/project/{projectId}",
+      "js": "viewsDir/workflow/overview",
+      "title": "4100039x4",
+      "type": "table"
+    },
+    {
+      "url": "view/workflow/project/{projectId}/version/{versionId}",
+      "container": null,
+      "js": "viewsDir/workflow/overview",
+      "type": "table",
+      "title": "4100039x4",
+      "icon": null,
+      "className": "LatestWorkFlowDTO"
+    },
+    {
+      "className": "Job",
+      "url": "view/job/fd6aa6b6-fb12-4bea-ae22-7df7ccda657d",
+      "container": "fd6aa6b6-fb12-4bea-ae22-7df7ccda657d",
+      "js": "viewsDir/job/overview",
+      "title": "4100040x4",
+      "type": "table"
+    },
+    {
+      "url": "view/job/{id}",
+      "container": null,
+      "js": "viewsDir/job/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "className": "JobDTO",
+      "url": "data/stop/{id}",
+      "js": "viewsDir/job/stop",
+      "title": "4100040x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "job/open_log/{id}",
+      "js": "viewsDir/caa/job_open_log",
+      "title": "4100057x4"
+    },
+    {
+      "url": "job/open_workingdir/{id}",
+      "js": "viewsDir/caa/job_open_workingdir",
+      "title": "4100042x4"
+    },
+    {
+      "url": "job/stop/{id}",
+      "js": "viewsDir/caa/job_stop",
+      "title": "4100040x4"
+    },
+    {
+      "url": "job/pause/{id}",
+      "js": "viewsDir/caa/job_pause",
+      "title": "4100144x4"
+    },
+    {
+      "url": "job/resume/{id}",
+      "js": "viewsDir/caa/job_resume",
+      "title": "4100145x4"
+    },
+    {
+      "url": "bookmark",
+      "js": "viewsDir/bookmark/overview",
+      "title": "4100043x4"
+    },
+    {
+      "url": "search/workflow",
+      "js": "viewsDir/workflow/search-global",
+      "title": "4100044x4"
+    },
+    {
+      "url": "run/workflow/{id}",
+      "js": "viewsDir/workflow/run",
+      "title": "4100045x4",
+      "visibility": "client"
+    },
+    {
+      "url": "rerun/job/{id}",
+      "js": "viewsDir/job/rerun",
+      "title": "4100046x4",
+      "visibility": "client"
+    },
+    {
+      "className": "JobDTO",
+      "url": "rerun/job/{id}",
+      "js": "viewsDir/job/rerun",
+      "title": "4100046x4",
+      "type": "tree-context",
+      "visibility": "client"
+    },
+    {
+      "className": "JobDTO",
+      "url": "discard/job/{id}",
+      "js": "viewsDir/job/discard",
+      "title": "4100047x4",
+      "type": "tree-context",
+      "visibility": "client"
+    },
+    {
+      "className": "JobDTO",
+      "url": "job/{id}/logs/download",
+      "js": "viewsDir/document/direct-download",
+      "title": "4100048x4",
+      "container": null,
+      "type": "single",
+      "icon": null,
+      "visibility": "both"
+    },
+    {
+      "className": "DesignPlotingConfig",
+      "url": "job/{id}/plot/option/{optionId}",
+      "js": "viewsDir/job/plot_option",
+      "title": "4100049x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "DesignPlotingConfig",
+      "url": "job/{id}/plot/option/{optionId}",
+      "js": "viewsDir/job/plot_option",
+      "title": "4100050x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "DesignPlotingConfig",
+      "url": "job/{id}/plot/option/{optionId}",
+      "js": "viewsDir/job/plot_option",
+      "title": "4100051x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "DesignPlotingConfig",
+      "url": "job/{id}/generateimage{?key}",
+      "js": "viewsDir/job/generate_image",
+      "title": "4100052x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "DesignPlotingConfig",
+      "url": "job/{id}/csv/download",
+      "js": "viewsDir/document/direct-download",
+      "title": "4100053x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "LatestWorkFlowDTO",
+      "url": "workflow/download/{id}/",
+      "js": "viewsDir/document/direct-download",
+      "title": "4100030x4",
+      "container": null,
+      "type": "single",
+      "icon": null
+    },
+    {
+      "className": "ParserVariableDTO",
+      "url": "workflow/parser/{parserId}/available/add/{selectionId}",
+      "js": "viewsDir/widgets/object-parser/add",
+      "title": "4100054x4",
+      "container": null,
+      "type": "table",
+      "icon": null
+    },
+    {
+      "className": "ParserVariableDTO",
+      "url": "workflow/parser/{parserId}/selected/{selectionId}",
+      "js": "viewsDir/widgets/object-parser/edit",
+      "title": "4100014x4",
+      "container": null,
+      "type": "table",
+      "icon": null
+    },
+    {
+      "className": "ParserVariableDTO",
+      "url": "workflow/parser/{parserId}/available/remove/{selectionId}",
+      "js": "viewsDir/widgets/object-parser/remove",
+      "title": "4100055x4",
+      "container": null,
+      "type": "table",
+      "icon": null
+    },
+    {
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "url": "edit/bookmark/{id}",
+      "type": "tree-context",
+      "className": "BookmarkDTO",
+      "js": "viewsDir/bookmark/edit"
+    },
+    {
+      "title": "4100007x4",
+      "icon": "fa fa-trash-o",
+      "url": "delete/bookmark/{id}{?query}",
+      "type": "tree-context",
+      "className": "BookmarkDTO",
+      "js": "viewsDir/bookmark/delete"
+    },
+    {
+      "url": "algorithms/scheme/{workflowId}/designsummary/download",
+      "container": null,
+      "js": "viewsDir/document/direct-download",
+      "type": "single",
+      "title": "4100030x4",
+      "icon": null,
+      "className": "LatestWorkFlowDTO",
+      "visibility": "both"
+    },
+    {
+      "className": "",
+      "url": "view/job/workflow/{id}",
+      "js": "viewsDir/job/workflowjobs",
+      "title": "4100056x4",
+      "type": "table",
+      "visibility": "both"
+    }
+  ]
+}

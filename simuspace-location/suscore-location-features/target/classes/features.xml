@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="suscore-feature" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+	<repository>mvn:org.apache.cxf.karaf/apache-cxf/3.5.9/xml/features
+	</repository>
+
+	<feature name="sus-feature" version="3.0.0">
+
+		<feature>spring</feature>
+		<feature>spring-jdbc</feature>
+		<feature>spring-orm</feature>
+		<feature>spring-tx</feature>
+		<feature>jpa</feature>
+		<feature>jndi</feature>
+		<feature>jdbc</feature>
+		<feature>war</feature>
+		<feature>http</feature>
+		<feature>cxf-specs</feature>
+		<feature>cxf-core</feature>
+		<feature>cxf-jaxws</feature>
+		<feature>cxf-jaxrs</feature>
+		<feature>cxf-http</feature>
+		<feature>cxf-http-jetty</feature>
+		<feature>cxf-transports-websocket-server</feature>
+		<feature>transaction</feature>
+		<feature>aries-blueprint</feature>
+		<feature>hibernate</feature>
+		<feature>pax-jdbc-postgresql</feature>
+		<feature>pax-jdbc-mssql</feature>
+		<feature>pax-jdbc-oracle</feature>
+		<feature>pax-jdbc-pool-hikaricp</feature>
+		<feature>pax-web-http-whiteboard</feature>
+	</feature>
+
+
+
+
+
+	<feature name="suscore-location-conf" version="3.0.0">
+
+		<configfile finalname="conf/sus.simuspace.cfg">mvn:de.soco.software.simuspace/suscore-common/3.0.0/cfg/sus.simuspace.cfg
+		</configfile>
+
+		<configfile finalname="conf/executor.json">mvn:de.soco.software.simuspace/suscore-executor/3.0.0/cfg/executor
+		</configfile>
+
+		<configfile finalname="conf/sus.hibernate.cfg">mvn:de.soco.software.simuspace/suscore-data/3.0.0/cfg/sus.hibernate.cfg
+		</configfile>
+
+		<configfile finalname="conf/sus.version.json">mvn:de.soco.software.simuspace/suscore-core/3.0.0/cfg/sus.version.json
+		</configfile>
+
+		<configfile finalname="conf/sus.cb2.cfg">mvn:de.soco.software.simuspace/suscore-common/3.0.0/cfg/sus.cb2.cfg
+		</configfile>
+
+		<configfile finalname="conf/sus.parser.json">mvn:de.soco.software.simuspace/suscore-data/3.0.0/cfg/sus.parser.json
+		</configfile>
+
+		<configfile finalname="conf/sus.audit.cfg">mvn:de.soco.software.simuspace/suscore-common/3.0.0/cfg/sus.audit.cfg
+		</configfile>
+
+		<configfile finalname="conf/sus.dashboards.cfg">mvn:de.soco.software.simuspace/suscore-data/3.0.0/cfg/sus.dashboards.cfg
+		</configfile>
+
+	</feature>
+
+
+
+	<feature name="framework-dependencies" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle start-level='29'>mvn:jakarta.jws/jakarta.jws-api/2.1.0
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.interceptor/jakarta.interceptor-api/2.1.0
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.inject/jakarta.inject-api/2.0.1
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.enterprise/jakarta.enterprise.lang-model/4.0.0
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.el/jakarta.el-api/5.0.0-RC1
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.enterprise/jakarta.enterprise.cdi-api/4.0.0
+		</bundle>
+
+		<bundle start-level='29'>mvn:jakarta.transaction/jakarta.transaction-api/2.0.1
+		</bundle>
+
+		<bundle start-level='21'>mvn:jakarta.validation/jakarta.validation-api/2.0.2
+		</bundle>
+
+		<bundle start-level='21'>mvn:javax.servlet/javax.servlet-api/4.0.1
+		</bundle>
+
+		<bundle start-level='21'>mvn:org.apache.commons/commons-lang3/3.12.0
+		</bundle>
+
+		<bundle start-level='21'>mvn:commons-codec/commons-codec/1.15
+		</bundle>
+
+		<bundle start-level='24'>mvn:commons-collections/commons-collections/3.2.1
+		</bundle>
+
+		<bundle start-level='24'>mvn:commons-fileupload/commons-fileupload/1.4
+		</bundle>
+
+		<bundle start-level='24'>mvn:commons-io/commons-io/2.11.0
+		</bundle>
+
+		<bundle start-level='24'>mvn:commons-validator/commons-validator/1.7
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:commons-beanutils/commons-beanutils/1.9.4
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:commons-digester/commons-digester/2.1
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.commons/commons-collections4/4.4
+		</bundle>
+
+		<!-- ******************************http core issue ************************************88 -->
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/fluent-hc/4.5.13
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpclient-cache/4.5.13
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpmime/4.5.13
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpcore/4.4.15
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpclient/4.5.13
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpcore-osgi/4.4.15
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_7
+		</bundle>
+
+		<bundle start-level='24'>wrap:mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.poi/5.2.3_1
+		</bundle>
+
+		<bundle start-level='28'>wrap:mvn:org.apache.tika/tika-core/2.3.0
+		</bundle>
+
+		<bundle start-level='28'>wrap:mvn:org.imgscalr/imgscalr-lib/4.2
+		</bundle>
+
+		<bundle start-level='28'>wrap:mvn:org.jfree/jfreechart/1.5.3
+		</bundle>
+
+		<bundle start-level='28'>wrap:mvn:org.json/json/20220320
+		</bundle>
+
+        <bundle start-level="28">wrap:mvn:org.projectlombok/lombok/1.18.30</bundle>
+
+		<bundle start-level='29'>mvn:com.googlecode.json-simple/json-simple/1.1.1
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.zaxxer/HikariCP/5.0.1
+		</bundle>
+
+		<bundle start-level='24'>mvn:org.apache.cxf/cxf-rt-transports-http/3.5.9
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.fasterxml.jackson.core/jackson-core/2.13.2
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.fasterxml.jackson.core/jackson-databind/2.13.2
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.fasterxml.jackson.core/jackson-annotations/2.13.2
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.google.code.gson/gson/2.9.0
+		</bundle>
+
+	</feature>
+
+	<feature name="sus-dependencies" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle start-level='29'>wrap:mvn:net.sourceforge.jtds/jtds/1.3.1
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:net.minidev/json-smart/2.4.8
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:org.ow2.asm/asm/9.1
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:net.minidev/accessors-smart/2.4.8
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:org.mvel/mvel2/2.4.14.Final
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.itextpdf/itextpdf/5.5.13.3
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.jayway.jsonpath/json-path/2.7.0
+		</bundle>
+
+		<bundle start-level='29'>mvn:commons-lang/commons-lang/2.6
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.j2html/j2html/1.5.0
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:javax.measure/jsr-275/0.9.1
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:org.apache.commons/commons-csv/1.9.0
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:org.docx4j/docx4j/6.1.2
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.github.dexecutor/dexecutor-core/2.1.2
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.google.j2objc/j2objc-annotations/1.3
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.google.guava/failureaccess/1.0.1
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.google.code.findbugs/jsr305/3.0.2
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.google.guava/guava/31.1-jre
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.guava/11.0.2_2
+		</bundle>
+
+		<bundle start-level='29'>mvn:com.google.guava/guava/31.1-jre
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:net.java.dev.jna/jna/5.12.0
+		</bundle>
+
+		<bundle start-level='29'>wrap:mvn:net.java.dev.jna/jna-platform/5.12.0
+		</bundle>
+
+		<!-- *****END**** -->
+	</feature>
+
+	<feature name="suscore-apache-shiro" description="apache shiro dependencies" version="3.0.0">
+
+		<bundle>wrap:mvn:org.apache.shiro/shiro-core/1.12.0$DynamicImport-Package=de.soco.software.simuspace.suscore.common.model&amp;overwrite=merge
+		</bundle>
+
+	</feature>
+
+	<feature name="suscore-hibernate-core" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle>mvn:org.hibernate/hibernate-ehcache/5.4.32.Final</bundle>
+
+		<bundle>mvn:net.sf.ehcache/ehcache/2.10.6</bundle>
+
+		<capability>
+			osgi.service;objectClass=javax.persistence.spi.PersistenceProvider;effective:=active;javax.persistence.provider=org.hibernate.jpa.HibernatePersistenceProvider
+		</capability>
+
+	</feature>
+
+	<feature name="suscore-hibernate-jpa-engine" description="Hibernate JPA engine support" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+	</feature>
+
+	<feature name="suscore-hibernate-lucene" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene/5.5.2_1
+		</bundle>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-analyzers-common/5.5.2_1
+		</bundle>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queries/5.5.2_1
+		</bundle>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jakarta-regexp/1.4_1
+		</bundle>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-sandbox/5.5.2_1
+		</bundle>
+		<bundle start-level='60'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queryparser/5.5.2_1
+		</bundle>
+		<bundle start-level='60'>wrap:mvn:org.apache.lucene/lucene-facet/5.5.5$Bundle-SymbolicName=org.hibernate.org.apache.lucene.facet&amp;Export-Package=org.apache.lucene.facet.*;version="5.5.5"&amp;Bundle-Version=5.5.5
+		</bundle>
+		<bundle start-level='60'>wrap:mvn:org.apache.lucene/lucene-misc/5.5.5$Bundle-SymbolicName=org.hibernate.org.apache.lucene.misc&amp;Export-Package=org.apache.lucene.uninverting*;version="5.5.5"&amp;Bundle-Version=5.5.5
+		</bundle>
+	</feature>
+
+
+	<feature name="suscore-hibernate-search" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate/hibernate-core/5.6.7.Final
+		</bundle>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate.common/hibernate-commons-annotations/5.1.2.Final
+		</bundle>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate.search/hibernate-search-engine/6.1.4.Final
+		</bundle>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate.search/hibernate-search-mapper-pojo-base/6.1.4.Final
+		</bundle>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate.search/hibernate-search-util-common/6.1.4.Final
+		</bundle>
+
+		<bundle start-level='35'>wrap:mvn:org.hibernate.search/hibernate-search-engine/6.1.4.Final
+		</bundle>
+
+	</feature>
+
+	<feature name="pax-jdbc-pool-common" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle dependency="true" start-level="21">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1
+		</bundle>
+
+		<bundle dependency="true" start-level="21">mvn:org.ops4j.pax.jdbc/pax-jdbc-pool-common/1.5.3
+		</bundle>
+
+	</feature>
+
+	<feature name="pax-jdbc-pool-hikaricp-sus" version="3.0.0">
+		<feature prerequisite="true">wrap</feature>
+
+		<bundle start-level='29'>wrap:mvn:org.postgresql/postgresql/42.7.3
+		</bundle>
+
+		<bundle start-level='21'>mvn:com.zaxxer/HikariCP/4.0.3
+		</bundle>
+
+		<bundle start-level='21'>mvn:org.ops4j.pax.jdbc/pax-jdbc-pool-hikaricp/1.5.3
+		</bundle>
+
+	</feature>
+
+
+	<feature name="simuspace-suscore" version="3.0.0">
+
+		<feature version="3.0.0">suscore-location-conf</feature>
+		<feature version="3.0.0">sus-feature</feature>
+		<feature version="3.0.0">framework-dependencies</feature>
+		<feature version="3.0.0">sus-dependencies</feature>
+		<feature version="3.0.0">suscore-apache-shiro</feature>
+		<feature version="3.0.0">suscore-hibernate-core</feature>
+		<feature version="3.0.0">suscore-hibernate-lucene</feature>
+		<feature version="3.0.0">pax-jdbc-pool-common</feature>
+		<feature version="3.0.0">pax-jdbc-pool-hikaricp-sus</feature>
+		<feature version="3.0.0">suscore-hibernate-search</feature>
+
+		<bundle start-level='80'>mvn:de.soco.software.simuspace/suscore-common/3.0.0
+		</bundle>
+		<bundle start-level='80'>mvn:de.soco.software.simuspace/suscore-interceptors/3.0.0
+		</bundle>
+		<bundle start-level='81'>mvn:de.soco.software.simuspace/suscore-notification/3.0.0
+		</bundle>
+		<bundle start-level='82'>mvn:de.soco.software.simuspace/suscore-data/3.0.0
+		</bundle>
+		<bundle start-level='85'>mvn:de.soco.software.simuspace/suscore-core/3.0.0
+		</bundle>
+		<bundle start-level='90'>mvn:de.soco.software.simuspace/suscore-permission/3.0.0
+		</bundle>
+		<bundle start-level='90'>mvn:de.soco.software.simuspace/suscore-licensing/3.0.0
+		</bundle>
+		<bundle start-level='83'>mvn:de.soco.software.simuspace/suscore-lifecycle/3.0.0
+		</bundle>
+		<bundle start-level='83'>mvn:de.soco.software.simuspace/suscore-document/3.0.0
+		</bundle>
+		<bundle start-level='83'>mvn:de.soco.software.simuspace/suscore-auth-connect-active-directory/3.0.0
+		</bundle>
+		<bundle start-level='83'>mvn:de.soco.software.simuspace/suscore-auth-connect-ldap/3.0.0
+		</bundle>
+		<bundle start-level='83'>mvn:de.soco.software.simuspace/suscore-user/3.0.0
+		</bundle>
+		<bundle start-level='100'>mvn:de.soco.software.simuspace/suscore-location/3.0.0
+		</bundle>
+		<bundle start-level='100'>mvn:de.soco.software.simuspace/suscore-simflow-wfengine/3.0.0
+		</bundle>
+		<bundle start-level='100'>mvn:de.soco.software.simuspace/suscore-executor/3.0.0
+		</bundle>
+		<bundle start-level='100'>mvn:de.soco.software.simuspace/suscore-core-location/3.0.0
+		</bundle>
+
+	</feature>
+
+</features>

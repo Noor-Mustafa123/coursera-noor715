@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-simflow-server</artifactId>
+	<name>Suscore :: SimFlow :: Server</name>
+	<packaging>bundle</packaging>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-simflow-wfengine</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-data</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-executor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-licensing</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-junit -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-junit</artifactId>
+			<version>2.0.0.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Activator>de.soco.software.simuspace.server.activator.Activator</Bundle-Activator>
+						<Export-Package>
+							de.soco.software.simuspace.server.threads,
+							de.soco.software.simuspace.server.manager,
+							de.soco.software.simuspace.server.dao,
+							de.soco.software.simuspace.server.model,
+							de.soco.software.simuspace.server.model.jsonschema
+						</Export-Package>
+						<DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>

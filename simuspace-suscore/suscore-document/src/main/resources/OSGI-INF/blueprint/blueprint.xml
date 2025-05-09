@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             	http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             	http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ################################ Internal Services Expose ################################# -->
+
+	<service id="documentManagerImpl" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager"
+		ref="documentManager" />
+
+	<service id="documentDAOImpl" interface="de.soco.software.simuspace.suscore.document.dao.DocumentDAO" ref="documentDAO" />
+
+	<reference id="userCommonDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.UserCommonDAO" />
+
+	<reference id="userTokenDAO" interface="de.soco.software.simuspace.suscore.interceptors.dao.UserTokenDAO" />
+
+	<reference id="jobTokenDAO" interface="de.soco.software.simuspace.suscore.interceptors.dao.JobTokenDAO" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ################################ External Services Imports ################################ -->
+	<!-- ################################ Simuspace BUS ############################################ -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<!-- ################################ Services Exports ######################################### -->
+
+	<!-- ################################ Jax RS Server ############################################ -->
+
+	<jaxrs:server id="susCoreDocumentService" address="/document">
+		<jaxrs:serviceBeans>
+			<ref component-id="documentService" />
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<!-- ################################ Permission Beans ######################################### -->
+
+
+	<bean id="documentService" class="de.soco.software.simuspace.suscore.document.service.rest.impl.DocumentServiceImpl">
+		<property name="documentManager" ref="documentManager" />
+	</bean>
+
+	<bean id="documentManager" class="de.soco.software.simuspace.suscore.document.manager.impl.DocumentManagerImpl">
+		<property name="documentDAO" ref="documentDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="documentDAO" class="de.soco.software.simuspace.suscore.document.dao.impl.DocumentDAOImpl">
+	</bean>
+
+
+	<bean id="uploadBean" class="de.soco.software.simuspace.suscore.document.service.rest.impl.UploadServiceImpl">
+		<property name="documentManager" ref="documentManager" />
+		<property name="userTokenDAO" ref="userTokenDAO" />
+		<property name="jobTokenDAO" ref="jobTokenDAO" />
+		<property name="userCommonDAO" ref="userCommonDAO" />
+	</bean>
+
+	<bean id="uploadStagingBean" class="de.soco.software.simuspace.suscore.document.service.rest.impl.UploadStagingServiceImpl">
+		<property name="userTokenDAO" ref="userTokenDAO" />
+	</bean>
+
+	<!-- Special service for uploads -->
+	<service id="uploadService" interface="javax.servlet.http.HttpServlet" ref="uploadBean">
+		<service-properties>
+			<entry key="osgi.http.whiteboard.servlet.pattern" value="/api/document/upload/*" />
+			<entry key="osgi.http.whiteboard.servlet.name" value="uploadServiceImpl" />
+		</service-properties>
+	</service>
+
+	<service id="uploadStagingService" interface="javax.servlet.http.HttpServlet" ref="uploadStagingBean">
+		<service-properties>
+			<entry key="osgi.http.whiteboard.servlet.pattern" value="/api/document/stagingupload/*" />
+			<entry key="osgi.http.whiteboard.servlet.name" value="uploadStagingServiceImpl" />
+		</service-properties>
+	</service>
+
+</blueprint>

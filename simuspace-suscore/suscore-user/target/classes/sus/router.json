@@ -1,0 +1,136 @@
+{
+	"name": "plugin_user",
+	"routes": [
+		{
+			"url": "system/users",
+			"container": "2d365f88-7dd4-4b2e-99bf-a53ff492ce22",
+			"js": "viewsDir/system/user/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"url": "system/user/{id}",
+			"container": null,
+			"js": "viewsDir/system/user/single",
+			"title": null,
+			"type": "single"
+		},
+		{
+			"url": "create/system/user",
+			"container": "2d365f88-7dd4-4b2e-99bf-a53ff492ce22",
+			"js": "viewsDir/system/user/create",
+			"title": "4100018x4",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100032x4",
+			"icon": "fa fa-edit",
+			"url": "edit/system/user/{objectId}/profile",
+			"type": "tree-context",
+			"className": "UserProfileDTO",
+			"js": "viewsDir/system/user/profile/edit"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"url": "edit/system/user/{id}",
+			"container": "2d365f88-7dd4-4b2e-99bf-a53ff492ce22",
+			"type": "tree-context",
+			"className": "UserDTO",
+			"js": "viewsDir/system/user/edit"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "delete/system/user/{id}{?query}",
+			"type": "tree-context",
+			"className": "UserDTO",
+			"js": "viewsDir/system/user/delete"
+		},
+		{
+			"url": "system/permissions/groups",
+			"container": "70729fba-9121-484a-b8b4-4b57ddc71751",
+			"js": "viewsDir/system/permissions/group/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"url": "create/system/user/group",
+			"container": "70729fba-9121-484a-b8b4-4b57ddc71751",
+			"js": "viewsDir/system/permissions/group/create",
+			"title": "4100018x4",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"container": "70729fba-9121-484a-b8b4-4b57ddc71751",
+			"url": "edit/system/group/{id}",
+			"type": "tree-context",
+			"className": "SuSUserGroupDTO",
+			"js": "viewsDir/system/permissions/group/edit"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "/system/permissions/group/{id}{?query}",
+			"js": "viewsDir/system/permissions/group/delete",
+			"className": "SuSUserGroupDTO",
+			"type": "tree-context"
+		},
+		{
+			"url": "view/system/user/group/{id}",
+			"container": null,
+			"js": "viewsDir/system/permissions/group/single",
+			"title": null,
+			"type": "single"
+		},
+		{
+			"url": "system/user-directories",
+			"container": "f60de89e-f872-43eb-92e7-883db82df74e",
+			"js": "viewsDir/system/user-directory/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"url": "create/system/user-directory",
+			"container": "f60de89e-f872-43eb-92e7-883db82df74e",
+			"js": "viewsDir/system/user-directory/create",
+			"title": "4100018x4",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"container": "f60de89e-f872-43eb-92e7-883db82df74e",
+			"url": "edit/system/user-directory/{id}",
+			"type": "tree-context",
+			"className": "SuSUserDirectoryDTO",
+			"js": "viewsDir/system/user-directory/edit"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "delete/system/user-directory/{id}{?query}",
+			"js": "viewsDir/system/user-directory/delete",
+			"className": "SuSUserDirectoryDTO",
+			"type": "tree-context"
+		},
+		{
+			"url": "system/permissions/groups/{id}/users",
+			"container": "70729fba-9121-484a-b8b4-4b57ddc71751",
+			"js": "viewsDir/system/permissions/group/overview_group_users",
+			"type": "table",
+			"className": "UserDTO",
+			"visibility": "both"
+		},
+		{
+			"url": "system/user/{id}/groups",
+			"container": "2d365f88-7dd4-4b2e-99bf-a53ff492ce22",
+			"js": "viewsDir/system/user/overview_user_groups",
+			"type": "table",
+			"className": "SuSUserGroupDTO",
+			"visibility": "both"
+		}
+	]
+}

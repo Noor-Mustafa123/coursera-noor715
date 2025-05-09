@@ -1,0 +1,16 @@
+de/soco/software/simuspace/suscore/search/manager/WidgetSettingsManager.class
+de/soco/software/simuspace/suscore/search/model/Query.class
+de/soco/software/simuspace/suscore/search/model/Bool.class
+de/soco/software/simuspace/suscore/search/constants/ConstantsSearch.class
+de/soco/software/simuspace/suscore/search/dao/impl/SearchDAOImpl.class
+de/soco/software/simuspace/suscore/search/model/ELSQueryObject.class
+de/soco/software/simuspace/suscore/search/manager/impl/WidgetSettingsManagerImpl.class
+de/soco/software/simuspace/suscore/search/constants/ConstantsSearchServiceEndPoints.class
+de/soco/software/simuspace/suscore/search/dao/SearchDAO.class
+de/soco/software/simuspace/suscore/search/dao/impl/WidgetSettingsDAOImpl.class
+de/soco/software/simuspace/suscore/search/service/rest/impl/SearchServiceImpl.class
+de/soco/software/simuspace/suscore/search/service/rest/SearchService.class
+de/soco/software/simuspace/suscore/search/manager/impl/WidgetSettingsManagerImpl$1.class
+de/soco/software/simuspace/suscore/search/dao/WidgetSettingsDAO.class
+de/soco/software/simuspace/suscore/search/manager/SearchManager.class
+de/soco/software/simuspace/suscore/search/manager/impl/SearchManagerImpl.class

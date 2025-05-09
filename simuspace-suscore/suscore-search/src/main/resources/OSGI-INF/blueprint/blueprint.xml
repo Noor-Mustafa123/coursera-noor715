@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ######################################## Imported Services ######################################## -->
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="lifeCycleManager" interface="de.soco.software.simuspace.suscore.lifecycle.manager.LifeCycleManager" />
+
+	<reference id="userCommonManager" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ######################################## CXF Configs ######################################## -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ######################################## Jax WS Server Settings ######################################## -->
+
+	<jaxrs:server id="service_id" address="/search">
+		<jaxrs:serviceBeans>
+			<ref component-id="searchServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="searchDao" class="de.soco.software.simuspace.suscore.search.dao.impl.SearchDAOImpl" />
+
+	<bean id="widgetsDAO" class="de.soco.software.simuspace.suscore.search.dao.impl.WidgetSettingsDAOImpl" />
+
+	<reference id="dataManager" interface="de.soco.software.simuspace.suscore.object.manager.DataManager" />
+
+	<reference id="dataObjectManager" interface="de.soco.software.simuspace.suscore.object.manager.DataObjectManager" />
+
+	<!-- ######################################## DAOs ######################################## -->
+
+
+	<!-- ######################################## Managers ######################################## -->
+
+
+	<bean id="widgetManagerBean" class="de.soco.software.simuspace.suscore.search.manager.impl.WidgetSettingsManagerImpl">
+		<property name="widgetsDAO" ref="widgetsDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="searchManagerBean" class="de.soco.software.simuspace.suscore.search.manager.impl.SearchManagerImpl" init-method="init">
+		<property name="searchDao" ref="searchDao" />
+		<property name="dataObjectManager" ref="dataObjectManager" />
+		<property name="widgetsManager" ref="widgetManagerBean" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="userCommonManager" ref="userCommonManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- ######################################## Services ######################################## -->
+
+	<bean id="searchServiceBean" class="de.soco.software.simuspace.suscore.search.service.rest.impl.SearchServiceImpl">
+		<property name="searchManager" ref="searchManagerBean" />
+	</bean>
+
+</blueprint>

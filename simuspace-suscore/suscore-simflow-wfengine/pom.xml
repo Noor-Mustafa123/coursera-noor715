@@ -1,0 +1,250 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-simflow-wfengine</artifactId>
+	<name>Suscore :: SimFlow :: Workflow :: Engine</name>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-location</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-lifecycle</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.mvel/mvel2 -->
+		<dependency>
+			<groupId>org.mvel</groupId>
+			<artifactId>mvel2</artifactId>
+			<version>2.4.14.Final</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+			<exclusions>
+        <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </exclusion>
+    </exclusions>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpmime</artifactId> <version>4.3.1</version> </dependency> -->
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>5.3.18</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.3.18</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.github.dexecutor/dexecutor-core -->
+		<dependency>
+			<groupId>com.github.dexecutor</groupId>
+			<artifactId>dexecutor-core</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.11.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>5.11.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+
+						<Export-Package>
+							de.soco.software.simuspace.workflow.model.impl,
+							de.soco.software.simuspace.workflow.model,
+							de.soco.software.simuspace.workflow.dto,
+							de.soco.software.simuspace.workflow.util,
+							de.soco.software.simuspace.workflow.location,
+							de.soco.software.simuspace.workflow.processing.impl,
+							de.soco.software.simuspace.workflow.dexecutor,
+							de.soco.software.simuspace.workflow.processing
+						</Export-Package>
+						<Import-Package>
+							COM.newmonics.PercClassLoader;resolution:=optional,org.*,com.*,*
+						</Import-Package>
+
+						<DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.felix</groupId> <artifactId>maven-bundle-plugin</artifactId> <extensions>true</extensions> <configuration> 
+				<instructions> <Import-Package>javax.net, org.apache.karaf.jaas.config;version="4.0.1", org.apache.karaf.jaas.boot;version="4.0.1", org.apache.karaf.jaas.boot.principal;version="4.0.1", 
+				org.apache.karaf.jaas.modules;version="4.0.1", org.apache.aries.blueprint.ext;version="0.3.0",* </Import-Package> <Bundle-Activator>de.soco.software.simuspace.server.config.Activator</Bundle-Activator> 
+				</instructions> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>copy-installed</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<type>${project.packaging}</type>
+								</artifactItem>
+
+							</artifactItems>
+
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<!-- exclude junit, we need runtime dependency only -->
+							<includeScope>runtime</includeScope>
+							<outputDirectory>${project.basedir}/target/dependency-jars</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.1</version>
+
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>de.soco.software.simuspace.workflow.main.WFApplication</mainClass>
+							<classpathPrefix>dependency-jars/</classpathPrefix>
+						</manifest>
+
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+		<finalName>suscore-simflow-wfengine</finalName>
+
+		<resources>
+
+			<resource>
+				<filtering>false</filtering>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
+
+	</build>
+
+</project>

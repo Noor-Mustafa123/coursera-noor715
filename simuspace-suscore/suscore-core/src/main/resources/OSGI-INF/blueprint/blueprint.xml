@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+
+	<service interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" ref="selectionManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.core.dao.LinkDAO" ref="linkDAO">
+	</service>
+
+	<!-- ########################### External Services Imports ################################ -->
+	<reference id="WSService" interface="de.soco.software.simuspace.suscore.notification.service.rest.WSService" />
+	<reference id="lifeCycleManager" interface="de.soco.software.simuspace.suscore.lifecycle.manager.LifeCycleManager" />
+	<reference id="userCommonManager" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+	<reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" />
+	<reference id="objectTypeConfigCacheManager"
+		interface="de.soco.software.simuspace.suscore.lifecycle.manager.ObjectTypeConfigManager" />
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+
+	<jaxrs:server id="linkService" address="/link">
+		<jaxrs:serviceBeans>
+			<ref component-id="linkServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+	<jaxrs:server id="selectionService" address="/selection">
+		<jaxrs:serviceBeans>
+			<ref component-id="selectionServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+	<!-- ############################################# Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+	</bean>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor">
+	</bean>
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor">
+	</bean>
+
+	<!-- ################################ Linking service Beans ################################## -->
+
+	<bean id="linkServiceBean" class="de.soco.software.simuspace.suscore.core.service.impl.LinkServiceImpl">
+		<property name="linkManager" ref="linkManager" />
+	</bean>
+
+	<bean id="bmwCaeBenchCommonDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.BmwCaeBenchCommonDAOImpl">
+	</bean>
+
+	<!-- ################################ Linking manager Beans ################################## -->
+
+	<bean id="linkManager" class="de.soco.software.simuspace.suscore.core.manager.impl.LinkManagerImpl">
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="linkDAO" ref="linkDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- ################################ Linking dao Beans ################################## -->
+
+	<bean id="linkDAO" class="de.soco.software.simuspace.suscore.core.dao.impl.LinkDAOImpl">
+	</bean>
+
+	<!-- ############################################# SusTransfer Beans ############################################# -->
+
+	<bean id="selectionServiceBean" class="de.soco.software.simuspace.suscore.core.service.impl.SelectionServiceImpl">
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="additionalAttributeManager" ref="additionalAttributeManager" />
+	</bean>
+
+
+	<bean id="selectionManager" class="de.soco.software.simuspace.suscore.core.manager.impl.SelectionManagerImpl">
+		<property name="webSocketService" ref="WSService" />
+		<property name="selectionDAO" ref="selectionDAO" />
+		<property name="selectionItemDAO" ref="selectionItemDAO" />
+		<property name="userCommonManager" ref="userCommonManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="bmwCaeBenchCommonDAO" ref="bmwCaeBenchCommonDAO" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="linkManager" ref="linkManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="additionalAttributeManager" ref="additionalAttributeManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="additionalAttributeManager" class="de.soco.software.simuspace.suscore.core.manager.impl.AdditionalAttributeManagerImpl">
+		<property name="selectionDAO" ref="selectionDAO" />
+		<property name="selectionItemDAO" ref="selectionItemDAO" />
+		<property name="userCommonManager" ref="userCommonManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="selectionDAO" class="de.soco.software.simuspace.suscore.core.dao.impl.SelectionDAOImpl">
+	</bean>
+
+	<bean id="selectionItemDAO" class="de.soco.software.simuspace.suscore.core.dao.impl.SelectionItemDAOImpl">
+	</bean>
+
+</blueprint>

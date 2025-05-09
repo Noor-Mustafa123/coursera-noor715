@@ -1,0 +1,158 @@
+{
+	"name": "wizards_assembly",
+	"routes": [
+		{
+			"className": "MenuDTO",
+			"url": "view/wizards/variant/{parentId}",
+			"container": null,
+			"js": "viewsDir/wizards/variant/single",
+			"type": "tree-context",
+			"title": "4100058x4",
+			"visibility": "both"
+		},
+		{
+			"className": "MenuDTO",
+			"url": "create/wizards/variant/reference/{parentId}",
+			"container": null,
+			"js": "viewsDir/wizards/variant/create",
+			"type": "tree-context",
+			"title": "4100059x4",
+			"visibility": "both"
+		},
+		{
+			"url": "view/algorithms/loadcase",
+			"container": "cc250c04-a1f4-11e8-98d0-529269fb1459",
+			"js": "viewsDir/algorithms/loadcase/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "create/algorithms/loadcase",
+			"container": "cc250c04-a1f4-11e8-98d0-529269fb1459",
+			"js": "viewsDir/algorithms/loadcase/create",
+			"title": "4100060x4",
+			"type": "tree-context"
+		},
+		{
+			"url": "view/algorithms/scheme",
+			"container": "39371a5a-2440-49fb-bd53-f0c2d1ad5017",
+			"js": "viewsDir/config/workflow_schemes/overview",
+			"title": null,
+			"type": "table"
+		},
+
+		{
+			"url": "view/algorithms/training",
+			"container": "62db977b-e952-4d60-91e2-e8d44e1ddf07",
+			"js": "viewsDir/config/training_algo/overview",
+			"title": null,
+			"type": "table"
+		},
+
+		{
+			"url": "run/scheme/{id}",
+			"js": "viewsDir/workflow/scheme/single",
+			"title": "4100061x4",
+			"visibility": "client"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "edit/algorithms/scheme/{id}",
+			"container": "39371a5a-2440-49fb-bd53-f0c2d1ad5017",
+			"js": "viewsDir/config/workflow_schemes/edit",
+			"title": "4100062x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "create/algorithms/scheme",
+			"container": "39371a5a-2440-49fb-bd53-f0c2d1ad5017",
+			"js": "viewsDir/config/workflow_schemes/create",
+			"title": "4100063x4",
+			"type": "tree-context"
+		},
+		{
+			"url": "delete/algorithms/scheme/{wfschemeId}{?query}",
+			"js": "viewsDir/config/workflow_schemes/delete",
+			"title": "4100064x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "edit/algorithms/training/{id}",
+			"container": "62db977b-e952-4d60-91e2-e8d44e1ddf07",
+			"js": "viewsDir/config/training_algo/edit",
+			"title": "4100065x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "create/algorithms/training",
+			"container": "62db977b-e952-4d60-91e2-e8d44e1ddf07",
+			"js": "viewsDir/config/training_algo/create",
+			"title": "4100066x4",
+			"type": "tree-context"
+		},
+		{
+			"url": "delete/algorithms/training/{trainingalgoId}{?query}",
+			"js": "viewsDir/config/training_algo/delete",
+			"title": "4100067x4",
+			"type": "tree-context"
+		},
+		{
+			"url": "view/config/schemecategory",
+			"container": "a0d293bd-3569-4771-b05b-7784a4fb2e3d",
+			"js": "viewsDir/system/category/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "update/config/schemecategory/{id}",
+			"container": "a0d293bd-3569-4771-b05b-7784a4fb2e3d",
+			"js": "viewsDir/system/category/edit",
+			"title": "4100068x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "create/config/schemecategory/{parentId}",
+			"container": "a0d293bd-3569-4771-b05b-7784a4fb2e3d",
+			"js": "viewsDir/system/category/create",
+			"title": "4100069x4",
+			"type": "tree-context"
+		},
+		{
+			"url": "delete/config/schemecategory/{categoryId}{?query}",
+			"js": "viewsDir/system/category/delete",
+			"title": "4100070x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "edit/algorithms/loadcase/{id}",
+			"container": "cc250c04-a1f4-11e8-98d0-529269fb1459",
+			"js": "viewsDir/algorithms/loadcase/edit",
+			"title": "4100116x4",
+			"type": "tree-context"
+		},
+		{
+			"className": "ProjectDTO",
+			"url": "delete/algorithms/loadcase/{loadcaseId}{?query}",
+			"container": null,
+			"js": "viewsDir/algorithms/loadcase/delete",
+			"title": null,
+			"type": "tree-context"
+		},
+                {
+			"className": "MenuDTO",
+			"url": "view/wizards/cb2/variant/{parentId}",
+			"container": null,
+			"js": "viewsDir/wizards/variant/single",
+			"type": "tree-context",
+			"title": "4100071x4",
+			"visibility": "both"
+		}
+	]
+}

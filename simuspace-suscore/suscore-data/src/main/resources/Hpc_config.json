@@ -1,0 +1,3295 @@
+{
+  "elements": [
+    {
+      "title": "Abaqus Explizit",
+      "icon": "images/wf/hpc_abaqus.png",
+      "element": {
+        "data": {
+          "name": "Abaqus_Explizit",
+          "key": "wfe_abaqusexplizit",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_transfer_location"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "modelFile",
+              "value": "",
+              "label": "Input Model File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder",
+              "value": "{{Job.WorkingDir}}",
+              "label": "Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "datacheckFile",
+              "value": "",
+              "label": "Datacheck File",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "listFile",
+              "value": "",
+              "label": "Input Files",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "restartFile",
+              "value": "",
+              "label": "Restart File",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "localResultFolder",
+              "value": "",
+              "label": "2nd Resultfolder",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "userSubroutine",
+              "value": "___NO_USER_MATERIAL___",
+              "label": "User Subroutine",
+              "options": [
+                "BASF_ULTRASIM",
+                "BASF_ULTRASIM_4_1_5",
+                "BASF_ULTRASIM_4_2_2",
+                "BILINEAR",
+                "EXT_HONEYCOMB",
+                "FGS_adpt_SimTime",
+                "JETTING_V68",
+                "MF430_ALPHA_4",
+                "MF430_ALPHA_6",
+                "MFGENYLD_430",
+                "mfgenyld_431_beta_08_Linux_abaqus",
+                "mfgenyld_432_Linux_abaqus",
+                "___NO_USER_MATERIAL___",
+                "PLY",
+                "PLY_FABRIC_ENH_DAMAGE",
+                "PLY_FABRIC_RATEDEP",
+                "PUCK",
+                "S1_BP2_100_ESA_4_0_RP1_TRW",
+                "S3_BP2_100_ESA_4_0_RP1_TRW",
+                "SMM-AL-HPDC-OK",
+                "TIRELEAK",
+                "TRILINEAR",
+                "TRW_abq_ink_sbs_sub_v10",
+                "TRW_abq_mk_sbs_sub_v15",
+                "TRW_abq_mk_sbs_sub_v17",
+                "TRW_abq_mk_sbs_sub_v19",
+                "TRW_abq_mk_sbs_sub_v21",
+                "TRW_abq_mk_sbs_sub_v22",
+                "TRW_abq_mk_sbs_sub_v231",
+                "TRW_abq_mk_sbs_sub_v24",
+                "TRW_abq_mk_sbs_sub_v25",
+                "TRW_abq_mk_sbs_sub_v26",
+                "TRW_abq_mk_sbs_sub_v261",
+                "TRW_S1_BP2_100_ESA_4_0_RP1_v01",
+                "TRW_53_BP2_100_ESA_4_0_RP1_v01",
+                "VUAMP_TIRE",
+                "VUMAT-PUCK-3D",
+                "VUMAT-PUCK-3D-XEFFMOD"
+              ],
+              "rules": {
+                "required": false
+              },
+              "picker": {
+                "liveSearch": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "applOptions",
+              "value": "",
+              "label": "Abaqus Options",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "project",
+              "value": "",
+              "label": "Hpc Project",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/data/sge/user/simuspace/type/abaqus_explicit",
+              "canBeEmpty": true,
+              "changeOnRun": true,
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "editable": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "ncpu",
+              "value": "28",
+              "label": "CPUs",
+              "options": [
+                "180-192",
+                "128-176",
+                "128-168",
+                "96-132",
+                "72-96",
+                "72-88",
+                "48-64",
+                "48-56",
+                "28-48",
+                "28-44",
+                "28",
+                "36",
+                "48",
+                "56",
+                "64",
+                "72",
+                "84",
+                "96",
+                "108",
+                "112",
+                "128",
+                "140",
+                "144",
+                "168",
+                "180",
+                "192",
+                "196",
+                "216",
+                "224",
+                "240",
+                "252",
+                "256",
+                "280",
+                "288",
+                "308",
+                "320",
+                "324",
+                "336",
+                "360",
+                "384",
+                "396",
+                "432",
+                "528",
+                "576"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "changeOnRun": true,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "versions",
+              "value": "6.13-5",
+              "label": "Version",
+              "options": [
+                "2016-11",
+                "2016-8",
+                "2017-13",
+                "2017-7",
+                "2018-10",
+                "2018-9",
+                "2018GA",
+                "2018-X",
+                "2019-1",
+                "2019-10",
+                "2019-6",
+                "2020-5",
+                "2020-X",
+                "2021-10",
+                "2021-X",
+                "6.12-2B",
+                "6.13-5"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "changeOnRun": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "sortable": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "diskSpace",
+              "value": "1000",
+              "label": "Disk Space(GB)",
+              "options": [
+                "1000",
+                "100",
+                "200",
+                "350",
+                "400"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postprocessor",
+              "value": "noPostProcessing",
+              "label": "Post Processor",
+              "options": [
+                "noPostProcessing",
+                "axdb"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postversions",
+              "value": "",
+              "label": "Post Version",
+              "options": [
+                "3.0",
+                "4.0",
+                "4.1",
+                "4.2",
+                "4.3",
+                "4.4"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "precision",
+              "value": "double",
+              "label": "Precision",
+              "options": [
+                "doubleboth",
+                "double",
+                "doubleconstraint",
+                "single"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "dynamicLoadBalancing",
+              "value": "OFF",
+              "label": "DynamicLoadBalancing",
+              "options": [
+                "OFF",
+                "ON",
+                "ON 2x",
+                "ON 3x"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "runmode",
+              "value": "analysis",
+              "label": "RunMode",
+              "options": [
+                "analysis",
+                "datacheck",
+                "restart"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "includeCheckerMode",
+              "value": "simple",
+              "label": "IncludeCheckerMode",
+              "options": [
+                "off",
+                "simple",
+                "recursive"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "runTime",
+              "value": "0",
+              "label": "Runtime (hr)",
+              "options": [
+                "0",
+                "1",
+                "2",
+                "4",
+                "8",
+                "12",
+                "16",
+                "24",
+                "36",
+                "48",
+                "60",
+                "72",
+                "96",
+                "144",
+                "168",
+                "192"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "fussgaengerSchutz",
+              "value": "False",
+              "label": "FussgaengerSchutz",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "submodelAnalysis",
+              "value": "False",
+              "label": "Submodel Analysis",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "useLocalAbaqusEnv",
+              "value": "False",
+              "label": "use local abaqus.env",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "saveRestartFiles",
+              "value": "False",
+              "label": "Save RestartFiles",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "DOSformat",
+              "value": "False",
+              "label": "DOS Format",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "doSyntaxCheck",
+              "value": "False",
+              "label": "Do SyntaxCheck",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "useFileServer",
+              "value": "False",
+              "label": "Use Fileserver",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "mailAtEndOfJob",
+              "value": "False",
+              "label": "Mail at End of Job",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.1",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_abaqusexplizit",
+            "css": {
+              "background-color": "#e53b41",
+              "background-image": "/images/wf/hpc_abaqus.svg",
+              "label": "data(name)"
+            }
+          },
+          {
+            "selector": ".wfe_abaqusexplizit.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/hpc_abaqus-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Abaqus Standard",
+      "icon": "images/wf/hpc_abaqus.png",
+      "element": {
+        "data": {
+          "name": "Abaqus_Standard",
+          "key": "wfe_abaqusstandard",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_transfer_location"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "modelFile",
+              "value": "",
+              "label": "Input Model File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder",
+              "value": "{{Job.WorkingDir}}",
+              "label": "Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "frameFile",
+              "value": "",
+              "label": "Frame File",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "listFile",
+              "value": "",
+              "label": "Input Files",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "restartFile",
+              "value": "",
+              "label": "Restart File",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "restarttype",
+              "value": "no restart",
+              "label": "Restart Type",
+              "options": [
+                "no restart",
+                "explicit",
+                "implicit"
+              ],
+              "rules": {
+                "required": false
+              },
+              "picker": {
+                "liveSearch": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "userSubroutine",
+              "value": "no_subroutine",
+              "label": "User Subroutine",
+              "options": [
+                "no_subroutine"
+              ],
+              "rules": {
+                "required": false
+              },
+              "picker": {
+                "liveSearch": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "applOptions",
+              "value": "",
+              "label": "Abaqus Options",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "project",
+              "value": "",
+              "label": "Hpc Project",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/data/sge/user/simuspace/type/abaqus_standard",
+              "canBeEmpty": true,
+              "changeOnRun": true,
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "editable": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "ncpu",
+              "value": "28",
+              "label": "CPUs",
+              "options": [
+                "6-8",
+                "1",
+                "6",
+                "8",
+                "10",
+                "16",
+                "36",
+                "48"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "changeOnRun": true,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "versions",
+              "value": "v6123",
+              "label": "Version",
+              "options": [
+                "mj201713",
+                "mj20177",
+                "mj201814",
+                "mj20185",
+                "mj201910",
+                "mj20196",
+                "mj202012",
+                "mj20204",
+                "mj20205",
+                "mj202110",
+                "mj20216",
+                "mj20226",
+                "mj20233",
+                "mj20234",
+                "mj6135",
+                "mj6143",
+                "v201713",
+                "v20177",
+                "v201814",
+                "v20185",
+                "v201910",
+                "v20196",
+                "v202012",
+                "v20204",
+                "v20205",
+                "v202110",
+                "v20216",
+                "v20226",
+                "v20233",
+                "v20234",
+                "v6135",
+                "v6143"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "changeOnRun": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "sortable": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "diskSpace",
+              "value": "100",
+              "label": "Disk Space(GB)",
+              "options": [
+                "100",
+                "200",
+                "400",
+                "500",
+                "900",
+                "1000",
+                "1500",
+                "3000"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postprocessor",
+              "value": "",
+              "label": "Post Processor",
+              "options": [
+                "No Postprocess",
+                "femfatModelGenerator",
+                "hpcstr_a4dbgen",
+                "hpcstr_develop",
+                "hpcstr_ixdb",
+                "hpcstr_vl1",
+                "nvh_a4dbgen_hpc_post"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postversions",
+              "value": "",
+              "label": "Post Version",
+              "options": [
+                "integ",
+                "previous",
+                "prod",
+                "test"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "jobMemory",
+              "value": "110",
+              "label": "Job Memory (GB)",
+              "options": [
+                "5",
+                "10",
+                "20",
+                "40",
+                "170",
+                "230",
+                "340",
+                "450"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "includeCheckerMode",
+              "value": "simple",
+              "label": "IncludeCheckerMode",
+              "options": [
+                "nochecks",
+                "simple",
+                "recursive"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "doSyntaxCheck",
+              "value": "False",
+              "label": "Do Syntax Check",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useLocalAbaqusEnv",
+              "value": "False",
+              "label": "use local abaqus.env",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "femfatCoupling",
+              "value": "False",
+              "label": "Femfat Coupling",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useGPU",
+              "value": "False",
+              "label": "Use GPU",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useSingleNode",
+              "value": "False",
+              "label": "Use SingleNode",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useFileServer",
+              "value": "False",
+              "label": "Use FileServer",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "anRechnen",
+              "value": "False",
+              "label": "Anrechnen Mode",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "noConcatResults",
+              "value": "False",
+              "label": "Do Not ConcatResults",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "mailAtEndOfJob",
+              "value": "False",
+              "label": "Mail at End of Job",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runAtNight",
+              "value": "False",
+              "label": "Run at Night",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "appendToFilFile",
+              "value": "False",
+              "label": "Append to fil-file",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "noSubmit",
+              "value": "False",
+              "label": "No Submit",
+              "options": [
+                "False",
+                "True"
+              ],
+              "rules": {
+                "required": false
+              },
+              "multiple": false,
+              "variable-mode": false,
+              "sortable": true,
+              "editable": true
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.1",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_abaqusstandard",
+            "css": {
+              "background-color": "#e53b41",
+              "background-image": "/images/wf/hpc_abaqus.svg",
+              "label": "data(name)"
+            }
+          },
+          {
+            "selector": ".wfe_abaqusstandard.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/hpc_abaqus-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "LsDyna",
+      "icon": "images/wf/hpc_lsdyna.png",
+      "element": {
+        "data": {
+          "name": "LsDyna",
+          "key": "wfe_lsDyna",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_io",
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_transfer_location"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "modelFile",
+              "value": "",
+              "label": "Input Model File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder",
+              "value": "{{Job.WorkingDir}}",
+              "label": "Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder2",
+              "value": "{{Job.WorkingDir}}",
+              "label": " 2nd Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "additionalFiles",
+              "value": "",
+              "label": "Additional files",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "project",
+              "value": "",
+              "label": "Hpc Project",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/data/sge/user/simuspace/type/lsdyna",
+              "canBeEmpty": true,
+              "changeOnRun": true,
+              "multiple": false,
+              "sortable": true,
+              "editable": false,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "ncpus",
+              "value": "",
+              "label": "CPUs",
+              "options": [
+                "180-192",
+                "128-144",
+                "64-96",
+                "48-64",
+                "44",
+                "64",
+                "88",
+                "128",
+                "192",
+                "256",
+                "320",
+                "384",
+                "448",
+                "512",
+                "576"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "versions",
+              "value": "",
+              "label": "Application Version",
+              "options": [
+                "R9.3_706_MPP",
+                "R9.3_644_MPP",
+                "R9.3_592_MPP",
+                "R7.1.3_MPP",
+                "R12_4458_MPP",
+                "R12_4056_MPP",
+                "R12.2_186_MPP",
+                "R12.2_165_MPP",
+                "LS_DYNA_RX_GENERIC_SMP",
+                "LS_DYNA_RX_GENERIC_MPP",
+                "DEV_R9.3_LS_DYNA_MPP",
+                "DEV_R14_LS_DYNA_MPP",
+                "DEV_R12_LS_DYNA_MPP",
+                "DEV_LS_DYNA_MPP_pmpi",
+                "DEV_LS_DYNA_MPP"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "changeOnRun": true,
+              "sortable": true,
+              "editable": true,
+              "variable-mode": false,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "applOptions",
+              "value": "-z -d memory=2140M memory2=1020M d=nodump long=s",
+              "label": "Application Options",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "plotcprsUserOptions",
+              "value": "",
+              "label": "Plotcprs User Options",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "queue",
+              "value": "",
+              "label": "Queue",
+              "options": [
+                "STANDARD",
+                "STANDARD_BIG"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "diskSpace",
+              "value": "",
+              "label": "Diskspace",
+              "options": [
+                "300",
+                "400"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "precision",
+              "value": "",
+              "label": "Precision",
+              "options": [
+                "double",
+                "double_decomp",
+                "single"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "includeCheckerMode",
+              "value": "",
+              "label": "Include Checker Mode",
+              "options": [
+                "off",
+                "recursive",
+                "simple"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postprocessor",
+              "value": "",
+              "label": "Postprocessor",
+              "options": [
+                "No Postprocessing",
+                "hpccrash_lxdb"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postversions",
+              "value": "",
+              "label": "Post Version",
+              "options": [
+                "default",
+                "integ",
+                "previous",
+                "prod",
+                "test"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "postprocessorParameter",
+              "value": "",
+              "label": "Post Processor Parameter",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runOnTmp",
+              "value": "True",
+              "label": "Run Job on /tmp",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runAtNight",
+              "value": "False",
+              "label": "Run at Night",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "stopJob",
+              "value": "True",
+              "label": "Stop job after 80 hours",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "mailAtEndOfJob",
+              "value": "False",
+              "label": "Mail at End of Job",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "noSubmit",
+              "value": "False",
+              "label": "No Submit",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "saveSlaveFiles",
+              "value": "True",
+              "label": "Save slave files",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "compressDynainFile",
+              "value": "False",
+              "label": "Compress DYNAIN Result file",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "notDeliverInputFilesResult",
+              "value": "False",
+              "label": "Do not deliver inputFiles as result",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "datacheck",
+              "value": "False",
+              "label": "Data Check",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "copyBackRawResults",
+              "value": "False",
+              "label": "Copy back raw results",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.1",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_lsDyna",
+            "css": {
+              "background-color": "#e53b41",
+              "background-image": "/images/wf/hpc_lsdyna.svg",
+              "label": "data(name)"
+            }
+          },
+          {
+            "selector": ".wfe_lsDyna.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/hpc_lsdyna-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Nastran",
+      "icon": "images/wf/hpc_nastran.png",
+      "element": {
+        "data": {
+          "name": "Nastran",
+          "key": "wfe_nastran",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_io",
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_transfer_location"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "modelFile",
+              "value": "",
+              "label": "Input Model File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "frameFile",
+              "value": "",
+              "label": "Frame File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "listFile",
+              "value": "",
+              "label": "List File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "masterFile",
+              "value": "",
+              "label": "Master File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder",
+              "value": "{{Job.WorkingDir}}",
+              "label": "Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "project",
+              "value": "",
+              "label": "Hpc Project",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/data/sge/user/simuspace/type/nastran",
+              "canBeEmpty": true,
+              "changeOnRun": true,
+              "multiple": false,
+              "sortable": true,
+              "editable": false,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "versions",
+              "value": "",
+              "label": "Nastran Version",
+              "options": [
+                "2019_1",
+                "2021_4",
+                "2022_2",
+                "2022_4",
+                "2023_1",
+                "2023_2",
+                "2023_4",
+                "cdhopt_20191_51r297",
+                "cdhopt_20214_52r151",
+                "cdhopt_20222_52r179",
+                "cdhopt_20224_52r188",
+                "cdhopt_20232_52r192",
+                "cdhoptNX_10_2_51r103",
+                "cdhoptNX_1101_51r137",
+                "cdhoptNX_12_51r235",
+                "NX_10_2",
+                "NX_11_0_1",
+                "NX_12",
+                "SC-2020_1",
+                "SC-2021_1"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postprocessor",
+              "value": "",
+              "label": "Post Processor",
+              "options": [
+                "adams_kondensation_hpc_axle_post",
+                "adams_kondensation_hpc_post",
+                "ERP-Mittelung",
+                "femfatModelGenerator",
+                "hpccs_blnv_anim",
+                "hpccs_blnv_evo",
+                "hpcnvh_adamskondensation",
+                "hpcnvh_adamskondensation_axle",
+                "hpcnvh_analyze_runs",
+                "hpcnvh_betriebslasten",
+                "hpcnvh_develop",
+                "hpcnvh_erpmittelung",
+                "hpcnvh_femzip",
+                "hpcnvh_makromodell",
+                "hpcnvh_mlk2",
+                "hpcnvh_moden",
+                "hpcnvh_separam",
+                "hpcnvh_simpackkondensation",
+                "hpcnvh_ssa",
+                "hpcnvh_statik_tl",
+                "hpcnvh_via",
+                "hpcnvh_vl1",
+                "No Postprocess",
+                "nvh_a4dbgen_hpc_post",
+                "simpack_kondensation_hpc_post"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postversions",
+              "value": "",
+              "label": "Post Processor Version",
+              "options": [
+                "integ",
+                "previous",
+                "prod",
+                "test"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "ncpus",
+              "value": "",
+              "label": "CPUs",
+              "options": [
+                "1",
+                "6",
+                "8",
+                "16",
+                "64",
+                "6-8",
+                "48-64"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "nastranMemory",
+              "value": "",
+              "label": "Memory",
+              "options": [
+                "50%",
+                "max",
+                "no mem"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "diskSpace",
+              "value": "",
+              "label": "DiskSpace (GB)",
+              "options": [
+                "auto",
+                "100",
+                "200",
+                "400",
+                "500",
+                "950",
+                "1500",
+                "2800",
+                "4000",
+                "5600"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "applOptions",
+              "value": "",
+              "label": "Application Options",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "smpCpus",
+              "value": "",
+              "label": "smp Cores",
+              "options": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+                "32",
+                "33",
+                "34",
+                "35",
+                "36",
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45",
+                "46",
+                "47",
+                "48",
+                "49",
+                "50",
+                "51",
+                "52",
+                "53",
+                "54",
+                "55",
+                "56",
+                "57",
+                "58",
+                "59",
+                "60",
+                "61",
+                "62",
+                "63",
+                "64"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "dmpCpus",
+              "value": "",
+              "label": "dmp Cores",
+              "options": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "jobMemory",
+              "value": "",
+              "label": "Job Memory(GB)",
+              "options": [
+                "170",
+                "330"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "i8Solver",
+              "value": "False",
+              "label": "i8-Solver",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "includeCheckerMode",
+              "value": "",
+              "label": "Include Checker Mode",
+              "options": [
+                "disabled",
+                "recursive",
+                "simple",
+                "simple;insert=simpleinsert"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "parallelModeAcms",
+              "value": "",
+              "label": "ACMS parallel mode",
+              "options": [
+                "disabled",
+                "enabled"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "saveDatabase",
+              "value": "",
+              "label": "Save Database",
+              "options": [
+                "minimal",
+                "yes",
+                "no"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runTime",
+              "value": "",
+              "label": "Run time",
+              "options": [
+                "24 hours",
+                "anrechnen",
+                "unlimited"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "jobName",
+              "value": "",
+              "label": "Job name",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "startAfterJob",
+              "value": "",
+              "label": "Start after job",
+              "variable-mode": false,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": false
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useGPU",
+              "value": "",
+              "label": "Use GPU",
+              "options": [
+                "no",
+                "1 GPU",
+                "2 GPU"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "localOP2format",
+              "value": "False",
+              "label": "Local OP2 Format",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "femfatCoupling",
+              "value": "False",
+              "label": "Femfat Coupling",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runAtNight",
+              "value": "False",
+              "label": "Run at Night",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "mailAtEndOfJob",
+              "value": "False",
+              "label": "Mail at End of Job",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "useFileServer",
+              "value": "False",
+              "label": "Use FileServer",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "noSubmit",
+              "value": "False",
+              "label": "No Submit",
+              "options": [
+                "True",
+                "False"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "variable-mode": false,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.1",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_nastran",
+            "css": {
+              "background-color": "#e53b41",
+              "background-image": "/images/wf/hpc_nastran.svg",
+              "label": "data(name)"
+            }
+          },
+          {
+            "selector": ".wfe_nastran.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/hpc_nastran-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Optistruct",
+      "icon": "images/wf/hpc_optistruct.png",
+      "element": {
+        "data": {
+          "name": "Optistruct",
+          "key": "wfe_optistruct",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_io",
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_transfer_location"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "modelFile",
+              "value": "",
+              "label": "Input Model File",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "server-file-explorer",
+              "name": "inputFiles",
+              "value": "",
+              "label": "Input Files",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "text",
+              "name": "resultFolder",
+              "value": "{{Job.WorkingDir}}",
+              "label": "Result Folder",
+              "variable-mode": true,
+              "editable": true,
+              "sortable": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "project",
+              "value": "",
+              "label": "Hpc Project",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/data/sge/user/simuspace/type/optistruct",
+              "canBeEmpty": true,
+              "variable-mode": false,
+              "changeOnRun": true,
+              "multiple": false,
+              "sortable": true,
+              "editable": true,
+              "picker": {
+                "liveSearch": true
+              }
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "ncpu",
+              "value": "28",
+              "label": "Number of Cores",
+              "options": [
+                "1",
+                "2",
+                "4",
+                "8",
+                "16",
+                "64"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "jobMemory",
+              "value": "110",
+              "label": "Job Memory (GB)",
+              "options": [
+                "170",
+                "230",
+                "340",
+                "450",
+                "910"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "diskSpace",
+              "value": "100",
+              "label": "Disk Memory (GB)",
+              "options": [
+                "100",
+                "150",
+                "200",
+                "400",
+                "950",
+                "1000",
+                "1500"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "versions",
+              "value": "V2017",
+              "label": "Application Version",
+              "options": [
+                "V2017",
+                "V2020.1",
+                "V2021",
+                "V2021.1",
+                "V2021.2",
+                "V2022",
+                "V2022.1",
+                "V2022.2",
+                "V2022.3",
+                "V2023",
+                "V2023.1"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": true,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "solverType",
+              "value": "Optimization",
+              "label": "Solver Type",
+              "options": [
+                "FE-Analysis",
+                "Optimization"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postprocessor",
+              "value": "No Postprocess",
+              "label": "Post Processor",
+              "options": [
+                "exo_post",
+                "hpcnvh_exo",
+                "hpcnvh_kl_optim",
+                "hpcnvh_moden_optim",
+                "hpcnvh_statik_fs",
+                "hpcnvh_statik_optim",
+                "hpcnvh_statik_sh",
+                "hpcnvh_statik_sz",
+                "hpcnvh_statik_tg",
+                "hpcnvh_statik_tl",
+                "hpcnvh_synlf_optim",
+                "No Postprocess",
+                "nvh_a4dbgen_hpc_post"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "postversions",
+              "value": "",
+              "label": "Post Version",
+              "options": [
+                "alt",
+                "prod",
+                "test"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "includeCheckerMode",
+              "value": "simple",
+              "label": "Inlcude Checker Mode",
+              "options": [
+                "simple",
+                "recursive (1 level)",
+                "recursive",
+                "disabled"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "optistructExecFile",
+              "value": "no special executable",
+              "label": "Executable",
+              "options": [
+                "(no special executable)",
+                "/share/ams/hw/special_executables/optistruct_osmdl_Linux_e64_os64_blas_H14_R20",
+                "/share/ams/hw/special_executables/optistruct_2022mdl20230405_linux64",
+                "/share/ams/hw/special_executables/optistruct_2021.1mdl_linux64",
+                "/share/ams/hw/special_executables/optistruct_2021.1mdl_linux64_impi",
+                "/share/ams/hw/special_executables/optistruct_2022mdl20230405_linux64_impi",
+                "/share/ams/hw/special_executables/optistruct_osmdl_Linux_e64_os64_blas_H14_R20_2",
+                "/share/ams/hw/special_executables/optistruct_osmdl_Linux_e64_os64_blas_H14_mpi6_R20",
+                "/share/ams/hw/special_executables/optistruct_osmdl_Linux_e64_os64_blas_H14_mpi6_R20_2"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "analysisMode",
+              "value": "SMP",
+              "label": "Analysis Mode",
+              "options": [
+                "SMP",
+                "MMO",
+                "DDM"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "type": "text",
+              "mode": "user",
+              "sortable": "true",
+              "variable-mode": "",
+              "label": "applOptions",
+              "name": "applOptions",
+              "tooltip": "",
+              "value": "",
+              "editable": true,
+              "rules": {
+                "required": false
+              },
+              "changeOnRun": false
+            },
+            {
+              "mode": "user",
+              "type": "select",
+              "name": "runtime",
+              "value": "unlimited",
+              "label": "Run Time",
+              "options": [
+                "unlimited",
+                "180 minutes"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "type": "text",
+              "mode": "user",
+              "sortable": "true",
+              "variable-mode": "",
+              "label": "Job name",
+              "name": "jobName",
+              "tooltip": "",
+              "value": "",
+              "editable": true,
+              "rules": {
+                "required": false
+              },
+              "changeOnRun": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "datacheck",
+              "value": false,
+              "label": "Data Check",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "mailAtEndOfJob",
+              "value": false,
+              "label": "Send Email at Job End",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "runAtNight",
+              "value": false,
+              "label": "Run at Night",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "masterOnBigNode",
+              "value": false,
+              "label": "Master On Big Node",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "useFileServer",
+              "value": false,
+              "label": "Use Fileserver",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            },
+            {
+              "mode": "user",
+              "type": "boolean",
+              "name": "noSubmit",
+              "value": false,
+              "label": "No Submit",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": true,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": true,
+              "variable-mode": false
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.1",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_optistruct",
+            "css": {
+              "background-color": "#e53b41",
+              "background-image": "/images/wf/hpc_optistruct.svg",
+              "label": "data(name)"
+            }
+          },
+          {
+            "selector": ".wfe_optistruct.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/hpc_optistruct-error.svg"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

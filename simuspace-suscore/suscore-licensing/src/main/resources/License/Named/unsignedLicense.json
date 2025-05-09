@@ -1,0 +1,30 @@
+{
+  "customer": "OSU",
+  "vendor": "SOCO",
+  "reseller": "SOCO",
+  "type": "Eval",
+  "module": "SIMuSPACE.DATA",
+  "userLimit": {
+    "allowedUsers": 5,
+    "restrictedUsers": 2
+  },
+  "addons": {
+    "Location": 1000,
+    "archive": true
+  },
+  "features": [
+    "Root",
+    "System",
+    "Users",
+    "Role",
+    "Groups",
+    "Data",
+    "License",
+    "Directories",
+    "Permissions",
+    "Audit Logs"
+  ],
+  "licenseType": "named",
+  "expiryTime": "2021-12-31T16:22:46+05:00",
+  "macAddress": "32:CE:D3:50:EB:B7"
+}

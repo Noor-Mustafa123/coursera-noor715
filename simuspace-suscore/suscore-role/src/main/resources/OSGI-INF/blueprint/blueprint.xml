@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+	<service id="roleManagerImpl" interface="de.soco.software.simuspace.suscore.role.manager.RoleManager" ref="roleManager" />
+	<service interface="de.soco.software.simuspace.suscore.role.dao.RoleDAO" ref="roleDAO" />
+	<!-- ########################### External Services Imports ################################ -->
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+	<reference id="userManager" interface="de.soco.software.simuspace.suscore.user.manager.UserManager" />
+	<reference id="userGroupManager" interface="de.soco.software.simuspace.suscore.user.manager.UserGroupManager" />
+	<reference id="contextMenuManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" />
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+	<reference id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="roleSusCoreService" address="/system/permissions/role">
+		<jaxrs:serviceBeans>
+			<ref component-id="roleServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<bean id="roleServiceBean" class="de.soco.software.simuspace.suscore.role.service.rest.impl.RoleServiceImpl">
+		<property name="roleManager" ref="roleManager" />
+	</bean>
+
+	<bean id="roleManager" class="de.soco.software.simuspace.suscore.role.manager.impl.RoleManagerImpl" init-method="init">
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="userManager" ref="userManager" />
+		<property name="userGroupManager" ref="userGroupManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="roleDAO" ref="roleDAO" />
+		<property name="groupRoleDAO" ref="groupRoleDAO" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="roleDAO" class="de.soco.software.simuspace.suscore.role.dao.impl.RoleDAOImpl">
+	</bean>
+
+	<bean id="groupRoleDAO" class="de.soco.software.simuspace.suscore.role.dao.impl.GroupRoleDAOImpl">
+	</bean>
+
+</blueprint>

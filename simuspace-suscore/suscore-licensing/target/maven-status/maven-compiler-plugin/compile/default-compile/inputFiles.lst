@@ -1,0 +1,16 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/service/rest/LicenseConfigurationService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/utils/ConstantsLicenseConfigurationServiceEndPoints.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/impl/LicenseConfigurationManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/dao/MonitorLicenseDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/model/LicenseForm.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/impl/MonitorLicenseManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/dao/impl/MonitorLicenseDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/impl/LicenseManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/LicenseManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/dao/impl/LicenseFeatureDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/service/rest/impl/LicenseConfigurationServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/MonitorLicenseManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/manager/LicenseConfigurationManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/model/LicenseManageForm.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/model/UserLicensesDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-licensing/src/main/java/de/soco/software/simuspace/suscore/license/dao/LicenseFeatureDAO.java

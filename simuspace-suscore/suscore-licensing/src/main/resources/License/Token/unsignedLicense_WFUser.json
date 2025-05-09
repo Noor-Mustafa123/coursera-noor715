@@ -1,0 +1,21 @@
+{
+  "customer": "OSU",
+  "vendor": "SOCO",
+  "reseller": "SOCO",
+  "type": "Eval",
+  "module": "SIMuSPACE.workflow-user",
+  "userLimit": {
+    "allowedUsers": 5,
+    "restrictedUsers": 1
+  },
+  "addons": {
+    "Location": 500,
+    "archive": true
+  },
+  "features": [
+    "user"
+  ],
+  "licenseType": "token",
+  "expiryTime": "2021-12-31T16:22:46+05:00",
+  "macAddress": "32:CE:D3:50:EB:B7"
+}

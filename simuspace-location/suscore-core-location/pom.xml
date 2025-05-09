@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-location</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-core-location</artifactId>
+	<packaging>bundle</packaging>
+
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-simflow-wfengine</artifactId>
+			<version>${project.version}</version>
+			<!-- <systemPath>../simuspace-suscore</systemPath> -->
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-executor</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Export-Package>
+							de.soco.software.simuspace.suscore.core.*
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

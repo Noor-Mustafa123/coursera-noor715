@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+
+	<changeSet author="sces117" id="delete-table">
+		<sql>DROP TABLE IF EXISTS abaqus_schema, about, acl_class, acl_entry, acl_object_identity, acl_sid, audit_log, category, cb2_node,
+			cb2_object, custom_attributes, dataobject_attachments, design_variable_label, design_variables, document_location, dummy_file,
+			dummy_type, favorite, group_roles, groups, hibernate_sequences, job_ids, language, license, license_feature, license_user,
+			loadcase_wizard, location, login_attempt, object_json_schema, objective_variables, object_view, plugin, relation, role, schedule_entity,
+			scheme_option_schema, section, section_objects, submit_loadcase, sus_job_token, sus_user_token, suscore_session, susentity,
+			susentity_groups, susentity_users, table_selection, table_selectionitems, user_directory, user_directory_attribute, user_entity,
+			user_entity_detail, user_groups, user_url, variant_wizard, wf_custom_attributes, widgets, workflow_category, workflow_location CASCADE
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>
+ 
+ 
+ 

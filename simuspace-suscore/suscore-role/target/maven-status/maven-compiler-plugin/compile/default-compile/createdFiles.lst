@@ -1,0 +1,11 @@
+de/soco/software/simuspace/suscore/role/constants/ConstantsPermissions.class
+de/soco/software/simuspace/suscore/role/service/rest/impl/RoleServiceImpl.class
+de/soco/software/simuspace/suscore/role/dao/impl/PermissionsDAOQueries.class
+de/soco/software/simuspace/suscore/role/dao/impl/RoleDAOImpl.class
+de/soco/software/simuspace/suscore/role/dao/GroupRoleDAO.class
+de/soco/software/simuspace/suscore/role/dao/RoleDAO.class
+de/soco/software/simuspace/suscore/role/service/rest/RoleService.class
+de/soco/software/simuspace/suscore/role/model/RoleDTO.class
+de/soco/software/simuspace/suscore/role/dao/impl/GroupRoleDAOImpl.class
+de/soco/software/simuspace/suscore/role/manager/impl/RoleManagerImpl.class
+de/soco/software/simuspace/suscore/role/manager/RoleManager.class

@@ -1,0 +1,12 @@
+de/soco/software/simuspace/susdash/project/manager/ProjectDashboardManager.class
+de/soco/software/simuspace/susdash/project/service/rest/ProjectDashboardService.class
+de/soco/software/simuspace/susdash/project/model/ProjectClassificationCache.class
+de/soco/software/simuspace/susdash/project/service/rest/impl/ProjectDashboardServiceImpl.class
+de/soco/software/simuspace/susdash/project/model/ProjectStructureTupleWrapper.class
+de/soco/software/simuspace/susdash/project/model/LifecycleTableDTO.class
+de/soco/software/simuspace/susdash/project/constants/ProjectDashboardConstants.class
+de/soco/software/simuspace/susdash/project/model/ProjectStructureTableCell.class
+de/soco/software/simuspace/susdash/project/util/ProjectDashboardUtil.class
+de/soco/software/simuspace/susdash/project/threads/UpdateClassificationDashboardsThread.class
+de/soco/software/simuspace/susdash/project/helper/FilterHelper.class
+de/soco/software/simuspace/susdash/project/manager/impl/ProjectDashboardManagerImpl.class

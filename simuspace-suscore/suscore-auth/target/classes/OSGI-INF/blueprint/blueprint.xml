@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<service id="authManagerImpl" interface="de.soco.software.simuspace.suscore.authentication.manager.AuthManager" ref="authManager" />
+
+	<reference id="WSService" interface="de.soco.software.simuspace.suscore.notification.service.rest.WSService" />
+
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+
+	<reference id="userManager" interface="de.soco.software.simuspace.suscore.user.manager.UserManager" />
+
+	<reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager" />
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="roleManager" interface="de.soco.software.simuspace.suscore.role.manager.RoleManager" />
+
+	<reference id="userLoginAttemptDAO" interface="de.soco.software.simuspace.suscore.user.dao.UserLoginAttemptDAO" />
+
+	<reference id="userDetailDAO" interface="de.soco.software.simuspace.suscore.user.dao.UserDetailDAO" />
+
+	<reference id="userDAO" interface="de.soco.software.simuspace.suscore.user.dao.UserDAO" />
+
+	<reference id="userGroupManager" interface="de.soco.software.simuspace.suscore.user.manager.UserGroupManager" />
+
+	<reference id="customSessionDAO" interface="de.soco.software.simuspace.suscore.interceptors.shiro.dao.CustomSessionDAO" />
+
+	<reference id="ldapCustomAuthRealm"
+		interface="de.soco.software.simuspace.suscore.auth.connect.ldap.authentication.LdapCustomAuthRealm" />
+
+	<reference id="activeDirectoryCustomRealm"
+		interface="de.soco.software.simuspace.suscore.auth.connect.ad.authentication.ActiveDirectoryCustomRealm" />
+
+	<!-- DirectoryDAO import -->
+	<reference id="directoryDAO" interface="de.soco.software.simuspace.suscore.user.dao.DirectoryDAO"/>
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- DirectoryManager import	-->
+	<reference id="directoryManager" interface="de.soco.software.simuspace.suscore.user.manager.DirectoryManager"/>
+	<!-- ############################################# Simuspace BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus_skip">
+		<cxf:features>logging</cxf:features>
+	</cxf:bus>
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="userAuthService" address="/auth">
+		<jaxrs:serviceBeans>
+			<ref component-id="userAuthServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="userPasswordService" address="/user">
+		<jaxrs:serviceBeans>
+			<ref component-id="userAuthServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="oauth2bmw" address="/oauth2bmw">
+		<jaxrs:serviceBeans>
+			<ref component-id="bmwOAuth2ServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="oauthServiceImpl" address="/oauth">
+		<jaxrs:serviceBeans>
+			<ref component-id="oauthServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="cb2Service" address="/cb2login">
+		<jaxrs:serviceBeans>
+			<ref component-id="cb2ServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Beans ############################################# -->
+
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+	<bean id="bmwOAuth2ServiceBean" class="de.soco.software.simuspace.suscore.authentication.service.rest.impl.BMWOAuth2ServiceImpl">
+		<property name="userAuthServiceBean" ref="userAuthServiceBean" />
+	</bean>
+
+	<!-- OAuthServiceImpl Bean -->
+	<bean id="oauthServiceBean" class="de.soco.software.simuspace.suscore.authentication.service.rest.impl.OAuthServiceImpl">
+		<property name="directoryDAO" ref="directoryDAO"/>
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+		<property name="authService" ref="userAuthServiceBean"/>
+		<property name="directoryManager" ref="directoryManager"/>
+	</bean>
+
+  <!--	CB2Service Bean -->
+  <bean id="cb2ServiceBean" class="de.soco.software.simuspace.suscore.authentication.service.rest.impl.CB2AuthServiceImpl">
+		<property name="authService" ref="userAuthServiceBean"/>
+  </bean>
+
+	<bean id="userAuthServiceBean" class="de.soco.software.simuspace.suscore.authentication.service.rest.impl.AuthServiceImpl"
+		init-method="init">
+		<property name="userManager" ref="userManager" />
+		<property name="authManager" ref="authManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="suSshiroAuthentication" ref="suSshiroAuthentication" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="userTokenManager" ref="tokenManager" />
+		<property name="webSocketService" ref="WSService" />
+		<property name="customAuthorizingRealm" ref="customAuthorizingRealm" />
+		<property name="oidcCustomAuthRealm" ref="oidcCustomAuthRealm" />
+	</bean>
+
+
+	<bean id="authManager" class="de.soco.software.simuspace.suscore.authentication.manager.impl.AuthManagerImpl">
+		<property name="userTokenManager" ref="tokenManager" />
+		<property name="userManager" ref="userManager" />
+		<property name="suSshiroAuthentication" ref="suSshiroAuthentication" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="customAuthorizingRealm" class="de.soco.software.simuspace.suscore.authentication.CustomAuthorizingRealm">
+		<property name="userManager" ref="userManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="roleManager" ref="roleManager" />
+		<property name="userLoginAttemptDAO" ref="userLoginAttemptDAO" />
+		<property name="userDetailDAO" ref="userDetailDAO" />
+		<property name="userDAO" ref="userDAO" />
+		<property name="userGroupManager" ref="userGroupManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="oidcCustomAuthRealm" class="de.soco.software.simuspace.suscore.authentication.OIDCCustomAuthRealm">
+		<property name="userManager" ref="userManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="roleManager" ref="roleManager" />
+		<property name="userLoginAttemptDAO" ref="userLoginAttemptDAO" />
+		<property name="userDetailDAO" ref="userDetailDAO" />
+		<property name="userDAO" ref="userDAO" />
+		<property name="userGroupManager" ref="userGroupManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="suSshiroAuthentication" class="de.soco.software.simuspace.suscore.authentication.SuSshiroAuthentication"
+		init-method="loadShiroConfiguration">
+		<property name="customSessionDAO" ref="customSessionDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+</blueprint>

@@ -1,0 +1,39 @@
+{
+  "ffmpeg": [
+    {
+      "input": "avi",
+      "output": {
+        "mp4": "ffmpeg -i [input] -vcodec h264 -preset ultrafast -hide_banner -loglevel error -threads 1 [output].mp4",
+        "webm": "ffmpeg -i [input] -vcodec libvpx -preset ultrafast -hide_banner -loglevel error -threads 1 [output].webm"
+      }
+    },
+    {
+      "input": "mkv",
+      "output": {
+        "mp4": "ffmpeg -i [input] -vcodec h264 -preset ultrafast -hide_banner -loglevel error -threads 1 [output].mp4",
+        "webm": "ffmpeg -i [input] -vcodec libvpx -preset ultrafast -hide_banner -loglevel error -threads 1 [output].webm"
+      }
+    },
+    {
+      "input": "mp4",
+      "output": {
+        "mp4": "ffmpeg -y -i [input] -vcodec h264 -preset ultrafast -hide_banner -loglevel error -threads 1 [output].mp4",
+        "webm": "ffmpeg -i [input] -vcodec libvpx -preset ultrafast -hide_banner -loglevel error -threads 1 [output].webm"
+      }
+    },
+    {
+      "input": "webm",
+      "output": {
+        "mp4": "ffmpeg -i [input] -vcodec h264 -preset ultrafast -hide_banner -loglevel error -threads 1 [output].mp4",
+        "webm": "ffmpeg -y -i [input] -vcodec libvpx -preset ultrafast -hide_banner -loglevel error -threads 1 [output].webm"
+      }
+    },
+    {
+      "input": "mov",
+      "output": {
+        "mp4": "ffmpeg -i [input] -vcodec h264 -preset ultrafast -hide_banner -loglevel error -threads 1 [output].mp4",
+        "webm": "ffmpeg -i [input] -vcodec libvpx -preset ultrafast -hide_banner -loglevel error -threads 1 [output].webm"
+      }
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+	<service interface="de.soco.software.simuspace.suscore.object.manager.SuSObjectTreeManager" ref="treeManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.object.manager.DataManager" ref="dataManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.object.manager.DataObjectManager" ref="dataObjectManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.object.manager.DataProjectManager" ref="dataProjectManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.object.dao.SubmitLoadcaseDAO" ref="submitLoadcaseDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.TranslationDAO" ref="translationDAO">
+	</service>
+
+	<!-- ############################################# External Services Imports ############################################# -->
+
+	<reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager" />
+
+	<reference id="ldapCustomAuthRealm"
+		interface="de.soco.software.simuspace.suscore.auth.connect.ldap.authentication.LdapCustomAuthRealm" />
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+
+	<reference id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+
+	<reference id="documentManager" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager" />
+
+	<reference id="contextMenuManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" />
+
+	<reference id="jobManager" interface="de.soco.software.simuspace.server.manager.JobManager" />
+
+	<reference id="workflowManager" interface="de.soco.software.simuspace.server.manager.WorkflowManager" />
+
+	<reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" />
+
+	<reference id="linkDao" interface="de.soco.software.simuspace.suscore.core.dao.LinkDAO" />
+
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+
+	<reference id="lifeCycleManager" interface="de.soco.software.simuspace.suscore.lifecycle.manager.LifeCycleManager" />
+
+	<reference id="objectTypeConfigCacheManager"
+		interface="de.soco.software.simuspace.suscore.lifecycle.manager.ObjectTypeConfigManager" />
+
+	<reference id="threadPoolExecutorService"
+		interface="de.soco.software.simuspace.suscore.executor.service.ThreadPoolExecutorService" />
+
+	<reference id="locationManager" interface="de.soco.software.simuspace.suscore.location.manager.LocationManager" />
+
+	<reference id="contextMenuRelationDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.ContextMenuRelationDAO" />
+
+	<reference-list id="clickManagers" availability="optional"
+		interface="de.soco.software.simuspace.suscore.data.manager.base.ClickManager" />
+
+	<reference id="authManager" interface="de.soco.software.simuspace.suscore.authentication.manager.AuthManager" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<reference id="translationDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.TranslationDAO" />
+
+	<reference id="jobDao" interface="de.soco.software.simuspace.suscore.data.common.dao.JobDAO" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+	<reference id="auditManager" interface="de.soco.software.simuspace.suscore.data.manager.base.AuditLogManager" />
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+
+	<jaxrs:server id="treeService" address="/object-tree">
+		<jaxrs:serviceBeans>
+			<ref component-id="objectTreeServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="routerService" address="/ui/router">
+		<jaxrs:serviceBeans>
+			<ref component-id="routerServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="auditLogService" address="/system/auditlog">
+		<jaxrs:serviceBeans>
+			<ref component-id="auditLogServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="dataService" address="/data">
+		<jaxrs:serviceBeans>
+			<ref component-id="dataServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="dataProjectService" address="/data/project">
+		<jaxrs:serviceBeans>
+			<ref component-id="dataProjectServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="dataObjectService" address="/data/object">
+		<jaxrs:serviceBeans>
+			<ref component-id="dataObjectServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="dataDashboardService" address="/data/dashboard">
+		<jaxrs:serviceBeans>
+			<ref component-id="dataDashboardServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="breadCrumbService" address="/breadcrumb">
+		<jaxrs:serviceBeans>
+			<ref component-id="breadCrumbServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="bookmarkService" address="/bookmark">
+		<jaxrs:serviceBeans>
+			<ref component-id="bookmarkServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="reportService" address="/report">
+		<jaxrs:serviceBeans>
+			<ref component-id="reportServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="auditTrailService" address="/trail">
+		<jaxrs:serviceBeans>
+			<ref component-id="auditTrailServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="oilsWellServiceServer" address="/oilwell/">
+		<jaxrs:serviceBeans>
+			<ref component-id="oilsWellServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+	<!-- ################################ Oils Well service Beans ################################## -->
+
+	<bean id="oilsWellServiceBean" class="de.soco.software.simuspace.suscore.object.oilswell.service.rest.impl.OilsWellServiceImpl">
+		<property name="oilsWellManager" ref="oilsWellManager" />
+	</bean>
+
+	<!-- ################################ Oils Well manager Beans ################################## -->
+
+	<bean id="oilsWellManager" class="de.soco.software.simuspace.suscore.object.oilswell.manager.impl.OilsWellManagerImpl">
+		<property name="threadPoolExecutorService" ref="threadPoolExecutorService" />
+	</bean>
+	<!-- ################################ Oils Well dao Beans ################################## -->
+
+	<!-- ################################ Report service Beans ################################## -->
+	<bean id="reportServiceBean" class="de.soco.software.simuspace.suscore.object.report.service.impl.ReportServiceImpl">
+		<property name="reportManager" ref="reportManager" />
+	</bean>
+
+	<!-- ################################ Report manager Beans ################################## -->
+	<bean id="reportManager" class="de.soco.software.simuspace.suscore.object.report.manager.impl.ReportManagerImpl">
+		<property name="reportDAO" ref="reportDAO" />
+		<property name="sectionDAO" ref="sectionDAO" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="sectionObjectDAO" ref="sectionObjectDAO" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="dataObjectManager" ref="dataObjectManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- ################################ Report dao Beans ################################## -->
+	<bean id="reportDAO" class="de.soco.software.simuspace.suscore.object.report.dao.impl.ReportDAOImpl">
+	</bean>
+
+	<bean id="sectionDAO" class="de.soco.software.simuspace.suscore.object.report.dao.impl.SectionDAOImpl">
+	</bean>
+
+	<bean id="sectionObjectDAO" class="de.soco.software.simuspace.suscore.object.report.dao.impl.SectionObjectDAOImpl">
+	</bean>
+
+	<bean id="scheduleDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.ScheduleDAOImpl">
+	</bean>
+
+	<!-- <reference id="tokenManager" interface="de.soco.software.simuspace.simcore.interceptors.manager.UserTokenManager" /> -->
+	<!-- ############################################# Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+	</bean>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor">
+	</bean>
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor">
+	</bean>
+
+	<bean id="objectTreeServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.SuSObjectTreeServiceImpl">
+		<property name="treeManager" ref="treeManager" />
+	</bean>
+
+	<bean id="routerServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.SuSRouterServiceImpl">
+	</bean>
+
+	<bean id="auditLogServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.AuditLogServiceImpl">
+		<property name="auditLogManager" ref="auditManager" />
+	</bean>
+
+	<bean id="dataServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.DataServiceImpl">
+		<property name="dataManager" ref="dataManager" />
+	</bean>
+
+	<bean id="dataObjectServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.DataObjectServiceImpl">
+		<property name="dataObjectManager" ref="dataObjectManager" />
+	</bean>
+
+	<bean id="dataDashboardServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.DataDashboardServiceImpl">
+		<property name="dataDashboardManager" ref="dataDashboardManager" />
+	</bean>
+
+	<bean id="dataProjectServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.DataProjectServiceImpl">
+		<property name="dataProjectManager" ref="dataProjectManager" />
+	</bean>
+
+	<bean id="auditTrailServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.AuditTrailServiceImpl">
+		<property name="auditTrailManager" ref="auditTrailManager" />
+	</bean>
+
+	<bean id="breadCrumbServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.BreadCrumbServiceImpl">
+		<property name="breadCrumbManager" ref="breadCrumbManager" />
+	</bean>
+
+	<bean id="bookmarkServiceBean" class="de.soco.software.simuspace.suscore.object.service.rest.impl.BookmarkServiceImpl">
+		<property name="bookmarkManager" ref="bookmarkManager" />
+	</bean>
+
+	<bean id="breadCrumbManager" class="de.soco.software.simuspace.suscore.object.manager.impl.BreadCrumbManagerImpl">
+		<property name="susDAO" ref="susDAO" />
+		<property name="jobDao" ref="jobDao" />
+		<property name="treeManager" ref="treeManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="auditTrailManager" class="de.soco.software.simuspace.suscore.object.manager.impl.AuditTrailManagerImpl">
+		<property name="susDAO" ref="susDAO" />
+		<property name="jobManager" ref="jobManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="dataObjectManager" ref="dataObjectManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="translationDAO" ref="translationDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="dataManager" class="de.soco.software.simuspace.suscore.object.manager.impl.DataManagerImpl" init-method="init">
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="linkDao" ref="linkDao" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="translationDAO" ref="translationDAO" />
+		<property name="documentManager" ref="documentManager" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="jobManager" ref="jobManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="threadPoolExecutorService" ref="threadPoolExecutorService" />
+		<property name="locationManager" ref="locationManager" />
+		<property name="tokenManager" ref="tokenManager" />
+		<property name="previewManager" ref="previewManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="dataObjectManager" class="de.soco.software.simuspace.suscore.object.manager.impl.DataObjectManagerImpl">
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="dataDAO" ref="dataDAO" />
+		<property name="linkDao" ref="linkDao" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="translationDAO" ref="translationDAO" />
+		<property name="documentManager" ref="documentManager" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="jobManager" ref="jobManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="threadPoolExecutorService" ref="threadPoolExecutorService" />
+		<property name="auditLogManager" ref="auditManager" />
+		<property name="locationManager" ref="locationManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataManager" ref="dataManager" />
+		<property name="previewManager" ref="previewManager" />
+		<property name="dataProjectManager" ref="dataProjectManager" />
+		<property name="dataDashboardManager" ref="dataDashboardManager" />
+	</bean>
+
+	<bean id="bookmarkManager" class="de.soco.software.simuspace.suscore.object.manager.impl.BookmarkManagerImpl">
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="bookmarkDAO" ref="bookmarkDAO" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="workflowManager" ref="workflowManager" />
+		<property name="dataObjectManager" ref="dataObjectManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="dataDashboardManager" class="de.soco.software.simuspace.suscore.object.manager.impl.DataDashboardManagerImpl">
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="dataProjectManager" class="de.soco.software.simuspace.suscore.object.manager.impl.DataProjectManagerImpl" >
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="dataDAO" ref="dataDAO" />
+		<property name="linkDao" ref="linkDao" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="translationDAO" ref="translationDAO" />
+		<property name="documentManager" ref="documentManager" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="locationManager" ref="locationManager" />
+		<property name="breadCrumbManager" ref="breadCrumbManager" />
+		<property name="dataDashboardManager" ref="dataDashboardManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="previewManager" class="de.soco.software.simuspace.suscore.object.manager.impl.PreviewManagerImpl">
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="documentManager" ref="documentManager" />
+		<property name="threadPoolExecutorService" ref="threadPoolExecutorService" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="treeManager" class="de.soco.software.simuspace.suscore.object.manager.impl.SuSObjectTreeManagerImpl"
+		init-method="bootloading">
+		<property name="susDAO" ref="susDAO" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="clickManagers" ref="clickManagers" />
+		<property name="bmwDAO" ref="bmwDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="jobDao" ref="jobDao" />
+	</bean>
+
+
+	<bean id="LifeCyclePolicyManager" class="de.soco.software.simuspace.suscore.object.manager.impl.LifeCyclePolicyManagerImpl"
+		init-method="init" destroy-method="destroy">
+		<property name="dataManager" ref="dataManager" />
+		<property name="lifeCycleManager" ref="lifeCycleManager" />
+		<property name="configManager" ref="objectTypeConfigCacheManager" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="dataDAO" ref="dataDAO" />
+		<property name="threadPoolExecutorService" ref="threadPoolExecutorService" />
+		<property name="scheduleDAO" ref="scheduleDAO" />
+		<property name="jobManager" ref="jobManager" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="tokenManager" ref="tokenManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="submitLoadcaseDAO" ref="submitLoadcaseDAO" />
+		<property name="authManager" ref="authManager" />
+		<property name="ldapAuthRealm" ref="ldapCustomAuthRealm" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="dataDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.DataDAOImpl">
+	</bean>
+
+	<bean id="bmwDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.BmwDAOImpl">
+	</bean>
+
+	<bean id="projectDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.ProjectDAOImpl">
+	</bean>
+
+	<bean id="variantDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.VariantDAOImpl">
+	</bean>
+
+	<bean id="submitLoadcaseDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.SubmitLoadcaseDAOImpl">
+	</bean>
+
+	<bean id="bookmarkDAO" class="de.soco.software.simuspace.suscore.object.dao.impl.BookmarkDAOImpl">
+	</bean>
+
+</blueprint>

@@ -1,0 +1,170 @@
+{
+	"customViews": [
+		{
+			"name": "My Jobs",
+			"objectViewKey": "hpc-table-view-key",
+			"objectViewType": "table",
+			"defaultView": true,
+			"settings": {
+				"draw": 1,
+				"start": 0,
+				"length": 10,
+				"columns": [
+					{
+						"name": "JB_job_number",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 0
+					},
+					{
+						"name": "JB_name",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 1
+					},
+					{
+						"name": "JB_owner",
+						"visible": true,
+						"dir": "asc",
+						"filters": [
+							{
+								"operator": "Equals",
+								"value": "{{currentUser}}",
+								"from": null,
+								"to": null,
+								"condition": "AND",
+								"selection": null
+							}
+						],
+						"reorder": 2
+					},
+					{
+						"name": "JB_project",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 3
+					},
+					{
+						"name": "submittime",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 4
+					},
+					{
+						"name": "slots",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 5
+					},
+					{
+						"name": "queue_name",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 6
+					},
+					{
+						"name": "@state",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 7
+					}
+				],
+				"search": ""
+			}
+		},
+		{
+			"name": "LsDyna",
+			"objectViewKey": "hpc-table-view-key",
+			"objectViewType": "table",
+			"defaultView": false,
+			"settings": {
+				"draw": 4,
+				"start": 0,
+				"length": 100,
+				"columns": [
+					{
+						"name": "JB_job_number",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 0
+					},
+					{
+						"name": "JB_name",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 1
+					},
+					{
+						"name": "JB_owner",
+						"visible": true,
+						"dir": "asc",
+						"filters": null,
+						"reorder": 2
+					},
+					{
+						"name": "JB_project",
+						"visible": true,
+						"dir": null,
+						"filters": [
+							{
+								"operator": "Contains",
+								"value": "dyna",
+								"from": null,
+								"to": null,
+								"condition": "AND",
+								"selection": null
+							},
+							{
+								"operator": "Contains",
+								"value": "crash",
+								"from": null,
+								"to": null,
+								"condition": "OR",
+								"selection": null
+							}
+						],
+						"reorder": 3
+					},
+					{
+						"name": "submittime",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 4
+					},
+					{
+						"name": "slots",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 5
+					},
+					{
+						"name": "queue_name",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 6
+					},
+					{
+						"name": "@state",
+						"visible": true,
+						"dir": null,
+						"filters": null,
+						"reorder": 7
+					}
+				],
+				"search": ""
+			}
+		}
+	]
+}

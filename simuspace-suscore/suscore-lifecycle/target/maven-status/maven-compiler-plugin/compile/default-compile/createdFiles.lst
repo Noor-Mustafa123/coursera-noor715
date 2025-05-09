@@ -1,0 +1,9 @@
+de/soco/software/simuspace/suscore/lifecycle/manager/LifeCycleManager.class
+de/soco/software/simuspace/suscore/lifecycle/dao/impl/ObjectTypeDAOImpl.class
+de/soco/software/simuspace/suscore/lifecycle/manager/ObjectTypeConfigManager.class
+de/soco/software/simuspace/suscore/lifecycle/constants/ConstantsLifeCycle.class
+de/soco/software/simuspace/suscore/lifecycle/manager/impl/LifeCycleManagerImpl.class
+de/soco/software/simuspace/suscore/lifecycle/model/LifeCycleConfigration.class
+de/soco/software/simuspace/suscore/lifecycle/manager/impl/ObjectTypeConfigManagerImpl.class
+de/soco/software/simuspace/suscore/lifecycle/model/LifeCycleDTO.class
+de/soco/software/simuspace/suscore/lifecycle/dao/ObjectTypeDAO.class

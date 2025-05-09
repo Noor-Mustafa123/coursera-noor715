@@ -1,0 +1,160 @@
+{
+	"guide": [
+		{
+			"name": "the name must be known to Back-end",
+			"properties": [
+				{
+					"corePoolSize": "The number of threads that will be available anytime. These will be created on-demand the first time and remain idle when not on use. Once created, these threads will remain in RAM untill karaf is shutdown",
+					"queueSize": "If all the threads in the corePool are busy, new tasks will be stored in queue. As soon as a thread is available in corePool, a task from queue will be pushed for execution. If queue is full and coreMaxSize has been reached, then the task will be rejected.",
+					"coreMaxSize": "If all the threads in the corePool are busy, and the queue gets full as well, JVM will create new threads if coreMaxSize is greater than corePoolSize. It will not be utilized if the queueSize is very large. The max number of new threads will be coreMaxSize-corePoolSize",
+					"keepAliveTime": "The new threads created for coreMaxSize will be destroyed after remaining idle for the time mentioned here. The threads in corePoolSize are not affected by it"
+				}
+			]
+		}
+	],
+	"pools": [
+		{
+			"name": "Archive",
+			"properties": [
+				{
+					"corePoolSize": 40,
+					"coreMaxSize": 45,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Import",
+			"properties": [
+				{
+					"corePoolSize": 15,
+					"coreMaxSize": 20,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Export",
+			"properties": [
+				{
+					"corePoolSize": 15,
+					"coreMaxSize": 20,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Workflow",
+			"properties": [
+				{
+					"corePoolSize": 45,
+					"coreMaxSize": 47,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"properties": [
+				{
+					"corePoolSize": 50,
+					"coreMaxSize": 55,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Lifecycle",
+			"properties": [
+				{
+					"corePoolSize": 45,
+					"coreMaxSize": 50,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Thumbnail",
+			"properties": [
+				{
+					"corePoolSize": 45,
+					"coreMaxSize": 50,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "ffmpeg",
+			"properties": [
+				{
+					"corePoolSize": 45,
+					"coreMaxSize": 50,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Indexing",
+			"properties": [
+				{
+					"corePoolSize": 45,
+					"coreMaxSize": 50,
+					"keepAliveTime": 300,
+					"queueSize": 1500000
+				}
+			]
+		},
+		{
+			"name": "DynamicHosts",
+			"properties": [
+				{
+					"corePoolSize": 20,
+					"coreMaxSize": 25,
+					"keepAliveTime": 30,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "SystemWorkflow",
+			"properties": [
+				{
+					"corePoolSize": 40,
+					"coreMaxSize": 45,
+					"keepAliveTime": 300,
+					"queueSize": 150000
+				}
+			]
+		},
+		{
+			"name": "Scheme",
+			"properties": [
+				{
+					"corePoolSize": 10,
+					"coreMaxSize": 50,
+					"keepAliveTime": 300,
+					"queueSize": 1
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"properties": [
+				{
+					"corePoolSize": 4,
+					"coreMaxSize": 4,
+					"keepAliveTime": 4,
+					"queueSize": 100
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{ "customer": "BMW",
+  "vendor": "SOCO",
+  "reseller": "SOCO",
+  "type": "Eval",
+  "module":"SIMuSPACE.workflow-manager-post",
+  "userLimit": {
+    "allowedUsers": 1000,
+    "restrictedUsers":1000
+  },
+  "addons": {
+    "Location": 500,
+    "archive": true
+  },
+  "features": ["Post"],
+  "licenseType": "named",
+  "expiryTime": "2021-12-31T16:22:46+05:00",
+  "macAddress": "38:60:77:D6:11:CE"
+} 

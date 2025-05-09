@@ -1,0 +1,59 @@
+{
+	"name": "plugin_role",
+	"routes": [
+		{
+			"url": "system/permissions/roles",
+			"container": "76597708-a578-489f-a465-a5db77a56f5f",
+			"js": "viewsDir/system/permissions/role/overview",
+			"title": null,
+			"type": "table"
+		},
+		{
+			"url": "read/system/permissions/role/{id}",
+			"container": "76597708-a578-489f-a465-a5db77a56f5f",
+			"js": "viewsDir/system/permissions/role/single",
+			"title": null,
+			"type": "single"
+		},
+		{
+			"title": "4100018x4",
+			"url": "create/system/permissions/role",
+			"container": "76597708-a578-489f-a465-a5db77a56f5f",
+			"js": "viewsDir/system/permissions/role/create",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100014x4",
+			"icon": "fa fa-edit",
+			"container": "76597708-a578-489f-a465-a5db77a56f5f",
+			"url": "edit/system/permissions/role/{id}",
+			"type": "tree-context",
+			"className": "RoleDTO",
+			"js": "viewsDir/system/permissions/role/edit"
+		},
+		{
+			"title": "4100006x4",
+			"url": "manage/system/permissions/resource/manage/role/{id}",
+			"icon": "fa fa-edit",
+			"className": "RoleDTO",
+			"js": "viewsDir/system/permissions/role/manage",
+			"type": "tree-context"
+		},
+		{
+			"title": "4100007x4",
+			"icon": "fa fa-trash-o",
+			"url": "delete/system/permissions/role/{id}{?query}",
+			"js": "viewsDir/system/permissions/role/delete",
+			"className": "RoleDTO",
+			"type": "tree-context"
+		},
+		{
+			"url": "system/permissions/role/{id}/groups",
+			"container": "76597708-a578-489f-a465-a5db77a56f5f",
+			"js": "viewsDir/system/permissions/role/overview_role_groups",
+			"type": "table",
+			"className": "SuSUserGroupDTO",
+			"visibility": "both"
+		}
+	]
+}

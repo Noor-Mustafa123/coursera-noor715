@@ -1,0 +1,549 @@
+{
+  "entityConfig": [
+    {
+      "id": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+      "name": "Project",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [
+        "62c4c2f6-15f8-11e7-93ae-92361f002673"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-red",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "62c4c2f6-15f8-11e7-93ae-92361f002673",
+      "name": "Variant",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [
+        "565e990b-fd77-4761-ac5a-d41edf9ae31a",
+        "6fc4c43a-8d34-49f9-8fc7-6a69384b129f",
+        "6fc4c43a-8d34-49f9-8fc7-6a69384b123f",
+        "e381031f-e5d2-4b4e-a3be-fc616e653516",
+        "b13a4c7c-a3a3-4920-82c7-b7b3a2c49ab2",
+        "0d186dbd-c351-46ec-b8cf-acf3b533a98a",
+        "a8fb187f-7a03-4c69-8ed7-59e39facff86",
+        "4370b27c-dba5-4278-92b6-64fb2e23e1a5",
+        "e381031f-e5d2-4b4e-a3be-fc619e653516",
+        "e381031f-e5d2-4b4e-a3be-fc616e653588"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-blue",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "565e990b-fd77-4761-ac5a-d41edf9ae31a",
+      "name": "Loadcase",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [
+        "6fc4c43a-8d34-49f9-8fc7-6a69384b129f",
+        "6fc4c43a-8d34-49f9-8fc7-6a69384b123f",
+        "e381031f-e5d2-4b4e-a3be-fc616e653516",
+        "b13a4c7c-a3a3-4920-82c7-b7b3a2c49ab2",
+        "0d186dbd-c351-46ec-b8cf-acf3b533a98a",
+        "a8fb187f-7a03-4c69-8ed7-59e39facff86",
+        "4370b27c-dba5-4278-92b6-64fb2e23e1a5",
+        "e381031f-e5d2-4b4e-a3be-fc619e653516",
+        "e381031f-e5d2-4b4e-a3be-fc616e653588"
+      ],
+      "links": [],
+      "icon": "fa fa-briefcase font-pink",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "6fc4c43a-8d34-49f9-8fc7-6a69384b123f",
+      "name": "CAD Data",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-yellow",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "6fc4c43a-8d34-49f9-8fc7-6a69384b129f",
+      "name": "Input Data",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-green",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "e381031f-e5d2-4b4e-a3be-fc616e653516",
+      "name": "Result",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectFileDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-blue-steel",
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "All Objects",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "b13a4c7c-a3a3-4920-82c7-b7b3a2c49ab2",
+      "name": "PPO-Movie",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectMovieDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-purple-sharp",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "movie",
+          "title": "Movie",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "0d186dbd-c351-46ec-b8cf-acf3b533a98a",
+      "name": "PPO-Curve",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectCurveDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-grey-mint",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "curve",
+          "title": "curve",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "a8fb187f-7a03-4c69-8ed7-59e39facff86",
+      "name": "PPO-Picture",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectImageDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-purple-sharp",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "e381031f-e5d2-4b4e-a3be-fc616e653588",
+      "name": "PPO-Other",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectFileDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-red-pink",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "4370b27c-dba5-4278-92b6-64fb2e23e1a5",
+      "name": "Report",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectReportDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-blue-hoki",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "Versions",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "e381031f-e5d2-4b4e-a3be-fc619e653516",
+      "name": "Miscellaneous",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataObjectFileDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": true,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-file-image-o font-blue-madison",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "preview",
+          "title": "Preview",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "Properties",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "Metadata",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "Audit",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "Permissions",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

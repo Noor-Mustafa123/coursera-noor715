@@ -1,0 +1,5 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-rights/src/main/java/de/soco/software/simuspace/suscore/rights/model/RightsListDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-rights/src/main/java/de/soco/software/simuspace/suscore/rights/service/rest/impl/RightsServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-rights/src/main/java/de/soco/software/simuspace/suscore/rights/manager/RightsManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-rights/src/main/java/de/soco/software/simuspace/suscore/rights/manager/impl/RightsManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-rights/src/main/java/de/soco/software/simuspace/suscore/rights/service/rest/RightsService.java

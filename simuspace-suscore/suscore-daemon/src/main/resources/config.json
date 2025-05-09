@@ -1,0 +1,127 @@
+{
+  "server": {
+    "protocol": "http://",
+    "hostname": "172.21.0.32",
+    "port": 8080
+  }, 
+ "java": {
+    "path": "$APP_DIR/runtime/zulu-17-i386/bin/java"
+  },
+  "daemon": {
+    "path": "$APP_DIR/sus-daemon/sus-daemon.jar"
+  },
+ 
+  "python": {
+    "pythonpath": "/opt/anaconda3/bin/python3.7"
+  },
+  "ajaxTimeout": 40000,
+  "DevMode": true,
+  "enablePush": true,
+  "uiPollTimeout": 45000,
+  "checkServer": true,
+  "states.log_filter": {
+    "debug": true,
+    "info": true,
+    "warning": true,
+    "error": true,
+    "success": true
+  },
+  "states.main_window": {
+    "x": 0,
+    "y": 25,
+    "width": 1920,
+    "height": 980,
+    "maximized": true
+  },
+  "sus-client-object-tree-expanded": "6bf18669-57c1-434e-9d86-1f0ddb59aec9~dc14ac39-1243-484a-94ba-12db7bb46930~cc24f7dc-a1f4-11e8-98d0-529269fb1459~9489ae1c-8e20-407c-8f30-f7357fb38016",
+  "sus-client-object-tree-selectionexpanded": "97fe736a-011f-46e3-971a-8ba77f711020",
+  "run-workflow-job-directory": {
+    "items": [
+      "/exchange/Jobs"
+    ]
+  },
+  "run-workflow-job-runs-on": "8d040038-8599-11e8-adc0-fa7ae01bbebc",
+  "states.layout": {
+    "north": {
+      "size": 35,
+      "initClosed": false,
+      "initHidden": false
+    },
+    "south": {
+      "size": 175,
+      "initClosed": false,
+      "initHidden": false
+    },
+    "west": {
+      "size": 298,
+      "initClosed": false,
+      "initHidden": false
+    }
+  },
+  "layout": {
+    "mainlayout": {
+      "south": {
+        "size": 82,
+        "initClosed": false,
+        "initHidden": false
+      },
+      "west": {
+        "size": 400,
+        "initClosed": false,
+        "initHidden": false,
+        "children": {
+          "layout1": {
+            "south": {
+              "size": 434,
+              "initClosed": true,
+              "initHidden": false
+            }
+          }
+        }
+      },
+      "center": {
+        "children": {
+          "layout1": {
+            "east": {
+              "size": 400,
+              "initClosed": false,
+              "initHidden": false
+            }
+          },
+          "layout2": {
+            "east": {
+              "size": 904,
+              "initClosed": false,
+              "initHidden": false
+            }
+          }
+        }
+      }
+    },
+    "wf-tablayout": {
+      "east": {
+        "size": 904,
+        "initClosed": false,
+        "initHidden": false
+      }
+    }
+  },
+  "logFilter": {
+    "debug": false,
+    "info": false,
+    "warning": true,
+    "error": true,
+    "success": false
+  },
+  "lastWindowState": {
+    "x": 0,
+    "y": 26,
+    "width": 1920,
+    "height": 1003,
+    "maximized": true
+  },
+  "lastHostName": "sces171",
+  "ssfs.last_location": "8d040038-8599-11e8-adc0-fa7ae01bbebc",
+  "sus-client-object-tree-selectionactive": "97fe736a-011f-46e3-971a-8ba77f711020",
+  "sus-client-object-tree-active": "2d365f88-7dd4-4b2e-99bf-a53ff492ce22"
+}

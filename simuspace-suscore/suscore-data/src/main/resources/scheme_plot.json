@@ -1,0 +1,12 @@
+{
+  "deleteInHours":"2",
+  "heatmap": "${karaf.script}/wfschemes/plotly_py_scripts/variation.py",
+  "bubblechart": "${karaf.script}/wfschemes/plotly_py_scripts/bubble.py",
+  "correlation": "${karaf.script}/wfschemes/plotly_py_scripts/corr.py",
+  "matplotlib": {
+      "Bars": "${karaf.script}/wfschemes/plotly_py_scripts/mat_bars.py",
+      "Curves": "${karaf.script}/wfschemes/plotly_py_scripts/mat_curves.py",
+      "Stack Plot": "${karaf.script}/wfschemes/plotly_py_scripts/mat_stackplot.py",
+      "Pie Chart": "${karaf.script}/wfschemes/plotly_py_scripts/mat_pie_chart.py"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "imageFormats": [
+    "JPG",
+    "JPEG",
+    "PNG",
+    "GIF",
+    "BMP",
+    "WEBP"
+  ],
+  "movieFormats": [
+    "MP4",
+    "X-MATROSKA"
+  ]
+}

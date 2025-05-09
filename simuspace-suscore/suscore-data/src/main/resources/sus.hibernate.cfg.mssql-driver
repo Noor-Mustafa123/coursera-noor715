@@ -1,0 +1,18 @@
+hibernate.connection.username = sa
+hibernate.connection.password = test
+hibernate.connection.driver_class = com.microsoft.sqlserver.jdbc.SQLServerDriver
+hibernate.dialect = org.hibernate.dialect.SQLServer2012Dialect
+hibernate.connection.url = jdbc:sqlserver://localhost:49150;DatabaseName=simuspace;instance=SQLEXPRESS
+hibernate.hbm2ddl.auto = update
+hibernate.current_session_context_class = thread
+hibernate.show_sql = false
+
+hibernate.hikari.connectionTimeout=800000
+
+hibernate.hikari.minimumIdle=2
+hibernate.hikari.maximumPoolSize=80
+hibernate.hikari.idleTimeout=60000
+hibernate.hikari.setMaxLifetime=200000
+
+hibernate.search.default.indexBase=/sus/sim_index
+hibernate.search.default.directory_provider=filesystem

@@ -1,0 +1,20 @@
+{
+  "shell": {
+    "rar|zip|gzip": {
+      "Archive Manager": "file-roller {input}"
+    },
+    "doc|docx|odt|csv": {
+      "LibreOffice": "libreoffice {input}"
+    },
+    "txt|text|curve|value": {
+      "Geddit": "gedit {input}",
+      "Nedit": "nedit {input}"
+    },
+    "png|jpg|jpeg|jpe": {
+      "Kolorpaint": "display {input}"
+    },
+    "mp4|mpeg|mkv|avi|webm|MP4|mov|MOV": {
+      "VLC": "vlc.exe {input}"
+    }
+  }
+}

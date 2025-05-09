@@ -1,0 +1,21 @@
+{
+  "qaDynaWorkflow":"e1a73b25-c626-4013-b7be-d5144442b211",
+  "qaDynaCombinationScript": "${karaf.script}/qa_dyna/inputCombinations.py",
+  "ezType": [
+    "Intel slow 36",
+    "Intel fast 36",
+    "AMD 48",
+    "AMD 64"
+  ],
+  "Intel slow 36": "54,55,56,57,58,59,60,61,62,63,64,65,66,67",
+  "Intel fast 36": "68,69,70,71,72,73",
+  "AMD 48": "01,02,03,04,76,77,78,79",
+  "AMD 64": "10,12,14,16,18,20,22,24,26,28,30",
+  "ppo": [
+    "10APILLELO00ACXA",
+    "10APILLELO00ACXD",
+    "10APILLELO00ACXD_S",
+    "10APILLELO00ACXD_SM36_S",
+    "10APILLELO00ACYA"
+  ]
+}

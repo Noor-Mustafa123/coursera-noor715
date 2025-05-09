@@ -1,0 +1,17 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/constants/ConstantsPermissions.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/service/rest/PermissionService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/model/ManageObjectDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/service/rest/impl/PermissionServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/constants/SpecifiedUser.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/constants/PermissionManageForm.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/impl/AclEntryDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/AclEntryDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/impl/AclObjectIdentityDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/impl/AclClassDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/manager/impl/PermissionManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/model/ResourceAccessControlDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/impl/PermissionsDAOQueries.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/model/PermissionDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/manager/PermissionManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/AclClassDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-permission/src/main/java/de/soco/software/simuspace/suscore/permissions/dao/AclObjectIdentityDAO.java

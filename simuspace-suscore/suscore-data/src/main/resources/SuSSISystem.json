@@ -1,0 +1,773 @@
+[
+  {
+    "unitsFamily": "length",
+    "baseUnit": "m",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "km",
+        "label": "km",
+        "scale": "kilometer",
+        "multiplier": "0.001"
+      },
+      {
+        "name": "m",
+        "label": "m",
+        "scale": "meter",
+        "multiplier": "1"
+      },
+      {
+        "name": "cm",
+        "label": "cm",
+        "scale": "centimeter",
+        "multiplier": "100"
+      },
+      {
+        "name": "mm",
+        "label": "mm",
+        "scale": "millimeter",
+        "multiplier": "1000"
+      },
+      {
+        "name": "μm",
+        "label": "μm",
+        "scale": "micrometer",
+        "multiplier": "1000000"
+      },
+      {
+        "name": "nm",
+        "label": "nm",
+        "scale": "nanometer",
+        "multiplier": "1000000000"
+      },
+      {
+        "name": "yd",
+        "label": "yd",
+        "scale": "yard",
+        "multiplier": "1.093613"
+      },
+      {
+        "name": "ft",
+        "label": "ft",
+        "scale": "foot",
+        "multiplier": "3.280833"
+      },
+      {
+        "name": "in",
+        "label": "in",
+        "scale": "inches",
+        "multiplier": "39.370079"
+      },
+      {
+        "name": "Ao",
+        "label": "Ao",
+        "scale": "angstorm",
+        "multiplier": "10000000000.000000"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "mass",
+    "baseUnit": "kg",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "t",
+        "label": "t",
+        "scale": "ton",
+        "multiplier": "0.001102"
+      },
+      {
+        "name": "kg",
+        "label": "kg",
+        "scale": "kilogram",
+        "multiplier": "1"
+      },
+      {
+        "name": "g",
+        "label": "g",
+        "scale": "gram",
+        "multiplier": "1000"
+      },
+      {
+        "name": "μg",
+        "label": "μg",
+        "scale": "microgram",
+        "multiplier": "1000000000"
+      },
+      {
+        "name": "mg",
+        "label": "mg",
+        "scale": "milligram",
+        "multiplier": "1000000"
+      },
+       {
+        "name": "cg",
+        "label": "cg",
+        "scale": "centigram",
+        "multiplier": "100000"
+      },
+      {
+        "name": "lb",
+        "label": "lb",
+        "scale": "pound",
+        "multiplier": "2.204623"
+      },
+      {
+        "name": "oz",
+        "label": "oz",
+        "scale": "ounce",
+        "multiplier": "2.204623"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "time",
+    "baseUnit": "s",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "μs",
+        "label": "μs",
+        "scale": "microsecond",
+        "multiplier": "1000000"
+      },
+      {
+        "name": "ms",
+        "label": "ms",
+        "scale": "millisecond",
+        "multiplier": "1000"
+      },
+      {
+        "name": "ns",
+        "label": "ns",
+        "scale": "nanosecond",
+        "multiplier": "1000000000"
+      },
+      {
+        "name": "s",
+        "label": "s",
+        "scale": "second",
+        "multiplier": "1"
+      },
+      {
+        "name": "min",
+        "label": "min",
+        "scale": "minute",
+        "multiplier": "0.016667"
+      },
+      {
+        "name": "h",
+        "label": "h",
+        "scale": "hour",
+        "multiplier": "0.000278"
+      },
+      {
+        "name": "d",
+        "label": "d",
+        "scale": "day",
+        "multiplier": "0.0000115741"
+      },
+      {
+        "name": "w",
+        "label": "w",
+        "scale": "week",
+        "multiplier": "0.0000016534"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "speed",
+    "baseUnit": "m/s",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "kn",
+        "label": "kn",
+        "scale": "knot",
+        "multiplier": "1.9438477170141"
+      },
+       {
+        "name": "ft/s",
+        "label": "ft_per_second",
+        "scale": "footpersecond",
+        "multiplier": "3.280840"
+      },
+       {
+        "name": "m/h",
+        "label": "meter_per_hour",
+        "scale": "meterperhour",
+        "multiplier": "3600"
+      },
+      {
+        "name": "km/h",
+        "label": "km_per_h",
+        "scale": "kilometerperhour",
+        "multiplier": "3.6"
+      },
+      {
+        "name": "mi/h",
+        "label": "mi_per_h",
+        "scale": "milesperhour",
+        "multiplier": "2.23694"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "temperature",
+    "baseUnit": "K",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "F",
+        "label": "F",
+        "scale": "fahrenheit",
+        "multiplier": "-457.870000"
+      },
+      {
+        "name": "C",
+        "label": "C",
+        "scale": "celsius",
+        "multiplier": "-272.150000"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "force",
+    "baseUnit": "N",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "N",
+        "label": "n",
+        "scale": "newton",
+        "multiplier": "1"
+      },
+      {
+        "name": "dy",
+        "label": "dy",
+        "scale": "dyne",
+        "multiplier": "100000.000000"
+      },
+      {
+        "name": "lbf",
+        "label": "lbf",
+        "scale": "poundforce",
+        "multiplier": "0.224809"
+      },
+      {
+        "name": "kp",
+        "label": "kp",
+        "scale": "kilopound",
+        "multiplier": "0.0002248089"
+      },
+      {
+        "name": "kN",
+        "label": "kN",
+        "scale": "kilonewton",
+        "multiplier": "0.001000"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "Dimensionless",
+    "baseUnit": "one",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "nodimension",
+        "label": "nodimension",
+        "scale": "nodimension",
+        "multiplier": ""
+      }
+    ]
+  },
+  {
+    "unitsFamily": "moment",
+    "baseUnit": "Nm",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "Nm",
+        "label": "Nm",
+        "scale": "newtonmeter",
+        "multiplier": "1"
+      },
+      {
+        "name": "Nmm",
+        "label": "Nmm",
+        "scale": "newtonmilimeter",
+        "multiplier": "1000"
+      },
+      {
+        "name": "kNm",
+        "label": "kNm",
+        "scale": "kilonewtonmeter",
+        "multiplier": "0.00100"
+      },
+      {
+        "name": "lbfin",
+        "label": "lbfin",
+        "scale": "poundforceinch",
+        "multiplier": "8.85075"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "acceleration",
+    "baseUnit": "m/s^2",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "m/s^2",
+        "label": "m_per_s__2",
+        "scale": "meter per second squared",
+        "multiplier": "1"
+      },
+      {
+        "name": "cm/s^2",
+        "label": "cm_per_s__2",
+        "scale": "centimeter per second squared",
+        "multiplier": "100"
+      },
+      {
+        "name": "ft/(h·s)",
+        "label": "ft_per_h_per_s",
+        "scale": "foot per hour per second",
+        "multiplier": "11811.023622047"
+      },
+      {
+        "name": "ft/(min·s)",
+        "label": "ft_per_m_per_s",
+        "scale": "foot per minute per second",
+        "multiplier": "0.00508"
+      },
+      {
+        "name": "ft/s^2",
+        "label": "ft_per_s__2",
+        "scale": "foot per second squared",
+        "multiplier": "3.280839895"
+      },
+      {
+        "name": "Gal",
+        "label": "Gal",
+        "scale": "galileo",
+        "multiplier": "100"
+      },
+      {
+        "name": "in/(h·s)",
+        "label": "in_per_h_per_s",
+        "scale": "inch per hour per second",
+        "multiplier": "141732.28346457"
+      },
+      {
+        "name": "in/(min·s)",
+        "label": "in_per_m_per_s",
+        "scale": "inch per minute per second",
+        "multiplier": "2362.2047244095"
+      },
+      {
+        "name": "in/s^2",
+        "label": "in_per_s__2",
+        "scale": "inch per second squared",
+        "multiplier": "39.37007874"
+      },
+      {
+        "name": "kn/s",
+        "label": "kn_per_s",
+        "scale": "knot per second",
+        "multiplier": "1.9438446603753 "
+      },
+      {
+        "name": "mi/(h·s)",
+        "label": "mi_per_h_per_s",
+        "scale": "mile per hour per second",
+        "multiplier": "2.2369362920544"
+      },
+      {
+        "name": "mi/(min·s)",
+        "label": "mi_per_m_per_s",
+        "scale": "mile per minute per second",
+        "multiplier": "0.03728227153424 "
+      },
+      {
+        "name": "mi/s^2",
+        "label": "mi_per_s__2",
+        "scale": "mile per second squared",
+        "multiplier": "0.00062137119223733"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "Planeangle",
+    "baseUnit": "degrees",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "deg",
+        "label": "deg",
+        "scale": "degree",
+        "multiplier": "1"
+      },
+      {
+        "name": "rad",
+        "label": "rad",
+        "scale": "radian",
+        "multiplier": "0.0174533"
+      },
+      {
+        "name": "grad",
+        "label": "grad",
+        "scale": "grad",
+        "multiplier": "1.11111"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "velocity",
+    "baseUnit": "m/s",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "m/s",
+        "label": "m_per_s",
+        "scale": "metres per second",
+        "multiplier": "1"
+      },
+      {
+        "name": "Bz",
+        "label": "Bz",
+        "scale": "benz",
+        "multiplier": "1"
+      },
+      {
+        "name": "cm/min",
+        "label": "cm_per_m",
+        "scale": "centimeter per minute",
+        "multiplier": "6000"
+      },
+      {
+        "name": "cm/s",
+        "label": "cm_per_s",
+        "scale": "centimeter per second",
+        "multiplier": "100"
+      },
+      {
+        "name": "ft/h",
+        "label": "ft_per_h",
+        "scale": "foot per hour",
+        "multiplier": "11811.0236"
+      },
+      {
+        "name": "ft/min",
+        "label": "ft_per_m",
+        "scale": "foot per minute",
+        "multiplier": "196.85"
+      },
+      {
+        "name": "ft/s",
+        "label": "ft_per_s",
+        "scale": "foot per second",
+        "multiplier": "3.28084"
+      },
+      {
+        "name": "furlong/fortnight",
+        "label": "furlong_per_fortnight",
+        "scale": "furlong per fortnight",
+        "multiplier": "6012.9"
+      },
+      {
+        "name": "in/s",
+        "label": "in_per_s",
+        "scale": "inch per second",
+        "multiplier": "39.3701"
+      },
+      {
+        "name": "km/h",
+        "label": "km_per_h",
+        "scale": "kilometer per hour",
+        "multiplier": "3.6"
+      },
+      {
+        "name": "kn",
+        "label": "kn",
+        "scale": "knot",
+        "multiplier": "1.94384"
+      },
+      {
+        "name": "cm/s",
+        "label": "cm_per_s",
+        "scale": "kyne",
+        "multiplier": "100"
+      },
+      {
+        "name": "m/h",
+        "label": "m_per_h",
+        "scale": "meter per hour",
+        "multiplier": "3600"
+      },
+      {
+        "name": "m/min",
+        "label": "m_per_m",
+        "scale": " meters per minute",
+        "multiplier": "60"
+      },
+      {
+        "name": "mph",
+        "label": "mph",
+        "scale": "mile per hour",
+        "multiplier": "2.23694"
+      },
+      {
+        "name": "mi/min",
+        "label": "m_per_m",
+        "scale": "mile per minute",
+        "multiplier": "0.0372823"
+      },
+      {
+        "name": "mm/s",
+        "label": "mm_per_s",
+        "scale": "millimeter per second",
+        "multiplier": "1000"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "RotationalVelocity",
+    "baseUnit": "rad/s",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "rad/s",
+        "label": "rad_per_s",
+        "scale": "radian/second",
+        "multiplier": "1"
+      },
+      {
+        "name": "rad/d",
+        "label": "rad_per_d",
+        "scale": "radian/day",
+        "multiplier": "86400"
+      },
+      {
+        "name": "rad/h",
+        "label": "rad_per_h",
+        "scale": "radian/hour",
+        "multiplier": "3600"
+      },
+      {
+        "name": "rad/min",
+        "label": "rad_per_m",
+        "scale": "radian/minute",
+        "multiplier": "60"
+      },
+      {
+        "name": "deg/d",
+        "label": "deg_per_d",
+        "scale": "degree/day",
+        "multiplier": "4950355.3499303"
+      },
+      {
+        "name": "deg/h",
+        "label": "deg_per_h",
+        "scale": "degree/hour",
+        "multiplier": "206264.8062471"
+      },
+      {
+        "name": "deg/min",
+        "label": "deg_per_m",
+        "scale": "degree/minute",
+        "multiplier": "3437.746770785"
+      },
+      {
+        "name": "deg/s",
+        "label": "deg_per_s",
+        "scale": "degree/second",
+        "multiplier": "57.295779513"
+      },
+      {
+        "name": "r/d",
+        "label": "r_per_d",
+        "scale": "revolution/day",
+        "multiplier": "13750.98708314"
+      },
+      {
+        "name": "r/h",
+        "label": "r_per_h",
+        "scale": "revolution/hour",
+        "multiplier": "572.957795131"
+      },
+      {
+        "name": "r/min",
+        "label": "r_per_m",
+        "scale": "revolution/minute",
+        "multiplier": "9.549296586"
+      },
+      {
+        "name": "r/s",
+        "label": "r_per_s",
+        "scale": "revolution/second",
+        "multiplier": "0.159154943"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "MomentOfInertia",
+    "baseUnit": "kg*m^2",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "kg*m^2",
+        "label": "kg_m__2",
+        "scale": "kilogram square meter",
+        "multiplier": "1"
+      },
+      {
+        "name": "g*cm^2",
+        "label": "g_m__2",
+        "scale": "gram square centimeter",
+        "multiplier": "10000000"
+      },
+      {
+        "name": "g*mm^2",
+        "label": "g_mm__2",
+        "scale": "gram square millimeter",
+        "multiplier": "1000000000"
+      },
+      {
+        "name": "oz*in^2",
+        "label": "oz_in__2",
+        "scale": "ounce square inch",
+        "multiplier": "54674.74983"
+      },
+      {
+        "name": "lb*ft^2",
+        "label": "lb_ft__2",
+        "scale": "pound square foot",
+        "multiplier": "23.730360404"
+      },
+      {
+        "name": "lb*in^2",
+        "label": "lb_in__2",
+        "scale": "pound square inch",
+        "multiplier": "3417.171898209"
+      },
+      {
+        "name": "slug*ft^2",
+        "label": "slug_ft__2",
+        "scale": "slug square foot",
+        "multiplier": "0.737562142"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "Energy",
+    "baseUnit": "J",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "J",
+        "scale": "J",
+        "label": "joule",
+        "multiplier": "1"
+      },
+      {
+        "name": "cal",
+        "label": "cal",
+        "scale": "calorie",
+        "multiplier": "0.2388458966275"
+      },
+      {
+        "name": "eV",
+        "label": "eV",
+        "scale": "electronvolt",
+        "multiplier": "6241509744512000000"
+      },
+      {
+        "name": "fp",
+        "label": "fp",
+        "scale": "foot-pound",
+        "multiplier": "0.7375621492773"
+      },
+      {
+        "name": "GJ",
+        "label": "GJ",
+        "scale": "gigajoule",
+        "multiplier": "1E-9"
+      },
+      {
+        "name": "kcal",
+        "label": "kcal",
+        "scale": "kilocalorie",
+        "multiplier": "0.0002388458966275"
+      },
+      {
+        "name": "kJ",
+        "label": "kj",
+        "scale": "kilojoule",
+        "multiplier": "0.001"
+      },
+      {
+        "name": "kWh",
+        "label": "kWh",
+        "scale": "kilowatt hour",
+        "multiplier": "2.777777777778E-7"
+      },
+      {
+        "name": "MJ",
+        "label": "MJ",
+        "scale": "megajoule",
+        "multiplier": "0.000001"
+      },
+      {
+        "name": "tn",
+        "label": "tn",
+        "scale": "ton of TNT",
+        "multiplier": "2.390057361377E-10"
+      },
+      {
+        "name": "Wh",
+        "label": "Wh",
+        "scale": "watt hour",
+        "multiplier": "0.0002777777777778"
+      }
+    ]
+  },
+  {
+    "unitsFamily": "Displacement",
+    "baseUnit": "m",
+    "baseUnitMultiplier": "1",
+    "units": [
+      {
+        "name": "m",
+        "label": "m",
+        "scale": "meter",
+        "multiplier": "1"
+      },
+      {
+        "name": "Em",
+        "label": "Em",
+        "scale": "exameter",
+        "multiplier": "1e-18"
+      },
+      {
+        "name": "Pm",
+        "label": "Pm",
+        "scale": "petameter",
+        "multiplier": "1e-15"
+      },
+      {
+        "name": "Tm",
+        "label": "Tm",
+        "scale": "terameter",
+        "multiplier": "1e-12"
+      },
+      {
+        "name": "Gm",
+        "label": "Gm",
+        "scale": "gigameter",
+        "multiplier": "1e-9"
+      }
+    ]
+  }
+]

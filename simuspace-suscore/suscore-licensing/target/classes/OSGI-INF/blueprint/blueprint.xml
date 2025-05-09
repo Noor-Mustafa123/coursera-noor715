@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################## Internal Services Expose ############################## -->
+
+	<service id="licenseManagerImpl" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" ref="licenseManager" />
+
+	<!-- ############################## External Services Imports ############################## -->
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="contextMenuManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" />
+
+	<reference id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+
+	<reference id="objectViewManager" interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" />
+
+	<reference id="auditLogDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.AuditLogDAO" />
+
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+
+	<reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager" />
+
+
+	<reference id="licenseConfigDao" interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseConfigurationDAO" />
+
+	<reference id="licenseUsersDao" interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseUserDAO" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ############################## Jax RS Server ############################## -->
+
+	<jaxrs:server id="licenseService" address="/system/license">
+		<jaxrs:serviceBeans>
+			<ref component-id="licenseServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################## Suscore BUS ############################## -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################## Service Beans ############################## -->
+	<!-- ############################## CXF Swagger2Feature ############################## -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+	</bean>
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor">
+	</bean>
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor">
+	</bean>
+
+	<bean id="licenseServiceBean" class="de.soco.software.simuspace.suscore.license.service.rest.impl.LicenseConfigurationServiceImpl">
+		<property name="configurationManager" ref="configurationManager" />
+	</bean>
+
+	<!-- ############################## Manager Beans ############################## -->
+
+	<bean id="configurationManager" class="de.soco.software.simuspace.suscore.license.manager.impl.LicenseConfigurationManagerImpl">
+		<property name="licenseConfigDao" ref="licenseConfigDao" />
+		<property name="licenseUserDao" ref="licenseUsersDao" />
+		<property name="contextMenuManager" ref="contextMenuManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="licenseFeatureDAO" ref="licenseFeatureDAO" />
+		<property name="auditLogDAO" ref="auditLogDAO" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="monitorLicenseManager" ref="monitorLicenseManager" />
+		<property name="tokenManager" ref="tokenManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="licenseManager" class="de.soco.software.simuspace.suscore.license.manager.impl.LicenseManagerImpl">
+		<property name="licenseConfigManager" ref="configurationManager" />
+		<property name="monitorLicenseManager" ref="monitorLicenseManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+    <bean id="monitorLicenseManager" class="de.soco.software.simuspace.suscore.license.manager.impl.MonitorLicenseManagerImpl"
+          init-method="addEmptyEntry"
+          destroy-method="addEmptyEntry">
+		<property name="monitorLicenseDAO" ref="monitorLicenseDAO" />
+		<property name="configurationManager" ref="configurationManager" />
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="tokenManager" ref="tokenManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- ############################## Dao Beans ############################## -->
+
+	<bean id="licenseFeatureDAO" class="de.soco.software.simuspace.suscore.license.dao.impl.LicenseFeatureDAOImpl">
+	</bean>
+
+	<bean id="monitorLicenseDAO" class="de.soco.software.simuspace.suscore.license.dao.impl.MonitorLicenseDAOImpl">
+	</bean>
+
+</blueprint>

@@ -1,0 +1,10 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/manager/PluginManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/dto/PluginDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/manager/impl/PluginManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/karaf/client/KarafClient.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/service/rest/impl/PluginServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/constants/ConstantsPluginServiceEndPoints.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/dao/PluginDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/service/rest/PluginService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/constants/ConstantsPlugins.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-plugin/src/main/java/de/soco/software/simuspace/suscore/plugin/dao/impl/PluginDAOImpl.java

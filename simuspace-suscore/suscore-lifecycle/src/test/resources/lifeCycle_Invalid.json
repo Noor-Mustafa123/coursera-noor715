@@ -1,0 +1,152 @@
+{
+	"lifeCycles": [
+		{
+			"id": "ca836b74-d07c-4df2-8e57-c3d608523116",
+			"name": "LC_Object",
+			"statusConfiguration": [
+				{
+					"id": "553536c7-71ec-409d-8f48-ec779a98a68e",
+					"name": "WIP",
+					"unique": true,
+					"moveOldVersionToStatus": "29d94aa2-62f2-4add-9233-2f4781545c35",
+					"canMoveToStatus": [
+						"d762f4ef-e706-4a44-a46d-6b334745e2e5",
+						"903bb897-9531-4c4f-b0ce-50a0db78a780",
+						"29d94aa2-62f2-4add-9233-2f4781545c35"
+					],
+					"executable": true,
+					"visible": "owner"
+				},
+				{
+					"id": "553536c7-71ec-409d-8f48-ec779a98a68e",
+					"name": "In Change",
+					"unique": false,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"29d94aa2-62f2-4add-9233-2f4781545c35",
+						"3d3731a3-5b7d-44b2-b2f8-18e9117c8a1e",
+						"903bb897-9531-4c4f-b0ce-50a0db78a780"
+					],
+					"executable": true,
+					"visible": "all"
+				},
+				{
+					"id": "553536c7-71ec-409d-8f48-ec779a98a68e",
+					"name": "WIP",
+					"unique": true,
+					"moveOldVersionToStatus": null,
+					"canMoveToStatus": [
+						"d762f4ef-e706-4a44-a46d-6b334745e2e5",
+						"903bb897-9531-4c4f-b0ce-50a0db78a780",
+						"29d94aa2-62f2-4add-9233-2f4781545c35"
+					],
+					"executable": true,
+					"visible": "owner"
+				},
+				{
+					"id": "29d94aa2-62f2-4add-9233-2f4781545c35",
+					"name": null,
+					"unique": false,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"d762f4ef-e706-4a44-a46d-6b334745e2e5",
+						"903bb897-9531-4c4f-b0ce-50a0db78a780"
+					],
+					"executable": false,
+					"visible": "all"
+				},
+				{
+					"id": "3d3731a3-5b7d-44b2-b2f8-18e9117c8a1e",
+					"name": "Approved",
+					"unique": false,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"d762f4ef-e706-4a44-a46d-6b334745e2e5",
+						"29d94aa2-62f2-4add-9233-2f4781545c35",
+						"903bb897-9531-4c4f-b0ce-50a0db78a780",
+						"ff9332c5-fc65-4c58-bec6-b76ab362bda4"
+					],
+					"executable": true,
+					"visible": "all"
+				},
+				{
+					"id": "3d3731a3-5b7d-44b2-b2f8-18e9117c8a1e",
+					"name": "Deleted",
+					"unique": false,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [],
+					"executable": false,
+					"visible": "owner"
+				},
+				{
+					"id": "ff9332c5-fc65-4c58-bec6-b76ab362bda4",
+					"name": "Deprecated",
+					"unique": false,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"d762f4ef-e706-4a44-a46d-6b334745e2e5",
+						"29d94aa2-62f2-4add-9233-2f4781545c35"
+					],
+					"executable": false,
+					"visible": "all"
+				}
+			],
+			"applicable": {
+				"validStatusList": [
+					"903bb897-9531-4c4f-b0ce-50a0db78a780",
+					"ff9332c5-fc65-4c58-bec6-b76ab362bda4"
+				],
+				"defaultStatus": "553536c7-71ec-409d-8f48-ec779a98a68e"
+			}
+		},
+		{
+			"id": "841fa6fb-1e6e-46a3-b844-4809ef631a3b",
+			"name": "LC_Object",
+			"statusConfiguration": [
+				{
+					"id": "bfca7c60-0fff-4bd7-a7bf-8c52740ca1ef",
+					"name": "running",
+					"unique": true,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"1ebd83aa-4da3-47b2-b67c-0201f4cdf2d7",
+						"c4a79d62-603e-4477-81a3-b4ea25ef381f"
+					],
+					"executable": true,
+					"visible": "all"
+				},
+				{
+					"id": "3d3731a3-5b7d-44b2-b2f8-18e9117c8a1e",
+					"name": "pending",
+					"unique": true,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"bfca7c60-0fff-4bd7-a7bf-8c52740ca1ef"
+					],
+					"executable": true,
+					"visible": "all"
+				},
+				{
+					"id": "e25e087a-0012-45d6-89ea-c6d514dfc087",
+					"name": "queued",
+					"unique": true,
+					"moveOldVersionToStatus": "",
+					"canMoveToStatus": [
+						"bfca7c60-0fff-4bd7-a7bf-8c52740ca1ef"
+					],
+					"executable": true,
+					"visible": "all"
+				}
+			],
+			"applicable": {
+				"validStatusList": [
+					"bfca7c60-0fff-4bd7-a7bf-8c52740ca1ef",
+					"1ebd83aa-4da3-47b2-b67c-0201f4cdf2d7",
+					"e25e087a-0012-45d6-89ea-c6d514dfc087",
+					"c4a79d62-603e-4477-81a3-b4ea25ef381f"
+				],
+				"defaultStatus": "bfca7c60-0fff-4bd7-a7bf-8c52740ca1ef"
+			}
+		}
+	]
+}

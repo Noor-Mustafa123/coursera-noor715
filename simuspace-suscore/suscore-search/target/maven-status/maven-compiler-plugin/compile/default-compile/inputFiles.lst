@@ -1,0 +1,15 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/model/Query.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/dao/WidgetSettingsDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/service/rest/impl/SearchServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/model/Bool.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/manager/SearchManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/constants/ConstantsSearchServiceEndPoints.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/service/rest/SearchService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/model/ELSQueryObject.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/dao/SearchDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/manager/impl/WidgetSettingsManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/dao/impl/SearchDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/manager/impl/SearchManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/constants/ConstantsSearch.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/manager/WidgetSettingsManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-search/src/main/java/de/soco/software/simuspace/suscore/search/dao/impl/WidgetSettingsDAOImpl.java

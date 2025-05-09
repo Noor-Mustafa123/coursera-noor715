@@ -1,0 +1,110 @@
+{
+  "entityConfig": [
+    {
+      "id": "3550a554-81ec-46b2-a01e-19d8a8ae14cd",
+      "name": "Project",
+      "className": "de.soco.software.simuspace.suscore.data.model.WorkflowProjectDTO",
+      "isCategorizable": false,
+      "customAttributes": [],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "tactic",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "workflow",
+          "title": "4100111x4",
+          "visible": true
+        },
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": false
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "versions",
+          "title": "4100098x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "subproject",
+          "title": "4100109x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "6356ee58-4188-11e8-842f-0ed5f89f718b",
+      "name": "Workflow",
+      "className": "de.soco.software.simuspace.suscore.data.model.WorkFlowDTOConf",
+      "isCategorizable": false,
+      "customAttributes": [
+        {
+          "data": "customatt1",
+          "name": "customatt1",
+          "title": "Some Option",
+          "type": "select",
+          "options": [
+            "User",
+            "Admin"
+          ],
+          "value": "User"
+        }
+      ],
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isMassData": false,
+      "contains": [],
+      "links": [],
+      "icon": "fa fa-upload",
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "Designer",
+          "title": "4100110x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "Permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "Versions",
+          "title": "4100098x4",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

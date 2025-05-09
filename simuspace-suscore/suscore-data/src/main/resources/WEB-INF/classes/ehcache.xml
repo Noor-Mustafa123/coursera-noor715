@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	<diskStore path="${karaf.base}/ehcache" />
+
+	<defaultCache maxEntriesLocalHeap="100000" eternal="false" timeToIdleSeconds="1200" timeToLiveSeconds="1200">
+	</defaultCache>
+
+	<cache name="sampleCache1" maxEntriesLocalHeap="1000" maxEntriesLocalDisk="10000" eternal="false" diskSpoolBufferSizeMB="20"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" memoryStoreEvictionPolicy="LFU" transactionalMode="off">
+		<persistence strategy="localTempSwap" />
+	</cache>
+
+	<cache name="sampleCache2" maxEntriesLocalHeap="1000" eternal="true" memoryStoreEvictionPolicy="FIFO" />
+
+	<cache name="sampleCache3" maxEntriesLocalHeap="500" eternal="false" overflowToDisk="true" diskPersistent="true"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" diskExpiryThreadIntervalSeconds="1" memoryStoreEvictionPolicy="LFU">
+	</cache>
+
+</ehcache>

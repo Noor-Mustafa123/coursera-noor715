@@ -1,0 +1,15 @@
+{
+	"configuration": {
+	    "folders": {
+			"Variant": ["Var*", "_default_dir_"],
+			"Library": ["Lib*"]
+	    },
+	    "files":{
+	    
+			"DataObject":["_default_file_"],
+			"DataObjectImage":["*.png", "*.jpg", "*.gif"],
+			"DataObjectMovie":["*.gif", "*.mp4"]
+		}
+	},
+	"ignore":["*xls","ABC*", "temp/**", "XY/A*/**"]
+}

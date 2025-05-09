@@ -1,0 +1,31 @@
+{
+  "excutionHosts": [
+    {
+      "id": "0f6ee163-c929-4b0a-a00b-598d43345d0b",
+      "name": "sces120",
+      "address": "172.24.0.225",
+      "engineDir": "/opt/susEngine",
+      "enabled": 0,
+      "corePoolSize": "2",
+      "coreMaxSize": "5"
+    },
+    {
+      "id": "0136255d-4903-43b1-b855-a746a3ea84eb",
+      "name": "lpsdm104",
+      "address": "lpsdm104.bmwgroup.net",
+      "engineDir": "/xrt/a/d/sr",
+      "enabled": 1,
+      "corePoolSize": "2",
+      "coreMaxSize": "5"
+    },
+    {
+        "id": "c3abfb45-d02a-4c2c-b60a-5bfdef581456",
+        "name": "Any Host",
+        "address": "",
+        "engineDir": "",
+        "enabled": 1,
+        "corePoolSize": "2",
+        "coreMaxSize": "5"
+      }
+  ]
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+
+	<!-- ############################################# External Services Imports ############################################# -->
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="rightsManager" interface="de.soco.software.simuspace.suscore.rights.manager.RightsManager" />
+
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+
+	<reference id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager" />
+
+	<reference id="documentManager" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager" />
+
+	<reference id="directoryDAO" interface="de.soco.software.simuspace.suscore.user.dao.DirectoryDAO" />
+
+	<reference id="userCommonDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.UserCommonDAO" />
+
+	<reference id="locationDAO" interface="de.soco.software.simuspace.suscore.location.dao.LocationDAO" />
+
+	<reference id="auditLogDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.AuditLogDAO" />
+
+	<reference id="licenseConfigDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseConfigurationDAO" />
+
+	<reference id="licenseUserDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseUserDAO" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="systemService" address="/system">
+		<jaxrs:serviceBeans>
+			<ref component-id="systemServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+
+	<!-- ############################################# Service Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<bean id="systemServiceBean" class="de.soco.software.simuspace.suscore.system.service.rest.impl.SystemServiceImpl">
+		<property name="systemManager" ref="systemManager" />
+	</bean>
+
+	<!-- ############################################# Manager Beans ############################################# -->
+	<bean id="systemManager" class="de.soco.software.simuspace.suscore.system.manager.impl.SystemManagerImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+		<property name="directoryDAO" ref="directoryDAO"/>
+		<property name="permissionManager" ref="permissionManager"/>
+		<property name="rightsManager" ref="rightsManager"/>
+		<property name="tokenManager" ref="tokenManager"/>
+		<property name="licenseManager" ref="licenseManager"/>
+		<property name="documentManager" ref="documentManager"/>
+		<property name="userCommonDAO" ref="userCommonDAO"/>
+		<property name="locationDAO" ref="locationDAO"/>
+		<property name="auditLogDAO" ref="auditLogDAO"/>
+		<property name="licenseConfigDAO" ref="licenseConfigDAO"/>
+		<property name="licenseUserDAO" ref="licenseUserDAO"/>
+	</bean>
+
+
+	<!-- ############################################# Dao Beans ############################################# -->
+
+</blueprint>

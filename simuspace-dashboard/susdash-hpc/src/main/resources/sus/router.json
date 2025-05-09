@@ -1,0 +1,32 @@
+{
+	"name": "Hpc_Uge",
+	"routes": [
+		{
+			"url": "view/dashboard/hpc/{objectId}/uge/job/{id}",
+			"js": "viewsDir/plugins/hpc_uge/single",
+			"type": "single",
+			"title": "4100004x4",
+			"className": "HpcDTO"
+		},
+		{
+			"url": "dashboard/hpc/{objectId}/uge/job/{id}/file/{fileName}/download",
+			"js": "viewsDir/document/direct-download",
+			"type": "single",
+			"title": "4100030x4",
+			"className": "SyncFileDTO"
+		},
+		{
+			"url": "dashboard/hpc/{objectId}/uge/job/{id}/file/{name}/tail",
+			"js": "viewsDir/plugins/hpc_uge/tail",
+			"type": "single",
+			"title": "4100034x4",
+			"className": "SyncFileDTO"
+		},
+		{
+			"url": "dashboard/hpc/{objectId}/uge/job/{id}/kill",
+			"js": "viewsDir/plugins/hpc_uge/kill",
+			"type": "single",
+			"title": "4100040x4"
+		}
+	]
+}

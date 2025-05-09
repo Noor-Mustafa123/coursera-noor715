@@ -1,0 +1,443 @@
+{
+  "entityConfig": [
+    {
+      "id": "d8c36d5a-f7b3-4978-8940-a73550895c59",
+      "name": "Project",
+      "icon": "account_tree",
+      "className": "de.soco.software.simuspace.suscore.data.model.ProjectDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [
+        "04f1ee44-a5ab-4a38-9c05-38dccfe1e7f1",
+        "d8c36d5a-f7b3-4978-8940-a73550895c59"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "04f1ee44-a5ab-4a38-9c05-38dccfe1e7f1",
+      "name": "Customer",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [
+        "9894a9ea-b878-42b0-9ff5-4b05293fa494"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "9894a9ea-b878-42b0-9ff5-4b05293fa494",
+      "name": "Well",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [
+        "50c528d7-9260-4d0d-b9a6-eecf84492397",
+        "3169af97-bf42-4f79-8803-0a0ddf75fc13",
+        "f1f44803-f930-43ec-bf52-d0743b6c443a",
+        "e6a83b4e-c3cf-46b2-a43d-18f70e2d4345",
+        "20213376-bf3d-4d43-90b5-ef9526cedc62"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "50c528d7-9260-4d0d-b9a6-eecf84492397",
+      "name": "DashBoard",
+      "icon": "fa fa-tachometer",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [
+        "38b402a2-ec21-42cf-b7be-e826e2a536a8"
+      ],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "38b402a2-ec21-42cf-b7be-e826e2a536a8",
+      "name": "DashBoard",
+      "icon": "dashboard",
+      "className": "de.soco.software.simuspace.suscore.data.model.DataDashboardDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": true,
+      "customAttributes": [],
+      "contains": [],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": null,
+          "key": "dashboard",
+          "title": "Dashboard",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "3169af97-bf42-4f79-8803-0a0ddf75fc13",
+      "name": "Trained Models",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "f1f44803-f930-43ec-bf52-d0743b6c443a",
+      "name": "Comparisons",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "e6a83b4e-c3cf-46b2-a43d-18f70e2d4345",
+      "name": "Equipment",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "20213376-bf3d-4d43-90b5-ef9526cedc62",
+      "name": "Optimizations",
+      "icon": "icofont icofont-spreadsheet",
+      "className": "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+      "lifeCycle": "ca836b74-d07c-4df2-8e57-c3d608523116",
+      "isCategorizable": false,
+      "isMassData": false,
+      "customAttributes": [],
+      "contains": [],
+      "links": [],
+      "viewConfig": [
+        {
+          "typeId": "32ab43d4-d062-460b-b4aa-e1a4d9252001",
+          "key": "data",
+          "title": "4100095x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "properties",
+          "title": "4100096x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "metadata",
+          "title": "4100097x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "permissions",
+          "title": "4100012x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "audit",
+          "title": "4100101x4",
+          "visible": true
+        },
+        {
+          "typeId": null,
+          "key": "trail",
+          "title": "4100102x4",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

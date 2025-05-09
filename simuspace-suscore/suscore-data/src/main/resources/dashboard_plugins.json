@@ -1,0 +1,263 @@
+{
+  "plugin": [
+    {
+      "id": "plungerlift",
+      "name": "Plunger Lift",
+      "url": "http://3.15.46.55:8008/",
+      "config": [
+        {
+          "name": "Features",
+          "allowMultiple": false,
+          "commands": [],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "Prediction",
+          "allowMultiple": false,
+          "commands": [],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "Well Statistics",
+          "allowMultiple": false,
+          "commands": [],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "Train Well",
+          "allowMultiple": false,
+          "commands": [],
+          "fields": [],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "id": "licenseMonitor",
+      "name": "License Monitor",
+      "url": "",
+      "config": [
+        {
+          "name": "fem",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "clean_logs_v4",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/clean_logs_v4.py"
+            }
+          ],
+          "fields": [],
+          "properties": [
+            {
+              "totals": [
+                {
+                  "name": "nastran",
+                  "value": "51403"
+                },
+                {
+                  "name": "ansa",
+                  "value": "15000"
+                },
+                {
+                  "name": "abaqus",
+                  "value": "1850"
+                },
+                {
+                  "name": "abaqusmj",
+                  "value": "1130"
+                },
+                {
+                  "name": "animator",
+                  "value": "1130"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "vmcl",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "vmcl_dashboard_curves",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/vmcl_dashboard_curves.py"
+            }
+          ],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "msc",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "clean_logs_v4",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/clean_logs_v4.py"
+            }
+          ],
+          "fields": [],
+          "properties": [
+            {
+              "totals": [
+                {
+                  "name": "nastran",
+                  "value": "51403"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "HPC",
+      "name": "HPC",
+      "url": "",
+      "config": [
+        {
+          "name": "Job Monitoring",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "hpc_jobs_monitoring",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/hpc/hpc_jobs_monitoring.py"
+            },
+            {
+              "name": "hpcjob_base",
+              "type": "hpcjob",
+              "value": "/proj/hpc/public/jobs/muc"
+            }
+          ],
+          "fields": [],
+          "properties": [
+            {
+              "liveInterval": 120000
+            }
+          ]
+        },
+        {
+          "name": "FEMZIP Statistics",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "hpc_femzip_statistics",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/hpc/hpc_femzip_statistics.py"
+            }
+          ],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "LSDYNA Statistics",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "lsdyna_statistics",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/hpc/hpc_solver_statistics.py"
+            }
+          ],
+          "fields": [],
+          "properties": []
+        },
+        {
+          "name": "ABAQUS Standard Statistics",
+          "allowMultiple": false,
+          "commands": [
+            {
+              "name": "abaqus_statistics",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/hpc/hpc_solver_statistics.py"
+            }
+          ],
+          "fields": [],
+          "properties": []
+        }
+      ]
+    },
+    {
+      "id": "project",
+      "name": "Project",
+      "url": "",
+      "config": [
+        {
+          "allowMultiple": true,
+          "name": "Classification",
+          "commands": [
+            {
+              "name": "project_dashboard_icicle_chart",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/project_dashboard_icicle_chart.py"
+            }
+          ],
+          "fields": [
+            {
+              "name": "projectSelection",
+              "title": "Select Project",
+              "label": "Project",
+              "tooltip": "Select Project for dashboard",
+              "type": "object",
+              "renderer": "object",
+              "multiple": false,
+              "rules": {
+                "required": true
+              },
+              "value": ""
+            }
+          ],
+          "properties": [
+            {
+              "maxDepth": "12",
+              "updateInterval": "24",
+              "updateIntervalUnit": "hour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pst",
+      "name": "PST",
+      "url": "",
+      "config": [
+        {
+          "allowMultiple": false,
+          "name": "Planning",
+          "commands": [
+            {
+              "name": "pst_planning",
+              "type": "python",
+              "value": "${karaf.script}/dashboard/pst/pst_planning.py"
+            }
+          ],
+          "fields": [],
+          "properties": [
+            {
+              "updateTime": "03:00",
+              "autoUpdate": false,
+              "basePath": "/proj/fem-sup/AUSTAUSCH/simuspace/pst/",
+              "Daily-Status": "Daily-Status",
+              "testJson": "tests.json",
+              "benchJson": "benches.json",
+              "ACE-LoungeCsv": "ace-lounge.csv",
+              "configFile": "PST_Configuration.xlsx",
+              "formJson": "form.json",
+              "maschineJson": "maschine.json",
+              "archiveJson": "archive.json",
+              "runningTests": "runningTests.json",
+              "IDsJson": "id.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

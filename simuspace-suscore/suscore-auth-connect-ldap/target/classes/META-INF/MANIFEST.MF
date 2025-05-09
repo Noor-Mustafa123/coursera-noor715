@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1745230642214
+Build-Jdk-Spec: 17
+Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
+Bundle-Description: SuSCore
+Bundle-ManifestVersion: 2
+Bundle-Name: suscore-auth-connect-ldap
+Bundle-SymbolicName: de.soco.software.simuspace.suscore-auth-connect-lda
+ p
+Bundle-Version: 3.0.0
+Created-By: Apache Maven Bundle Plugin 5.1.4
+Export-Package: de.soco.software.simuspace.suscore.auth.connect.ldap.aut
+ hentication;uses:="de.soco.software.simuspace.suscore.common.model,java
+ x.naming,org.apache.shiro.authc";version="3.0.0"
+Export-Service: de.soco.software.simuspace.suscore.auth.connect.ldap.aut
+ hentication.LdapCustomAuthRealm;osgi.service.blueprint.compname=ldapCus
+ tomAuthRealmImpl
+Import-Package: de.soco.software.simuspace.suscore.common.enums;version=
+ "[3.0,4)",de.soco.software.simuspace.suscore.common.exceptions;version=
+ "[3.0,4)",de.soco.software.simuspace.suscore.common.model;version="[3.0
+ ,4)",de.soco.software.simuspace.suscore.common.util;version="[3.0,4)",j
+ avax.naming,javax.naming.directory,javax.naming.ldap,org.apache.logging
+ .log4j;version="[2.17,3)",org.apache.shiro.authc;version="[1.12,2)",org
+ .apache.shiro.ldap;version="[1.12,2)",org.apache.shiro.realm.ldap;versi
+ on="[1.12,2)",org.osgi.service.blueprint;version="[1.0.0,2.0.0)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=17))"
+Tool: Bnd-5.1.1.202006162103

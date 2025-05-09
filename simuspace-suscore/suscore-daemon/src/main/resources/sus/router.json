@@ -1,0 +1,42 @@
+{
+  "name": "plugin_job",
+  "routes": [
+    {
+      "url": "job/open_log/{id}",
+      "js": "viewsDir/caa/job_open_log",
+      "title": "4100057x4"
+    },
+    {
+      "url": "job/open_workingdir/{id}",
+      "js": "viewsDir/caa/job_open_workingdir",
+      "title": "4100042x4"
+    },
+    {
+      "url": "job/stop/{id}",
+      "js": "viewsDir/caa/job_stop",
+      "title": "4100041x4"
+    },
+    {
+      "url": "job/pause/{id}",
+      "js": "viewsDir/caa/job_pause",
+      "title": "4100144x4"
+    },
+    {
+      "url": "job/resume/{id}",
+      "js": "viewsDir/caa/job_resume",
+      "title": "4100145x4"
+    },
+    {
+      "url": "rerun/job/{id}",
+      "js": "viewsDir/job/rerun",
+      "title": "4100046x4",
+      "visibility": "client"
+    }, 
+    {
+      "url": "discard/job/{id}",
+      "js": "viewsDir/job/discard",
+      "title": "4100047x4",
+      "visibility": "client"
+    }
+  ]
+}

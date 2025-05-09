@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+
+	<!-- ########################### External Services Imports ################################ -->
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+
+	<jaxrs:server id="transferSusCoreService" address="/trans">
+		<jaxrs:serviceBeans>
+			<ref component-id="transferServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Beans ############################################# -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<!-- ############################################# SusTransfer Beans ############################################# -->
+
+	<bean id="transferServiceBean" class="de.soco.software.simuspace.suscore.transfer.service.rest.impl.SusTransferServiceImpl">
+		<property name="transferManager" ref="transferManager" />
+	</bean>
+
+	<bean id="transferManager" class="de.soco.software.simuspace.suscore.transfer.manager.impl.SusTransferManagerImpl">
+	</bean>
+
+</blueprint>

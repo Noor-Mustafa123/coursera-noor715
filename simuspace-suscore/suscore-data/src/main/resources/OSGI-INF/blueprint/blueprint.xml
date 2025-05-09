@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################## Internal Services Expose ############################## -->
+
+	<service interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" ref="contextMenuManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.UserCommonDAO" ref="userCommonDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.manager.base.ObjectViewManager" ref="objectViewManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.manager.base.ContextMenuManager" ref="contextMenuManager">
+	</service>
+
+	<service id="auditLogManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.AuditLogManager"
+		ref="auditLogManager">
+	</service>
+
+	<service id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager"
+		ref="userCommonManager">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" ref="susDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.GroupRoleCommonDAO" ref="groupRoleCommonDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.RoleCommonDAO" ref="roleCommonDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.ParserSchemaDAO" ref="parserSchemaDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.AuditLogDAO" ref="auditLogDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.ContextMenuRelationDAO" ref="contextMenuRelationDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.BmwCaeBenchDAO" ref="bmwCaeBenchDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.BmwCaeBenchNodeDAO" ref="bmwCaeBenchNodeDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseConfigurationDAO" ref="licenseConfigDao">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.LicenseUserDAO" ref="licenseUsersDao">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.TranslationDAO" ref="translationDAO">
+	</service>
+
+	<service interface="de.soco.software.simuspace.suscore.data.common.dao.JobDAO" ref="jobDao">
+	</service>
+	
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ############################## External Services Imports ############################## -->
+
+	<!-- ############################## Jax RS Server ############################## -->
+
+	<!-- ############################## Suscore BUS ############################## -->
+
+	<cxf:bus id="">
+		<cxf:outInterceptors>
+			<ref component-id="susCORSInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################## Service Beans ############################## -->
+	<jaxrs:server id="framewokInteractionService" address="/status">
+		<jaxrs:serviceBeans>
+			<ref component-id="framewokInteractionServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<jaxrs:server id="aboutMenuServiceServer" address="/about">
+		<jaxrs:serviceBeans>
+			<ref component-id="aboutMenuServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- ############################## Service Beans ############################## -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+	</bean>
+
+	<bean id="framewokInteractionServiceBean"
+		class="de.soco.software.simuspace.suscore.data.framework.interaction.service.impl.FrameWorkInteractionServiceImpl">
+		<property name="frameWorkInteractionManager" ref="frameWorkInteractionManager" />
+	</bean>
+
+	<bean id="aboutMenuServiceBean" class="de.soco.software.simuspace.suscore.data.common.service.impl.AboutMenuServiceImpl">
+		<property name="aboutMenuManager" ref="aboutMenuManager" />
+	</bean>
+
+	<!-- ############################## Manager Beans ############################## -->
+
+	<bean id="frameWorkInteractionManager"
+		class="de.soco.software.simuspace.suscore.data.framework.interaction.manager.impl.FrameWorkInteractionManagerImpl">
+		<property name="aboutMenuDAO" ref="aboutMenuDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="auditLogManager" class="de.soco.software.simuspace.suscore.data.manager.impl.base.AuditLogManagerImpl">
+		<property name="auditLogDAO" ref="auditLogDAO" />
+		<property name="objectViewManager" ref="objectViewManager" />
+		<property name="userCommonManager" ref="userCommonManager" />
+		<property name="licenseConfigurationCommonManager" ref="licenseConfigurationCommonManager" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="translationDAO" ref="translationDAO" />
+		<property name="susDAO" ref="susDAO" />
+	</bean>
+
+	<bean id="licenseConfigurationCommonManager"
+		class="de.soco.software.simuspace.suscore.data.manager.impl.base.LicenseConfigurationCommonManagerImpl">
+		<property name="licenseConfigDao" ref="licenseConfigDao" />
+		<property name="licenseUsersDao" ref="licenseUsersDao" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="userCommonManager" class="de.soco.software.simuspace.suscore.data.manager.impl.base.UserCommonManagerImpl">
+		<property name="userCommonDAO" ref="userCommonDAO" />
+		<property name="groupCommonDAO" ref="groupCommonDAO" />
+		<property name="roleCommonDAO" ref="roleCommonDAO" />
+		<property name="aclCommonSecurityIdentityDAO" ref="aclCommonSecurityIdentityDAO" />
+		<property name="aclCommonObjectIdentityDAO" ref="aclCommonObjectIdentityDAO" />
+		<property name="entryDAO" ref="entryDAO" />
+		<property name="loginAttemptCommonDAO" ref="loginAttemptCommonDAO"/>
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="aboutMenuManager" class="de.soco.software.simuspace.suscore.data.manager.impl.base.AboutMenuManagerImpl" init-method="init">
+		<property name="aboutMenuDAO" ref="aboutMenuDAO" />
+		<property name="encrypDecrptDAO" ref="encrypDecrptDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="contextMenuManager" class="de.soco.software.simuspace.suscore.data.manager.impl.base.ContextMenuManagerImpl">
+		<property name="contextMenuDAO" ref="contextMenuDAO" />
+		<property name="contextMenuRelationDAO" ref="contextMenuRelationDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="objectViewManager" class="de.soco.software.simuspace.suscore.data.manager.impl.base.ObjectViewManagerImpl" init-method="init">
+		<property name="objectViewDAO" ref="objectViewDAO" />
+		<property name="userCommonDAO" ref="userCommonDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="susCORSInterceptor" class="de.soco.software.simuspace.suscore.interceptors.EnableCORSInterceptor">
+	</bean>
+
+	<!-- ############################## Dao Beans ############################## -->
+
+	<bean id="objectViewDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.ObjectViewDAOImpl">
+	</bean>
+
+	<bean id="userCommonDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.UserCommonDAOImpl">
+	</bean>
+
+	<bean id="aboutMenuDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.AboutMenuDAOImpl">
+	</bean>
+
+	<bean id="encrypDecrptDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.EncrypDecrptDAOImpl">
+	</bean>
+
+	<bean id="parserSchemaDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.ParserSchemaDAOImpl">
+	</bean>
+
+	<bean id="bmwCaeBenchDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.BmwCaeBenchDAOImpl">
+	</bean>
+
+	<bean id="bmwCaeBenchNodeDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.BmwCaeBenchNodeDAOImpl">
+	</bean>
+
+	<bean id="contextMenuDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.ContextMenuDAOImpl">
+	</bean>
+
+	<bean id="contextMenuRelationDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.ContextMenuRelationDAOImpl">
+	</bean>
+
+	<bean id="groupCommonDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.GroupCommonDAOImpl">
+	</bean>
+
+	<bean id="groupRoleCommonDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.GroupRoleCommonDAOImpl">
+	</bean>
+
+	<bean id="roleCommonDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.RoleCommonDAOImpl">
+	</bean>
+
+	<bean id="aclCommonSecurityIdentityDAO"
+		class="de.soco.software.simuspace.suscore.data.common.dao.impl.AclCommonSecurityIdentityDAOImpl">
+	</bean>
+
+	<bean id="aclCommonObjectIdentityDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.AclCommonObjectIdentityDAOImpl">
+	</bean>
+
+	<bean id="entryDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.AclCommonEntryDAOImpl">
+	</bean>
+
+	<bean id="susDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.SuSGenericDAOImpl">
+	</bean>
+
+	<bean id="auditLogDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.AuditLogDAOImpl">
+	</bean>
+
+	<bean id="licenseConfigDao" class="de.soco.software.simuspace.suscore.data.common.dao.impl.LicenseConfigurationDAOImpl">
+	</bean>
+
+	<bean id="licenseUsersDao" class="de.soco.software.simuspace.suscore.data.common.dao.impl.LicenseUserDAOImpl">
+	</bean>
+
+	<bean id="translationDAO" class="de.soco.software.simuspace.suscore.data.common.dao.impl.TranslationDAOImpl">
+	</bean>
+
+	<bean id="jobDao" class="de.soco.software.simuspace.suscore.data.common.dao.impl.JobDAOImpl">
+	</bean>
+
+	<bean id="loginAttemptCommonDAO"
+		  class="de.soco.software.simuspace.suscore.data.common.dao.impl.LoginAttemptCommonDAOImpl">
+	</bean>
+
+</blueprint>

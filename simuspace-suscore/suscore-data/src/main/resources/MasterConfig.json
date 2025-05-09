@@ -1,0 +1,58 @@
+{
+  "projectsConfig": [
+    {
+      "file": "Unrestricted.json",
+      "label": "Unrestricted"
+    },
+    {
+      "file": "StoryBoard.json",
+      "label": "Story Board"
+    },
+    {
+      "file": "BikeExampleConfiguration.json",
+      "label": "Bike Example Configuration"
+    },
+    {
+      "file": "LoadcaseVariantStrict.json",
+      "label": "Loadcase Variant Strict"
+    },
+    {
+      "file": "VariantLoadcaseStrict.json",
+      "label": "Variant Loadcase Strict"
+    },
+    {
+      "file": "BMWDummyProject.json",
+      "label": "BMW Dummy Project"
+    },
+    {
+      "file": "BMWQADynaProject.json",
+      "label": "BMW QADyna Project"
+    },
+    {
+      "file": "TrainModel.json",
+      "label": "Train Model"
+    },
+    {
+      "file": "PlungerLift.json",
+      "label": "Plunger Lift"
+    },
+    {
+      "file": "HATVATProject.json",
+      "label": "HAT VAT Project"
+    },
+    {
+      "file": "HPCMonitor.json",
+      "label": "HPC Monitor"
+    },
+    {
+      "file": "MaterialsProject.json",
+      "label": "Materials Project"
+    }
+  ],
+  "workflowsConfig": [
+    {
+      "file": "WorkflowProjectConfig.json",
+      "label": "Workflow Project Config"
+    }
+  ]
+}

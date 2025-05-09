@@ -1,0 +1,412 @@
+{
+  "name": "plugin_object",
+  "routes": [
+    {
+      "url": "system/auditlog",
+      "container": "d2134fde-45d9-4045-b821-788e41e70398",
+      "js": "viewsDir/system/auditlog/overview",
+      "title": null,
+      "type": "table"
+    },
+    {
+      "className": "ProjectDTO",
+      "url": "create/data/project/{parentId}",
+      "container": "97fe736a-011f-46e3-971a-8ba77f711020",
+      "js": "viewsDir/data/create",
+      "title": "4100001x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "ProjectDTO",
+      "icon": "fa fa-edit",
+      "url": "update/data/project/{parentId}",
+      "js": "viewsDir/data/project/edit",
+      "title": "4100002x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "ProjectDTO",
+      "url": "view/data/project/{projectId}",
+      "js": "viewsDir/data/project/overview",
+      "title": "4100003x4",
+      "type": "table"
+    },
+    {
+      "url": "view/data/project/{projectId}/version/{versionId}",
+      "container": null,
+      "js": "viewsDir/data/project/overview",
+      "type": "table",
+      "title": "4100003x4",
+      "icon": null,
+      "className": "ProjectDTO"
+    },
+    {
+      "className": "DataObjectDTO",
+      "url": "view/data/object/{objectId}",
+      "js": "viewsDir/data/object/single",
+      "title": "4100004x4",
+      "type": "single"
+    },
+    {
+      "className": "DataObjectDTO",
+      "url": "view/data/object/{objectId}/version/{versionId}",
+      "js": "viewsDir/data/object/single",
+      "title": "4100004x4",
+      "type": "single"
+    },
+    {
+      "url": "update/data/object/{objectId}/status/",
+      "js": "viewsDir/data/object/status",
+      "title": "4100005x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "update/data/object/{objectId}/version/{versionId}/status/",
+      "js": "viewsDir/data/object/status",
+      "title": "4100005x4",
+      "type": "table"
+    },
+    {
+      "className": "DataObjectDTO",
+      "title": "4100006x4",
+      "url": "manage/data/object/{objectId}",
+      "icon": "fa fa-edit",
+      "js": "viewsDir/data/object/manage",
+      "type": "tree-context"
+    },
+    {
+      "url": "delete/data/object/{id}{?query}",
+      "js": "viewsDir/data/object/delete",
+      "title": "4100007x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "ObjectMetaDataDTO",
+      "url": "add/data/object/{objectId}",
+      "js": "viewsDir/data/object/add_metadata",
+      "title": "4100008x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "link/create/{selectionId}{?query}",
+      "js": "viewsDir/link/make-links",
+      "title": "4100009x4"
+    },
+    {
+      "url": "link/remove/object/{objectId}/selection/{selectionId}",
+      "js": "viewsDir/link/remove-links",
+      "title": "4100010x4"
+    },
+    {
+      "className": "SectionDTO",
+      "url": "section/create/{reportId}",
+      "js": "viewsDir/reports/create",
+      "title": "4100011x4"
+    },
+    {
+      "className": "DataObjectDTO",
+      "url": "perm/data/object/{objectId}",
+      "js": "viewsDir/data/object/add_permission",
+      "title": "4100012x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "get/data/project/{projectId}/openfile/{selectionId}{?app}",
+      "js": "viewsDir/data/project/sync-openfile",
+      "title": "4100013x4",
+      "type": "tree-context",
+      "visibility": "client"
+    },
+    {
+      "className": "ProjectDTO",
+      "url": "perm/data/project/{projectId}",
+      "js": "viewsDir/data/project/add_permission",
+      "title": "4100012x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "Job",
+      "url": "perm/job/{jobId}",
+      "js": "viewsDir/data/project/add_permission",
+      "title": "4100012x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "view/data/workflow/{workflowId}",
+      "container": null,
+      "js": "viewsDir/data/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "url": "view/data/workflow/{workflowId}/version/{versionId}",
+      "container": null,
+      "js": "viewsDir/data/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "url": "view/data/workflow/{?query}",
+      "container": null,
+      "js": "viewsDir/data/workflow/single",
+      "type": "single",
+      "title": "4100004x4",
+      "icon": null,
+      "className": ""
+    },
+    {
+      "title": "4100007x4",
+      "icon": "fa fa-trash-o",
+      "url": "delete/data/object/{id}/metadata/{key}{?query}",
+      "type": "tree-context",
+      "className": "ObjectMetaDataDTO",
+      "js": "viewsDir/data/object/delete_metadata"
+    },
+    {
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "url": "edit/data/object/{id}/metadata/{key}",
+      "type": "tree-context",
+      "className": "ObjectMetaDataDTO",
+      "js": "viewsDir/data/object/edit_metadata"
+    },
+    {
+      "className": "WorkflowProjectDTO",
+      "url": "create/workflow/project/{parentId}",
+      "container": "dc14ac39-1243-484a-94ba-12db7bb46930",
+      "js": "viewsDir/workflow/project/create",
+      "title": "4100015x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "WorkflowProjectDTO",
+      "url": "create/workflow/project/{parentId}",
+      "container": "3765b33e-77a8-47a6-9492-8164e6e96c0e",
+      "js": "viewsDir/workflow/project/create",
+      "title": "4100015x4",
+      "type": "tree-context"
+    },
+    {
+      "url": "move/workflow/project/{projectId}/{?query}",
+      "js": "viewsDir/workflow/project/move",
+      "title": "4100016x4"
+    },
+    {
+      "className": "WorkflowProjectDTO",
+      "url": "workflow/import/ui/{parentId}",
+      "js": "viewsDir/workflow/import_file",
+      "title": "4100017x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "WorkflowProjectDTO",
+      "url": "workflow/ui/edit/{parentId}",
+      "js": "viewsDir/workflow/project/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context"
+    },
+    {
+      "className": "MenuDTO",
+      "url": "project/create/options/{parentId}",
+      "js": "viewsDir/data/project/create",
+      "title": "4100018x4",
+      "type": "tree-context"
+    },
+    {
+      "className": "MenuDTO",
+      "url": "data/project/ui/edit/{parentId}",
+      "js": "viewsDir/data/project/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context"
+    },
+    {
+      "url": "data/deletedobjects",
+      "container": "acbb88c3-5a12-498d-ab23-26dc7d6fc000",
+      "js": "viewsDir/data/deletedobjects/overview",
+      "title": "4100019x4",
+      "type": "table"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "get/data/project/{projectId}/sync/{selectionId}",
+      "js": "viewsDir/data/project/sync-download",
+      "title": "4100020x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "url": "data/project/{projectId}/selection/{selectionId}/changetype",
+      "js": "viewsDir/data/project/sync-changetype",
+      "title": "4100021x4",
+      "type": "table"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "put/data/project/{projectId}/sync/{selectionId}",
+      "js": "viewsDir/data/project/sync-upload",
+      "title": "4100022x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "put/data/project/{projectId}/checkout/{selectionId}",
+      "js": "viewsDir/data/project/sync-checkout",
+      "title": "4100023x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "put/data/project/{projectId}/checkin/{selectionId}",
+      "js": "viewsDir/data/project/sync-checkin",
+      "title": "4100024x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "put/data/project/{projectId}/discard/{selectionId}",
+      "js": "viewsDir/data/project/sync-discard",
+      "title": "4100025x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "put/data/project/abort/{selectionId}",
+      "js": "viewsDir/data/project/sync-abort",
+      "title": "4100026x4",
+      "type": "single",
+      "visibility": "client"
+    },
+    {
+      "title": "4100027x4",
+      "url": "restore/data/deletedobjects/{id}{?query}",
+      "type": "tree-context",
+      "className": "DeletedObjectDTO",
+      "js": "viewsDir/data/deletedobjects/restore"
+    },
+    {
+      "url": "help/about",
+      "container": "",
+      "js": "viewsDir/help/about"
+    },
+    {
+      "url": "help/support",
+      "container": "",
+      "js": "viewsDir/help/support"
+    },
+    {
+      "url": "help/download-client",
+      "container": "",
+      "js": "viewsDir/help/download-client"
+    },
+    {
+      "className": "DataObjectDTO",
+      "url": "update/data/object/{objectId}",
+      "js": "viewsDir/data/object/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context"
+    },
+    {
+      "url": "export/data/{containerId}/{selectionId}",
+      "js": "viewsDir/data/export",
+      "title": "4100028x4",
+      "visibility": "client"
+    },
+    {
+      "url": "view/search",
+      "js": "viewsDir/search/search",
+      "title": "4100029x4",
+      "type": "table",
+      "container": "f258568b-e91c-4d6a-8b3a-922b41e2013f"
+    },
+    {
+      "url": "view/search/{searchId}",
+      "js": "viewsDir/search/search",
+      "title": "4100029x4",
+      "type": "table",
+      "container": "f258568b-e91c-4d6a-8b3a-922b41e2013f"
+    },
+    {
+      "url": "view/data/curvecompare/{selectionId}",
+      "js": "viewsDir/data/curvecompare",
+      "visibility": "both"
+    },
+    {
+      "className": "SyncFileDTO",
+      "url": "data/{objectId}/version/{versionId}/download",
+      "js": "viewsDir/document/direct-download",
+      "title": "4100030x4",
+      "type": "single",
+      "visibility": "web"
+    },
+    {
+      "url": "move/create/{selectionId}{?query}",
+      "js": "viewsDir/data/project/move",
+      "title": "4100016x4"
+    },
+    {
+      "className": "MenuDTO",
+      "url": "view/wizards/dummy/{parentId}",
+      "container": null,
+      "js": "viewsDir/wizards/dummy/create",
+      "type": "tree-context",
+      "title": "4100031x4",
+      "visibility": "both"
+    },
+    {
+      "className": "MenuDTO",
+      "url": "view/wizards/qadyna/{parentId}",
+      "container": null,
+      "js": "viewsDir/wizards/qadyna/single",
+      "type": "tree-context",
+      "title": "4100146x4",
+      "visibility": "both"
+    },
+    {
+      "className": "DesignVariableDTO",
+      "url": "update/designvariables/{id}",
+      "js": "viewsDir/workflow/scheme/design_variable/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context",
+      "visibility": "client"
+    },
+    {
+      "className": "ObjectiveVariableDTO",
+      "url": "update/objectivevariables/{id}",
+      "js": "viewsDir/workflow/scheme/objective_variable/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context",
+      "visibility": "client"
+    },
+    {
+      "className": "WorkFlowAdditionalAttribute",
+      "url": "selection/{selectionId}/attribute/{attribSelectionId}/edit",
+      "js": "viewsDir/widgets/object/attribute/edit",
+      "title": "4100014x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context",
+      "visibility": "both"
+    },
+    {
+      "className": "WorkFlowAdditionalAttribute",
+      "url": "selection/{selectionId}/attribute/{attribSelectionId}/delete",
+      "js": "viewsDir/widgets/object/attribute/delete",
+      "title": "4100007x4",
+      "icon": "fa fa-edit",
+      "type": "tree-context",
+      "visibility": "both"
+    }
+  ]
+}

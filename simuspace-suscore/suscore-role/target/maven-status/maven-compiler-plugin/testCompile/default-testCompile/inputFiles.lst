@@ -1,0 +1,3 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/test/java/de/soco/software/simuspace/suscore/role/service/rest/impl/RoleServiceImplTest.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/test/java/de/soco/software/simuspace/suscore/role/manager/impl/RoleManagerImplTest.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/test/java/de/soco/software/simuspace/suscore/role/dao/impl/HibernateTestConfigration.java

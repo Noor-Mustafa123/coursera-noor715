@@ -1,0 +1,52 @@
+{
+  "widgets": {
+    "builtIn": [
+      {
+        "name": "bookmarks",
+        "view": "tiles",
+        "title": "4100043x4",
+        "connected": "/bookmark",
+        "auto": true
+      },
+      {
+        "name": "myWorkflows",
+        "view": "table",
+        "title": "3000396x4",
+        "connected": "",
+        "auto": false
+      },
+      {
+        "name": "runningJobs",
+        "view": "table",
+        "title": "3000397x4",
+        "connected": "",
+        "auto": false
+      },
+      {
+        "name": "completedJobs",
+        "view": "table",
+        "title": "3000398x4",
+        "connected": "",
+        "auto": false
+      },
+      {
+        "name": "recentObjects",
+        "view": "cards",
+        "title": "3000399x4",
+        "connected": "",
+        "auto": false
+      },
+      {
+        "name": "recentDataObjects",
+        "view": "cards",
+        "title": "3000400x4",
+        "connected": "",
+        "auto": false
+      }
+    ],
+    "preview": [
+      {
+      }
+    ]
+  }
+}

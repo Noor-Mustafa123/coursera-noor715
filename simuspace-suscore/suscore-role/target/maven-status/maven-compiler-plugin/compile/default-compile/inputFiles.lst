@@ -1,0 +1,11 @@
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/dao/RoleDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/constants/ConstantsPermissions.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/service/rest/RoleService.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/manager/impl/RoleManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/model/RoleDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/service/rest/impl/RoleServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/dao/impl/RoleDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/manager/RoleManager.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/dao/GroupRoleDAO.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/dao/impl/GroupRoleDAOImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-suscore/suscore-role/src/main/java/de/soco/software/simuspace/suscore/role/dao/impl/PermissionsDAOQueries.java

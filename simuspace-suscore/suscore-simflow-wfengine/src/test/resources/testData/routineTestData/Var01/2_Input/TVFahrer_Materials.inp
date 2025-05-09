@@ -1,0 +1,26 @@
+**
+** MATERIALS
+**
+*MATERIAL, NAME=DX54
+*DENSITY
+                 7.85E-9,
+*ELASTIC, TYPE=ISOTROPIC
+                 210000.,                      0.3
+**
+*MATERIAL, NAME=Kleber
+*DENSITY
+                  1.4E-9,
+*ELASTIC, TYPE=ISOTROPIC
+                     12.,                      0.4
+**
+*MATERIAL, NAME=S355
+*DENSITY
+                 7.85E-9,
+*ELASTIC, TYPE=ISOTROPIC
+                 210000.,                      0.3
+**
+*MATERIAL, NAME=HC660
+*DENSITY
+                 7.85E-9,
+*ELASTIC, TYPE=ISOTROPIC
+                 210000.,                      0.3

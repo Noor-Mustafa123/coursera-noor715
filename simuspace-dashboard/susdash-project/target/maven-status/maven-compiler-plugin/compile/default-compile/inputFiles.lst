@@ -1,0 +1,12 @@
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/service/rest/ProjectDashboardService.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/manager/impl/ProjectDashboardManagerImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/model/ProjectStructureTableCell.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/helper/FilterHelper.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/constants/ProjectDashboardConstants.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/service/rest/impl/ProjectDashboardServiceImpl.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/model/LifecycleTableDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/model/ProjectStructureTupleWrapper.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/manager/ProjectDashboardManager.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/model/ProjectClassificationCache.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/threads/UpdateClassificationDashboardsThread.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-project/src/main/java/de/soco/software/simuspace/susdash/project/util/ProjectDashboardUtil.java

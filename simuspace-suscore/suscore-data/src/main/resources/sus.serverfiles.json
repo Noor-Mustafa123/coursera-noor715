@@ -1,0 +1,25 @@
+{
+  "customAttributes": [
+    {
+      "label": "Assembly Method",
+      "name": "assemblymethod",
+      "type": "select",
+      "canBeEmpty": true,
+      "defaultValue":"inc",
+      "options": [
+        "pos",
+        "impactor",
+        "cfg",
+        "inc",
+        "dummy",
+        "encrypted",
+        "step",
+        "none",
+        "maincfg",
+        "step_presim",
+        "inc_presim",
+        "inc_impact"
+      ]
+    }
+  ]
+}

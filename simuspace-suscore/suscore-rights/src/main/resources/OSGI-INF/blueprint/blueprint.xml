@@ -1,0 +1,72 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+
+	<service interface="de.soco.software.simuspace.suscore.rights.manager.RightsManager" ref="rightsManager" />
+
+	<!-- ########################### External Services Imports ################################ -->
+
+	<reference id="permissionManager" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager" />
+
+	<reference id="roleDAO" interface="de.soco.software.simuspace.suscore.role.dao.RoleDAO" />
+
+	<reference id="licenseManager" interface="de.soco.software.simuspace.suscore.license.manager.LicenseManager" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<reference id="documentManager" interface="de.soco.software.simuspace.suscore.document.manager.DocumentManager" />
+
+	<reference id="userGroupDAO" interface="de.soco.software.simuspace.suscore.user.dao.UserGroupDAO" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="rightsService" address="/rights">
+		<jaxrs:serviceBeans>
+			<ref component-id="rightsServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Beans ############################################# -->
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<!-- ############################################# Permission Beans ############################################# -->
+	<bean id="rightsServiceBean" class="de.soco.software.simuspace.suscore.rights.service.rest.impl.RightsServiceImpl">
+		<property name="rightsManager" ref="rightsManager" />
+	</bean>
+
+	<bean id="rightsManager" class="de.soco.software.simuspace.suscore.rights.manager.impl.RightsManagerImpl	">
+		<property name="licenseManager" ref="licenseManager" />
+		<property name="permissionManager" ref="permissionManager" />
+		<property name="documentManager" ref="documentManager"/>
+		<property name="roleDAO" ref="roleDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="userGroupDAO" ref="userGroupDAO" />
+	</bean>
+
+
+</blueprint>

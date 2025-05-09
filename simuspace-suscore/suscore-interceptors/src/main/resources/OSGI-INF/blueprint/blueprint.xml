@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+	<cm:property-placeholder persistent-id="sus.simuspace">
+		<cm:default-properties>
+			<cm:property name="prefix" value="Blueprint-Example" />
+		</cm:default-properties>
+	</cm:property-placeholder>
+
+	<bean id="propertyAccesser" class="de.soco.software.simuspace.suscore.interceptors.dao.impl.PropertyAccesserImpl">
+	</bean>
+
+	<!-- ############################### service #################################### -->
+
+	<service id="customSessionDAOImpl" interface="de.soco.software.simuspace.suscore.interceptors.shiro.dao.CustomSessionDAO"
+		ref="customSessionDAO">
+	</service>
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<!-- ################################## Bean Definitions for Injection ################################## -->
+
+	<bean id="authenticationFeature" class="de.soco.software.simuspace.suscore.interceptors.SusInterceptorManager">
+	</bean>
+
+	<bean id="userTokenManager" class="de.soco.software.simuspace.suscore.interceptors.manager.impl.UserTokenManagerImpl"
+		init-method="cleanActiveTokens" destroy-method="cleanActiveTokens">
+		<property name="userTokenDAO" ref="userTokenDAO" />
+		<property name="jobTokenDAO" ref="jobTokenDAO" />
+		<property name="propertyAccesser" ref="propertyAccesser" />
+		<property name="customSessionDAO" ref="customSessionDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="customSessionDAO" class="de.soco.software.simuspace.suscore.interceptors.shiro.dao.impl.CustomSessionDAOImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean id="userTokenDAO" class="de.soco.software.simuspace.suscore.interceptors.dao.impl.UserTokenDAOImpl">
+	</bean>
+
+	<bean id="jobTokenDAO" class="de.soco.software.simuspace.suscore.interceptors.dao.impl.JobTokenDAOImpl">
+	</bean>
+
+	<!-- ################ Bean Service Injections ################ -->
+
+	<service ref="authenticationFeature" interface="org.apache.cxf.feature.Feature">
+	</service>
+
+	<service id="tokenManager" interface="de.soco.software.simuspace.suscore.interceptors.manager.UserTokenManager"
+		ref="userTokenManager">
+	</service>
+
+	<service id="tokenDAO" interface="de.soco.software.simuspace.suscore.interceptors.dao.UserTokenDAO" ref="userTokenDAO">
+	</service>
+
+	<service id="susJobTokenDAO" interface="de.soco.software.simuspace.suscore.interceptors.dao.JobTokenDAO" ref="jobTokenDAO">
+	</service>
+
+</blueprint>

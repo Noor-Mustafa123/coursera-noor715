@@ -1,0 +1,40 @@
+{
+  "ffmpeg": [
+    {
+      "input": "avi",
+      "output": {
+        "mp4": "ffmpeg -i [input] -f mp4 -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -preset slower -crf 18 -vf scale='trunc(in_w/2)*2:trunc(in_h/2)*2' -movflags faststart [output].mp4 -y",
+        "webm": "ffmpeg -i [input] -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 [output].webm"
+      }
+    },
+    {
+      "input": "mkv",
+      "output": {
+        "mp4": "ffmpeg -i [input] -codec copy -f mp4 [output].mp4",
+        "webm": "ffmpeg -i [input] -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 [output].webm"
+      }
+    },
+    {
+      "input": "mp4",
+      "output": {
+        "mp4": "ffmpeg -i [input] -f mp4 -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -preset slower -crf 18 -vf scale='trunc(in_w/2)*2:trunc(in_h/2)*2' -movflags faststart [output].mp4 -y",
+        "webm": "ffmpeg -i [input] -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 [output].webm"
+      }
+    },
+    {
+      "input": "webm",
+      "output": {
+        "mp4": "ffmpeg -i [input] -f mp4 [output].mp4",
+        "webm": "ffmpeg -i [input] -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 [output].webm"
+      }
+    },
+    {
+      "input": "mov",
+      "output": {
+        "mp4": "ffmpeg -i [input] -vcodec h264 -acodec aac -strict -2 [output].mp4",
+        "webm": "ffmpeg -i [input] -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis [output].webm"
+      }
+    }
+  ]
+}
+

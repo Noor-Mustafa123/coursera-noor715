@@ -1,0 +1,12 @@
+de/soco/software/simuspace/suscore/location/manager/impl/LocationManagerImpl.class
+de/soco/software/simuspace/suscore/location/service/rest/impl/SsfsServiceImpl.class
+de/soco/software/simuspace/suscore/location/manager/SsfsManager.class
+de/soco/software/simuspace/suscore/location/service/rest/SsfsService.class
+de/soco/software/simuspace/suscore/location/service/rest/impl/LocationServiceImpl.class
+de/soco/software/simuspace/suscore/location/dao/SsfsDAO.class
+de/soco/software/simuspace/suscore/location/dao/LocationDAO.class
+de/soco/software/simuspace/suscore/location/dao/impl/LocationDAOImpl.class
+de/soco/software/simuspace/suscore/location/service/rest/LocationService.class
+de/soco/software/simuspace/suscore/location/manager/impl/SsfsManagerImpl.class
+de/soco/software/simuspace/suscore/location/manager/LocationManager.class
+de/soco/software/simuspace/suscore/location/dao/impl/SsfsDAOImpl.class

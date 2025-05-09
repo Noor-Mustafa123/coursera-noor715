@@ -1,0 +1,3419 @@
+{
+  "elements": [
+    {
+      "title": "Input",
+      "icon": "images/wf/sign-in-single.png",
+      "element": {
+        "data": {
+          "name": "Input",
+          "key": "wfe_io",
+          "description": "",
+          "comments": "",
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "allowedFieldKeys": [
+            "section",
+            "divider",
+            "text",
+            "select",
+            "textarea",
+            "divider",
+            "integer",
+            "float",
+            "boolean",
+            "divider",
+            "color",
+            "divider",
+            "os-file",
+            "os-directory",
+            "server-file-explorer",
+            "divider",
+            "date",
+            "dateRange",
+            "object",
+            "divider",
+            "scheme-regex-file",
+            "scheme-parse-file",
+            "scheme-template-file",
+            "scheme-template-object",
+            "scheme-regex-object",
+            "CB2 Objects",
+            "input-table"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": null,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_io",
+            "css": {
+              "shape": "octagon",
+              "content": "data(name)",
+              "background-color": "#32c5d2",
+              "background-image": "/images/wf/sign-in.svg"
+            }
+          },
+          {
+            "selector": ".wfe_io.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/sign-in-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Execute",
+      "icon": "images/wf/code-single.png",
+      "element": {
+        "data": {
+          "name": "Execute",
+          "key": "wfe_script",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "syntax",
+              "value": "bash",
+              "label": "Script Syntax",
+              "options": [
+                "bash"
+              ],
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": false,
+              "editable": false
+            },
+            {
+              "mode": "template",
+              "name": "script",
+              "value": "",
+              "label": "User Script",
+              "type": "textarea",
+              "syntax": "bash",
+              "fullScreen": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": false,
+              "editable": false
+            }
+          ],
+          "output": [
+            {
+              "label": "Generate User Output File",
+              "name": "outputfile",
+              "type": "select",
+              "value": "no",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "label": "User Output Template",
+              "type": "display-json",
+              "buttonLabel": "Read Variables",
+              "mode": "template",
+              "editable": false,
+              "sortable": false
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_script",
+            "css": {
+              "shape": "rectangle",
+              "content": "data(name)",
+              "background-color": "#555",
+              "background-image": "/images/wf/code.svg"
+            }
+          },
+          {
+            "selector": ".wfe_script.field-error",
+            "css": {
+              "shape": "rectangle",
+              "content": "data(name)",
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/code-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Python Execute",
+      "icon": "images/wf/python.png",
+      "element": {
+        "data": {
+          "name": "Python_Execute",
+          "key": "wfe_python",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "pythonEnv",
+              "value": "Default",
+              "label": "Python Environment",
+              "options": [],
+              "rules": {
+                "required": true
+              },
+              "ajax": "/workflow/python/environment",
+              "canBeEmpty": false,
+              "multiple": false,
+              "sortable": false,
+              "picker": {
+                "liveSearch": true
+              },
+              "changeOnRun": false,
+              "editable": false
+            },
+            {
+              "mode": "template",
+              "name": "script",
+              "value": "",
+              "label": "User Script",
+              "type": "textarea",
+              "syntax": "python",
+              "fullScreen": true,
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "sortable": false,
+              "editable": false
+            }
+          ],
+          "output": [
+            {
+              "label": "Generate User Output File",
+              "name": "outputfile",
+              "type": "select",
+              "value": "no",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "label": "User Output Template",
+              "type": "display-json",
+              "buttonLabel": "Read Variables",
+              "mode": "template",
+              "editable": false,
+              "sortable": false
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_python",
+            "css": {
+              "shape": "rectangle",
+              "content": "data(name)",
+              "background-color": "#8E24AA",
+              "background-image": "/images/wf/python.svg"
+            }
+          },
+          {
+            "selector": ".wfe_python.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/python-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Wait",
+      "icon": "images/wf/clock_face_three_oclock.png",
+      "element": {
+        "data": {
+          "name": "Wait",
+          "key": "wfe_wait",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "editable": false,
+              "name": "event",
+              "value": "server-file-explorer",
+              "label": "Event",
+              "options": [
+                "server-file-explorer",
+                "time",
+                "date",
+                "file_unlocked"
+              ],
+              "multiple": false,
+              "rules": {
+                "required": true
+              },
+              "sortable": false,
+              "type": "select"
+            },
+            {
+              "mode": "template",
+              "variable-mode": false,
+              "editable": false,
+              "name": "eventValue",
+              "rules": {
+                "required": true
+              },
+              "label": "Value",
+              "sortable": false,
+              "type": "server-file-explorer"
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_wait",
+            "css": {
+              "shape": "diamond",
+              "content": "data(name)",
+              "background-color": "#2B6729",
+              "background-image": "/images/wf/clock_face_three_oclock.svg"
+            }
+          },
+          {
+            "selector": ".wfe_wait.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/clock_face_three_oclock-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Export",
+      "icon": "images/wf/export-dataobject.png",
+      "element": {
+        "data": {
+          "name": "Export",
+          "key": "wfe_export_dataobject",
+          "description": "",
+          "comments": "",
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "allowedFieldKeys": [],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "name": "exportType",
+              "multiple": false,
+              "options": [
+                {
+                  "name": "Container",
+                  "id": "container"
+                },
+                {
+                  "name": "Project Path",
+                  "id": "projectpath"
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Export By",
+              "type": "select",
+              "value": "container",
+              "editable": false
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "editable": false,
+              "name": "projectpath",
+              "bindVisibility": [
+                {
+                  "name": "exportType",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "projectpath",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "multiple": true,
+              "rules": {
+                "required": false
+              },
+              "label": "Project Path",
+              "type": "text",
+              "value": ""
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "editable": false,
+              "name": "objectquery",
+              "bindVisibility": [
+                {
+                  "name": "exportType",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "projectpath",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "multiple": true,
+              "rules": {
+                "required": false
+              },
+              "label": "Name Filter",
+              "type": "text",
+              "value": ".*"
+            },
+            {
+              "mode": "template",
+              "variable-mode": false,
+              "editable": false,
+              "name": "dataobject",
+              "multiple": true,
+              "bindVisibility": [
+                {
+                  "name": "exportType",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "container",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": false
+              },
+              "label": "DataObject",
+              "type": "object",
+              "value": ""
+            },
+            {
+              "mode": "template",
+              "variable-mode": true,
+              "editable": false,
+              "name": "directory",
+              "multiple": false,
+              "rules": {
+                "required": true
+              },
+              "label": "Export Path",
+              "type": "server-file-explorer"
+            },
+            {
+              "mode": "template",
+              "name": "type",
+              "multiple": false,
+              "options": [
+                "flat",
+                "structural"
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Type",
+              "type": "select",
+              "value": "flat"
+            }
+          ],
+          "isInternal": true,
+          "isActive": false,
+          "runMode": null,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_export_dataobject",
+            "css": {
+              "content": "data(name)",
+              "background-color": "#f9af00",
+              "background-image": "/images/wf/export-dataobject.svg"
+            }
+          },
+          {
+            "selector": ".wfe_export_dataobject.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/export-dataobject-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Condition",
+      "icon": "images/wf/epsilon-de.png",
+      "element": {
+        "data": {
+          "name": "Condition",
+          "condition": true,
+          "key": "wfe_condition",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "name": "expression",
+              "value": "",
+              "label": "Expression",
+              "editable": false,
+              "variable-mode": false,
+              "type": "text",
+              "rules": {
+                "required": true
+              }
+            },
+            {
+              "mode": "template",
+              "type": "wf-element",
+              "name": "truePath",
+              "picker": {
+                "liveSearch": true
+              },
+              "value": "",
+              "label": "True Path",
+              "editable": false,
+              "options": [],
+              "multiple": true
+            },
+            {
+              "mode": "template",
+              "type": "checkbox",
+              "name": "trueEndPath",
+              "editable": false,
+              "value": "",
+              "label": "End True Path"
+            },
+            {
+              "mode": "template",
+              "type": "wf-element",
+              "name": "falsePath",
+              "editable": false,
+              "value": "",
+              "picker": {
+                "liveSearch": true
+              },
+              "label": "False Path",
+              "options": [],
+              "multiple": true
+            },
+            {
+              "mode": "template",
+              "type": "checkbox",
+              "name": "falseEndPath",
+              "editable": false,
+              "value": "",
+              "label": "End False Path"
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_condition",
+            "css": {
+              "shape": "diamond",
+              "content": "data(name)",
+              "background-color": "#4682B4",
+              "background-image": "/images/wf/epsilon-de.svg"
+            }
+          },
+          {
+            "selector": ".wfe_condition.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/epsilon-de-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Import",
+      "icon": "images/wf/import-dataobject.png",
+      "element": {
+        "data": {
+          "name": "Import",
+          "key": "wfe_import_objects",
+          "description": "",
+          "comments": "",
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "allowedFieldKeys": [],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "label": "Import to container",
+              "name": "container",
+              "type": "object",
+              "variable-mode": false,
+              "rules": {
+                "required": true
+              },
+              "value": "",
+              "editable": false,
+              "multiple": false,
+              "typeClass": [
+                "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+                "de.soco.software.simuspace.suscore.data.model.LibraryDTO",
+                "de.soco.software.simuspace.suscore.data.model.ProjectDTO"
+              ]
+            },
+            {
+              "mode": "template",
+              "type": "server-file-explorer",
+              "name": "directory",
+              "value": "",
+              "label": "Import from path",
+              "rules": {
+                "required": true
+              },
+              "editable": false,
+              "multiple": false,
+              "variable-mode": false
+            },
+            {
+              "mode": "template",
+              "type": "server-file-explorer",
+              "name": "importSettings",
+              "value": "",
+              "label": "Import Settings File",
+              "rules": {
+                "required": true
+              },
+              "editable": false,
+              "multiple": false,
+              "variable-mode": false
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "actionfilter",
+              "value": "Skip",
+              "label": "Over-write",
+              "options": [
+                "Skip",
+                "Yes"
+              ],
+              "rules": {
+                "required": true
+              },
+              "editable": false,
+              "multiple": false
+            }
+          ],
+          "isInternal": true,
+          "isActive": false,
+          "runMode": null,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_import_objects",
+            "css": {
+              "content": "data(name)",
+              "background-color": "#997010",
+              "background-image": "/images/wf/import-dataobject.svg"
+            }
+          },
+          {
+            "selector": ".wfe_import_objects.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/import-dataobject-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Transfer",
+      "icon": "images/wf/wfe_transfer_location.png",
+      "element": {
+        "data": {
+          "name": "Transfer",
+          "key": "wfe_transfer_location",
+          "description": "",
+          "comments": "",
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_transfer_location",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "allowedFieldKeys": [],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "label": "DataObjects/Container",
+              "name": "DataObjects/Container",
+              "type": "object",
+              "variable-mode": false,
+              "rules": {
+                "required": true
+              },
+              "value": "",
+              "editable": false,
+              "multiple": true
+            },
+            {
+              "mode": "template",
+              "type": "connected-table",
+              "name": "location",
+              "value": "",
+              "label": "Target Location",
+              "rules": {
+                "required": true
+              },
+              "multiple": false,
+              "editable": false,
+              "variable-mode": false,
+              "connected": "system/location"
+            },
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "actionfilter",
+              "value": "COPY",
+              "label": "Operation Type",
+              "options": [
+                "COPY",
+                "MOVE"
+              ],
+              "rules": {
+                "required": true
+              },
+              "editable": false,
+              "multiple": false
+            }
+          ],
+          "isInternal": true,
+          "isActive": false,
+          "runMode": null,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_transfer_location",
+            "css": {
+              "content": "data(name)",
+              "background-color": "#5CB85C",
+              "background-image": "/images/wf/wfe_transfer_location.svg"
+            }
+          },
+          {
+            "selector": ".wfe_transfer_location.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/wfe_transfer_location-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Email",
+      "icon": "images/wf/wfe_email.png",
+      "element": {
+        "data": {
+          "name": "Email",
+          "key": "wfe_email",
+          "description": "",
+          "comments": "",
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_transfer_location",
+            "wfe_email",
+            "wfe_subworkflow",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "allowedFieldKeys": [],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "type": "select",
+              "name": "protocol",
+              "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+              "label": "Email Protocol",
+              "options": [
+                {
+                  "id": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                  "name": "Smtp",
+                  "icon": "mail"
+                },
+                {
+                  "id": "fa8e1058-af82-4ed8-9050-d9b915c5e4d7",
+                  "name": "Unix",
+                  "icon": "drafts"
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "editable": false,
+              "multiple": false,
+              "changeOnRun": false
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "name": "smtp-to",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "To",
+              "type": "text",
+              "suggest": true,
+              "value": "",
+              "changeOnRun": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "smtp-cc",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "value": "",
+              "label": "Cc",
+              "suggest": true,
+              "variable-mode": "false",
+              "editable": true,
+              "rules": {
+                "required": false
+              }
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "smtp-bcc",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "value": "",
+              "label": "Bcc",
+              "suggest": true,
+              "variable-mode": "false",
+              "editable": true,
+              "rules": {
+                "required": false
+              }
+            },
+            {
+              "mode": "template",
+              "type": "text",
+              "name": "smtp-replyTo",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "value": "",
+              "label": "Reply To",
+              "suggest": true,
+              "variable-mode": "false",
+              "editable": true,
+              "rules": {
+                "required": false
+              }
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "name": "smtp-subject",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Subject",
+              "type": "text",
+              "suggest": true,
+              "value": "",
+              "changeOnRun": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "name": "smtp-message",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "f16916a0-b3a2-4a04-9644-8469debb9020",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Message",
+              "type": "textarea",
+              "formatter": true,
+              "value": "",
+              "changeOnRun": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "name": "unix-subject",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "fa8e1058-af82-4ed8-9050-d9b915c5e4d7",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Subject",
+              "type": "text",
+              "suggest": true,
+              "value": "",
+              "changeOnRun": false,
+              "editable": true
+            },
+            {
+              "mode": "template",
+              "variable-mode": "false",
+              "name": "unix-message",
+              "bindVisibility": [
+                {
+                  "name": "protocol",
+                  "operation": "AND ",
+                  "values": [
+                    {
+                      "value": "fa8e1058-af82-4ed8-9050-d9b915c5e4d7",
+                      "operation": "AND"
+                    }
+                  ]
+                }
+              ],
+              "rules": {
+                "required": true
+              },
+              "label": "Message",
+              "type": "textarea",
+              "formatter": true,
+              "value": "",
+              "changeOnRun": false,
+              "editable": true
+            }
+          ],
+          "isInternal": true,
+          "isActive": false,
+          "runMode": null,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_email",
+            "css": {
+              "content": "data(name)",
+              "background-color": "#F18013",
+              "background-image": "/images/wf/wfe_email.svg"
+            }
+          },
+          {
+            "selector": ".wfe_email.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/wfe_email-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "SubWorkflow",
+      "icon": "images/wf/subworkflow.png",
+      "element": {
+        "data": {
+          "name": "subworkflow",
+          "comments": "",
+          "description": "",
+          "allowedFieldKeys": [],
+          "isActive": true,
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_email",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action",
+            "wfe_subworkflow"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "name": "max-execution-time",
+              "rules": {
+                "maxlength": 64,
+                "integer": true,
+                "required": true
+              },
+              "label": "Maximum Execution Time (seconds)",
+              "integer": true,
+              "type": "text",
+              "value": -1
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "value": "yes"
+            }
+          ],
+          "runMode": null,
+          "isInternal": true,
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "label": "select workflow",
+              "name": "subworkflow",
+              "type": "sub-workflow",
+              "subFields": {},
+              "rules": {
+                "required": true
+              },
+              "value": "",
+              "editable": false
+            }
+          ],
+          "key": "wfe_subworkflow",
+          "info": {
+            "comments": "",
+            "description": "",
+            "version": "0.0.2"
+          }
+        },
+        "style": [
+          {
+            "css": {
+              "background-color": "#949494",
+              "shape": "octagon",
+              "background-image": "/images/wf/subworkflow.svg",
+              "content": "data(name)"
+            },
+            "selector": ".wfe_subworkflow"
+          },
+          {
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/subworkflow-error.svg"
+            },
+            "selector": ".wfe_subworkflow.field-error"
+          }
+        ]
+      }
+    },
+    {
+      "title": "SUSAction",
+      "icon": "images/wf/sus-action.png",
+      "element": {
+        "data": {
+          "name": "SUSAction",
+          "key": "wfe_sus_action",
+          "description": "",
+          "comments": "",
+          "allowedFieldKeys": [],
+          "allowedConnections": [
+            "wfe_script",
+            "wfe_python",
+            "wfe_wait",
+            "wfe_export_dataobject",
+            "wfe_condition",
+            "wfe_import_objects",
+            "wfe_import_cb2",
+            "wfe_subworkflow",
+            "wfe_email",
+            "wfe_transfer_location",
+            "wfe_abaqusexplizit",
+            "wfe_abaqusstandard",
+            "wfe_lsDyna",
+            "wfe_nastran",
+            "wfe_optistruct",
+            "wfe_foreachloop",
+            "wfe_assemble_and_simulate",
+            "wfe_train_model_sus",
+            "wfe_sus_action"
+          ],
+          "exceptions": [
+            {
+              "mode": "template",
+              "type": "text",
+              "label": "Maximum Execution Time (seconds)",
+              "value": -1,
+              "name": "max-execution-time",
+              "integer": true,
+              "rules": {
+                "required": true,
+                "integer": true,
+                "maxlength": 64
+              }
+            },
+            {
+              "mode": "template",
+              "name": "stoponerror",
+              "rules": {},
+              "label": "Stop workflow on error",
+              "type": "select",
+              "multiple": false,
+              "options": [
+                "yes",
+                "no"
+              ],
+              "value": "yes"
+            }
+          ],
+          "fields": [
+            {
+              "mode": "template",
+              "variable-mode": false,
+              "changeOnRun": false,
+              "name": "actionScript",
+              "multiple": "false",
+              "ajax": "/workflow/susaction/scripts",
+              "options": [],
+              "tooltip": "",
+              "rules": {
+                "required": true
+              },
+              "picker": {
+                "liveSearch": true
+              },
+              "sortable": "false",
+              "label": "Action",
+              "type": "select",
+              "value": ""
+            },
+            {
+              "mode": "template",
+              "variable-mode": true,
+              "editable": false,
+              "name": "directory",
+              "multiple": false,
+              "rules": {
+                "required": true
+              },
+              "label": "Input Param Json",
+              "type": "server-file-explorer",
+              "value": ""
+            }
+          ],
+          "isInternal": true,
+          "isActive": true,
+          "runMode": "local",
+          "categories": [
+            {
+              "name": "element"
+            }
+          ],
+          "info": {
+            "version": "0.0.2",
+            "description": "",
+            "comments": ""
+          }
+        },
+        "style": [
+          {
+            "selector": ".wfe_sus_action",
+            "css": {
+              "shape": "octagon",
+              "content": "data(name)",
+              "background-color": "#32c5d2",
+              "background-image": "images/wf/sus-action.svg"
+            }
+          },
+          {
+            "selector": ".wfe_sus_action.field-error",
+            "css": {
+              "background-color": "#CA5E58",
+              "background-image": "/images/wf/sus-action-error.svg"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "c9b4fb6d-745b-4338-8f5a-85d9190caf00",
+      "title": "HPC",
+      "folder": true,
+      "lazy": true,
+      "icon": "fa fa-server",
+      "description": "SystemContainer",
+      "url": null,
+      "children": null,
+      "state": 0,
+      "element": null,
+      "expanded": false
+    },
+    {
+      "id": "d6b95c06-73ec-471a-9b9c-760ec4e53c06",
+      "title": "Loops",
+      "folder": true,
+      "lazy": true,
+      "icon": "fa fa-refresh",
+      "description": "SystemContainer",
+      "url": null,
+      "children": [
+        {
+          "title": "ForEachLoop",
+          "icon": "images/wf/foreach_loop.png",
+          "element": {
+            "data": {
+              "name": "ForEachLoop",
+              "key": "wfe_foreachloop",
+              "description": "",
+              "comments": "",
+              "allowedFieldKeys": [],
+              "allowedConnections": [
+                "wfe_script",
+                "wfe_python",
+                "wfe_wait",
+                "wfe_export_dataobject",
+                "wfe_condition",
+                "wfe_import_objects",
+                "wfe_import_cb2",
+                "wfe_subworkflow",
+                "wfe_email",
+                "wfe_transfer_location",
+                "wfe_abaqusexplizit",
+                "wfe_abaqusstandard",
+                "wfe_nastran",
+                "wfe_lsDyna",
+                "wfe_optistruct",
+                "wfe_assemble_and_simulate",
+                "wfe_train_model_sus",
+                "wfe_sus_action"
+              ],
+              "exceptions": [
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "label": "Maximum Execution Time (seconds)",
+                  "value": -1,
+                  "name": "max-execution-time",
+                  "integer": true,
+                  "rules": {
+                    "required": true,
+                    "integer": true,
+                    "maxlength": 64
+                  }
+                },
+                {
+                  "mode": "template",
+                  "name": "stoponerror",
+                  "rules": {},
+                  "label": "Stop workflow on error",
+                  "type": "select",
+                  "multiple": false,
+                  "options": [
+                    "yes",
+                    "no"
+                  ],
+                  "value": "yes"
+                }
+              ],
+              "fields": [
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "name": "VALUE",
+                  "value": "",
+                  "label": "VALUE",
+                  "visibility": false,
+                  "editable": false,
+                  "rules": {
+                    "required": false
+                  }
+                },
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "name": "INDEX",
+                  "value": "",
+                  "label": "INDEX",
+                  "visibility": false,
+                  "editable": false,
+                  "rules": {
+                    "required": false
+                  }
+                },
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "name": "listforeach",
+                  "value": "",
+                  "label": "List",
+                  "variable-mode": false,
+                  "editable": false,
+                  "rules": {
+                    "required": true
+                  },
+                  "multiple": false
+                },
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "name": "splitter",
+                  "value": "",
+                  "label": "Splitter",
+                  "variable-mode": false,
+                  "editable": false,
+                  "rules": {
+                    "required": true
+                  },
+                  "multiple": false
+                },
+                {
+                  "mode": "template",
+                  "editable": false,
+                  "name": "loop-start",
+                  "options": [],
+                  "multiple": false,
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true,
+                    "canBeEmpty": true
+                  },
+                  "label": "Loop Start",
+                  "type": "wf-element",
+                  "edgeType": "loop-start",
+                  "value": []
+                },
+                {
+                  "mode": "template",
+                  "editable": false,
+                  "name": "loop-end",
+                  "options": [],
+                  "multiple": false,
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true,
+                    "canBeEmpty": true
+                  },
+                  "label": "Loop End",
+                  "type": "wf-element",
+                  "edgeType": "loop-end",
+                  "edgeDirection": "reverse",
+                  "value": []
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "name": "runConcurrently",
+                  "value": "False",
+                  "label": "Run Concurrently",
+                  "editable": false,
+                  "options": [
+                    "False",
+                    "True"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "multiple": false
+                }
+              ],
+              "isInternal": true,
+              "isActive": true,
+              "runMode": "local",
+              "categories": [
+                {
+                  "name": "element"
+                }
+              ],
+              "info": {
+                "version": "0.0.2",
+                "description": "",
+                "comments": ""
+              }
+            },
+            "style": [
+              {
+                "selector": ".wfe_foreachloop",
+                "css": {
+                  "content": "data(name)",
+                  "background-color": "#7A8FA8",
+                  "background-image": "/images/wf/foreach_loop.svg"
+                }
+              },
+              {
+                "selector": ".wfe_foreachloop.field-error",
+                "css": {
+                  "background-color": "#CA5E58",
+                  "background-image": "/images/wf/foreach_loop-error.svg"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "state": 0,
+      "element": null,
+      "expanded": false
+    },
+    {
+      "id": "fbdddbfe-6d15-41b7-8e4b-f3ada1496cfd",
+      "title": "CB2",
+      "folder": true,
+      "lazy": true,
+      "icon": "icon-msc",
+      "description": "SystemContainer",
+      "url": null,
+      "children": [
+        {
+          "title": "Import CB2 Objects",
+          "icon": "images/wf/import-cb2.png",
+          "element": {
+            "data": {
+              "name": "Import_CB2_Objects",
+              "key": "wfe_import_cb2",
+              "description": "",
+              "comments": "",
+              "allowedConnections": [
+                "wfe_script",
+                "wfe_python",
+                "wfe_wait",
+                "wfe_export_dataobject",
+                "wfe_condition",
+                "wfe_import_objects",
+                "wfe_import_cb2",
+                "wfe_subworkflow",
+                "wfe_email",
+                "wfe_transfer_location",
+                "wfe_abaqusexplizit",
+                "wfe_abaqusstandard",
+                "wfe_lsDyna",
+                "wfe_nastran",
+                "wfe_optistruct",
+                "wfe_foreachloop",
+                "wfe_assemble_and_simulate",
+                "wfe_train_model_sus",
+                "wfe_sus_action"
+              ],
+              "allowedFieldKeys": [],
+              "exceptions": [
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "label": "Maximum Execution Time (seconds)",
+                  "value": -1,
+                  "name": "max-execution-time",
+                  "integer": true,
+                  "rules": {
+                    "required": true,
+                    "integer": true,
+                    "maxlength": 64
+                  }
+                },
+                {
+                  "mode": "template",
+                  "name": "stoponerror",
+                  "rules": {},
+                  "label": "Stop workflow on error",
+                  "type": "select",
+                  "multiple": false,
+                  "options": [
+                    "yes",
+                    "no"
+                  ],
+                  "value": "yes"
+                }
+              ],
+              "fields": [
+                {
+                  "mode": "template",
+                  "label": "To container",
+                  "name": "container",
+                  "type": "object",
+                  "variable-mode": false,
+                  "rules": {
+                    "required": true
+                  },
+                  "value": "",
+                  "editable": false,
+                  "multiple": false,
+                  "typeClass": [
+                    "de.soco.software.simuspace.suscore.data.model.VariantDTO",
+                    "de.soco.software.simuspace.suscore.data.model.LibraryDTO",
+                    "de.soco.software.simuspace.suscore.data.model.ProjectDTO"
+                  ]
+                },
+                {
+                  "mode": "template",
+                  "type": "server-file-explorer",
+                  "name": "directory",
+                  "value": "",
+                  "label": "From path",
+                  "rules": {
+                    "required": true
+                  },
+                  "editable": false,
+                  "multiple": false,
+                  "variable-mode": false
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "name": "actionfilter",
+                  "value": "Skip",
+                  "label": "Over-write",
+                  "options": [
+                    "Skip",
+                    "Yes"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "editable": false,
+                  "multiple": false
+                }
+              ],
+              "isInternal": true,
+              "isActive": false,
+              "runMode": null,
+              "categories": [
+                {
+                  "name": "element"
+                }
+              ],
+              "info": {
+                "version": "0.0.2",
+                "description": "",
+                "comments": ""
+              }
+            },
+            "style": [
+              {
+                "selector": ".wfe_import_cb2",
+                "css": {
+                  "content": "data(name)",
+                  "shape": "rectangle",
+                  "background-color": "#A35525",
+                  "background-image": "/images/wf/import-cb2.svg"
+                }
+              },
+              {
+                "selector": ".wfe_import_cb2.field-error",
+                "css": {
+                  "background-color": "#CA5E58",
+                  "background-image": "/images/wf/import-cb2-error.svg"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "title": "AssembleAndSimulate",
+          "icon": "images/wf/cb2_assemble_simulate.png",
+          "element": {
+            "data": {
+              "name": "AssembleAndSimulate",
+              "key": "wfe_assemble_and_simulate",
+              "description": "",
+              "comments": "",
+              "allowedConnections": [
+                "wfe_script",
+                "wfe_python",
+                "wfe_wait",
+                "wfe_export_dataobject",
+                "wfe_condition",
+                "wfe_import_objects",
+                "wfe_import_cb2",
+                "wfe_subworkflow",
+                "wfe_email",
+                "wfe_transfer_location",
+                "wfe_abaqusexplizit",
+                "wfe_abaqusstandard",
+                "wfe_lsDyna",
+                "wfe_nastran",
+                "wfe_optistruct",
+                "wfe_foreachloop",
+                "wfe_assemble_and_simulate",
+                "wfe_sus_action"
+              ],
+              "allowedFieldKeys": [],
+              "exceptions": [
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "label": "Maximum Execution Time (seconds)",
+                  "value": -1,
+                  "name": "max-execution-time",
+                  "integer": true,
+                  "rules": {
+                    "required": true,
+                    "integer": true,
+                    "maxlength": 64
+                  }
+                },
+                {
+                  "mode": "template",
+                  "name": "stoponerror",
+                  "rules": {},
+                  "label": "Stop workflow on error",
+                  "type": "select",
+                  "multiple": false,
+                  "options": [
+                    "yes",
+                    "no"
+                  ],
+                  "value": "yes"
+                }
+              ],
+              "fields": [
+                {
+                  "variable-mode": false,
+                  "autoGenerateId": "true",
+                  "changeOnRun": true,
+                  "multiple": "false",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Reference Variant",
+                  "type": "CB2 Objects",
+                  "customView": "true",
+                  "mode": "template",
+                  "editable": true,
+                  "external": "bmw-cb2-variant",
+                  "name": "referenceVariant",
+                  "attributes": {
+                    "set": "true",
+                    "manage": "true"
+                  },
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "studydef",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/studydef/variant/{__value__}",
+                    "name": "referenceVariant"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Simulation Study Definition",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "cb2Loadcase",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/scenario/variant/{__value__}",
+                    "name": "referenceVariant"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Scenario/Loadcase",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "simdef",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/simdef/scenario/{__value__}",
+                    "name": "cb2Loadcase"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Simulation Definition",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "bindVariant": "referenceVariant",
+                  "bindSimdef": "simdef",
+                  "name": "IncludeList",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Include List",
+                  "type": "cb2 includes",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "createNew",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Create New Variant or Modify Existing",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "newVariantName",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "New Variant Name",
+                  "type": "text",
+                  "value": "",
+                  "placeHolder": "New Variant Name"
+                },
+                {
+                  "type": "section",
+                  "mode": "template",
+                  "sortable": false,
+                  "name": "section_assemble",
+                  "title": "Assemble",
+                  "subtitle": "Set Assemble Params",
+                  "changeOnRun": false,
+                  "variable-mode": false
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "assemblesetup",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/setup/assemble/studydef/{__value__}",
+                    "name": "studydef"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Assemble Setup",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "assemblescriptversion",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/assemble/scriptversion/setup/{__value__}",
+                    "name": "assemblesetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Assembly Script Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "assembleparameters",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Parameters",
+                  "type": "text",
+                  "value": "",
+                  "placeHolder": "Parameters"
+                },
+                {
+                  "type": "section",
+                  "mode": "template",
+                  "sortable": false,
+                  "name": "section_solver",
+                  "title": "Solver",
+                  "subtitle": "Set Solver Params",
+                  "changeOnRun": false,
+                  "variable-mode": false
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solversetup",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/setup/solver/studydef/{__value__}",
+                    "name": "studydef"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Setup",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "solverIs",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Run",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverversion",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/version/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverprecision",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/precision/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Precision",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverncpu",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/ncpu/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver CPUs",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverpostprocessor",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/postprocessor/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Postprocessor",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverpostversions",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/postversions/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Postprocessor Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverqueue",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/queue/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Solver Queue",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverflowguideVersion",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/solver/flowguideVersion/setup/{__value__}",
+                    "name": "solversetup"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "sortable": "false",
+                  "label": "Solver Flowguide Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "solveraddFlowguideOptions",
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "sortable": "false",
+                  "label": "Solver Flowguide Options",
+                  "type": "text",
+                  "value": "",
+                  "placeHolder": "--cluster hpc@ez01"
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "solvercopyback",
+                  "tooltip": "Copy Back Raw Results",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Copy Back Raw Results",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "hpc",
+                  "multiple": "false",
+                  "ajax": "/data/sge/user/simuspace/type/assembleAndSimulate",
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "HPC Project",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "solverpostprocessorParameter",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Postprocessor Parameter",
+                  "type": "text",
+                  "value": "",
+                  "placeHolder": "Postprocessor Parameter"
+                },
+                {
+                  "type": "section",
+                  "mode": "template",
+                  "sortable": false,
+                  "name": "section_post",
+                  "title": "Post Processing",
+                  "subtitle": "Set Post Processing Params",
+                  "changeOnRun": false,
+                  "variable-mode": false
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "postsetup",
+                  "multiple": "false",
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/setup/post/studydef/{__value__}",
+                    "name": "studydef"
+                  },
+                  "options": [],
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Post Processor Setup",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "postIs",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Run PostProcessing",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "postscriptversion",
+                  "multiple": "false",
+                  "options": [],
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/post/scriptversion/setup/{__value__}",
+                    "name": "postsetup"
+                  },
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Post Script Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "postsessionfileversion",
+                  "multiple": "false",
+                  "options": [],
+                  "bindTo": {
+                    "url": "/wizards/cb2/wf/post/sessionfileversion/setup/{__value__}",
+                    "name": "postsetup"
+                  },
+                  "tooltip": "",
+                  "rules": {
+                    "required": false
+                  },
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "sortable": "false",
+                  "label": "Post Sessionfile Version",
+                  "type": "select",
+                  "value": ""
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": true,
+                  "name": "postparameters",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Parameters",
+                  "type": "text",
+                  "value": "",
+                  "placeHolder": "Parameters"
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "changeOnRun": false,
+                  "name": "wait",
+                  "tooltip": "",
+                  "rules": {
+                    "required": true
+                  },
+                  "sortable": "false",
+                  "label": "Wait to finish",
+                  "type": "boolean",
+                  "value": true
+                }
+              ],
+              "isInternal": true,
+              "isActive": false,
+              "runMode": null,
+              "categories": [
+                {
+                  "name": "element"
+                }
+              ],
+              "info": {
+                "version": "0.0.2",
+                "description": "",
+                "comments": ""
+              }
+            },
+            "style": [
+              {
+                "selector": ".wfe_assemble_and_simulate",
+                "css": {
+                  "content": "data(name)",
+                  "shape": "rectangle",
+                  "background-color": "#A35525",
+                  "background-image": "/images/wf/cb2_assemble_simulate.svg"
+                }
+              },
+              {
+                "selector": ".wfe_assemble_and_simulate.field-error",
+                "css": {
+                  "background-color": "#CA5E58",
+                  "background-image": "/images/wf/cb2_assemble_simulate-error.svg"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "state": 0,
+      "element": null,
+      "expanded": false
+    },
+    {
+      "id": "dc14ac39-1243-484a-94ba-12db7bb46930",
+      "title": "Machine Learning",
+      "folder": true,
+      "lazy": true,
+      "icon": "icon-chip-2",
+      "description": "SystemContainer",
+      "url": null,
+      "children": [
+        {
+          "title": "TrainModel",
+          "icon": "images/wf/train-model.png",
+          "element": {
+            "data": {
+              "name": "TrainModel",
+              "key": "wfe_train_model_sus",
+              "description": "",
+              "comments": "",
+              "allowedConnections": [
+                "wfe_script",
+                "wfe_python",
+                "wfe_wait",
+                "wfe_export_dataobject",
+                "wfe_condition",
+                "wfe_import_objects",
+                "wfe_import_cb2",
+                "wfe_subworkflow",
+                "wfe_email",
+                "wfe_transfer_location",
+                "wfe_abaqusexplizit",
+                "wfe_abaqusstandard",
+                "wfe_lsDyna",
+                "wfe_nastran",
+                "wfe_optistruct",
+                "wfe_foreachloop",
+                "wfe_assemble_and_simulate",
+                "wfe_train_model_sus",
+                "wfe_sus_action"
+              ],
+              "allowedFieldKeys": [
+                "section",
+                "divider",
+                "text",
+                "select",
+                "textarea",
+                "divider",
+                "integer",
+                "float",
+                "boolean",
+                "divider",
+                "color",
+                "divider",
+                "os-file",
+                "os-directory",
+                "server-file-explorer",
+                "divider",
+                "date",
+                "dateRange",
+                "object",
+                "divider",
+                "CB2 Objects"
+              ],
+              "exceptions": [
+                {
+                  "mode": "template",
+                  "type": "text",
+                  "label": "Maximum Execution Time (seconds)",
+                  "value": -1,
+                  "name": "max-execution-time",
+                  "integer": true,
+                  "rules": {
+                    "required": true,
+                    "integer": true,
+                    "maxlength": 64
+                  }
+                },
+                {
+                  "mode": "template",
+                  "name": "stoponerror",
+                  "rules": {},
+                  "label": "Stop workflow on error",
+                  "type": "select",
+                  "multiple": false,
+                  "options": [
+                    "yes",
+                    "no"
+                  ],
+                  "value": "yes"
+                }
+              ],
+              "fields": [
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "name": "trainerType",
+                  "value": "",
+                  "label": "Trainer Algo",
+                  "options": [],
+                  "rules": {
+                    "required": true
+                  },
+                  "ajax": "/config/trainingalgo/user/simuspace",
+                  "canBeEmpty": true,
+                  "multiple": false,
+                  "sortable": false,
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "name": "input_csv",
+                  "tooltip": "Provide path to the input CSV file",
+                  "multiple": true,
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Input CSV",
+                  "type": "text",
+                  "value": "",
+                  "changeOnRun": false,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": true,
+                  "name": "input_columns",
+                  "tooltip": "Provide comma separated indexes of input columns",
+                  "multiple": true,
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Input Columns",
+                  "type": "text",
+                  "value": "",
+                  "changeOnRun": false,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": true,
+                  "name": "output_columns",
+                  "tooltip": "Provide comma separated indexes of output columns",
+                  "multiple": true,
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Output Columns",
+                  "type": "text",
+                  "value": "",
+                  "changeOnRun": false,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": "false",
+                  "name": "no_layers",
+                  "tooltip": "Provide number of layers of the neural network",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "multiple": true,
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Layers",
+                  "type": "integer",
+                  "value": 8,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": "false",
+                  "name": "neurons",
+                  "tooltip": "Provide number of neurons in each layer of the neural network",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Neurons",
+                  "type": "integer",
+                  "value": 64,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "variable-mode": "false",
+                  "name": "activation_function",
+                  "tooltip": "Select the activation function of each layer of the neural network",
+                  "value": "relu",
+                  "label": "Activation Function",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "options": [
+                    "relu",
+                    "sigmoid",
+                    "softmax",
+                    "softplus",
+                    "softsign",
+                    "tanh",
+                    "selu",
+                    "elu",
+                    "exponential"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "canBeEmpty": true,
+                  "multiple": false,
+                  "sortable": false,
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "variable-mode": "false",
+                  "name": "loss_function",
+                  "tooltip": "Select the loss function of the neural network model",
+                  "value": "mean_absolute_error",
+                  "label": "Loss Function",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "options": [
+                    "mean_squared_error",
+                    "mean_absolute_error",
+                    "mean_absolute_percentage_error",
+                    "mean_squared_logarithmic_error",
+                    "cosine_similarity",
+                    "huber",
+                    "log_cosh"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "canBeEmpty": true,
+                  "multiple": false,
+                  "sortable": false,
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "name": "learning_rate",
+                  "tooltip": "Provide the learning rate of the neural network model",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Learning Rate",
+                  "type": "float",
+                  "value": 0.0001,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "name": "nr_of_epochs",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Epochs",
+                  "type": "integer",
+                  "value": 100,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "variable-mode": "false",
+                  "name": "optimizer",
+                  "tooltip": "Select the optimizer for the neural network model",
+                  "value": "Adam",
+                  "label": "Optimizer",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "options": [
+                    "Adam",
+                    "RMSprop",
+                    "SGD",
+                    "Adadelta",
+                    "Adagrad",
+                    "Adamax",
+                    "Nadam",
+                    "Ftrl"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "canBeEmpty": true,
+                  "multiple": false,
+                  "sortable": false,
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "type": "select",
+                  "variable-mode": "false",
+                  "name": "metrics",
+                  "tooltip": "Select the metrics for training neural network model",
+                  "value": "MeanSquaredError",
+                  "label": "Metrics",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "options": [
+                    "MeanSquaredError",
+                    "RootMeanSquaredError",
+                    "MeanAbsoluteError",
+                    "MeanAbsolutePercentageError",
+                    "MeanSquaredLogarithmicError",
+                    "CosineSimilarity",
+                    "LogCoshError"
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "canBeEmpty": true,
+                  "multiple": false,
+                  "sortable": false,
+                  "picker": {
+                    "liveSearch": true
+                  },
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "name": "train_fraction",
+                  "tooltip": "Provide fraction of input data (0-1 float) to be used as training data",
+                  "multiple": true,
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Train Fraction",
+                  "type": "float",
+                  "value": 0.8,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": false,
+                  "name": "d_split",
+                  "tooltip": "Provide fraction of training data (0-1 float) to be used as validation data",
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Validation Split",
+                  "type": "float",
+                  "value": 0.2,
+                  "changeOnRun": true,
+                  "editable": true
+                },
+                {
+                  "mode": "template",
+                  "variable-mode": true,
+                  "name": "model_path",
+                  "tooltip": "Provide path to store results",
+                  "multiple": true,
+                  "bindVisibility": [
+                    {
+                      "name": "trainerType",
+                      "operation": "AND ",
+                      "values": [
+                        {
+                          "value": "TFKerasTrainModel",
+                          "operation": "AND"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": {
+                    "required": true
+                  },
+                  "label": "Model Path",
+                  "type": "text",
+                  "value": "",
+                  "changeOnRun": false,
+                  "editable": true
+                }
+              ],
+              "isInternal": true,
+              "isActive": false,
+              "runMode": null,
+              "categories": [
+                {
+                  "name": "element"
+                }
+              ],
+              "info": {
+                "version": "0.0.2",
+                "description": "",
+                "comments": ""
+              }
+            },
+            "style": [
+              {
+                "selector": ".wfe_train_model_sus",
+                "css": {
+                  "content": "data(name)",
+                  "shape": "rectangle",
+                  "background-color": "#23902d",
+                  "background-image": "/images/wf/train-model.svg"
+                }
+              },
+              {
+                "selector": ".wfe_train_model_sus.field-error",
+                "css": {
+                  "background-color": "#CA5E58",
+                  "background-image": "/images/wf/train-model-error.svg"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "state": 0,
+      "element": null,
+      "expanded": false
+    }
+  ]
+}

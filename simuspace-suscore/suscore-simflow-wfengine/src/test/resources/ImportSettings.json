@@ -1,0 +1,31 @@
+{
+	"VariantType1": [
+		"Var*",
+		"_default_dir_"
+	],
+	"AssemblyType1": [
+		"AeeemblyTy*1",
+		"*1",
+		"A*"
+	],
+	"AssemblyType2": [
+		"Assembly*2"
+	],
+	"LoadCaseType1": [
+		"Loasca*"
+	],
+	"DataObjectTypeInput": [
+		"*inp"
+	],
+	"DataObjectTypeInclde": [
+		"Var*/*inp",
+		"*inc"
+	],
+	"DataObjectTypeResult": [
+		"*sta",
+		"*odb"
+	],
+	"DataObjectTypeFile": [
+		"_default_file_"
+	]
+}

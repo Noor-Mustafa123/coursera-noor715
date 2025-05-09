@@ -1,0 +1,23 @@
+{
+	"de.soco.software.simuspace.suscore.data.model.DataObjectHtmlDTO": [
+		".json"
+	],
+	"de.soco.software.simuspace.suscore.data.model.DataObjectImageDTO": [
+		".jpg",
+		".jpeg",
+		".png",
+		".gif",
+		".bmp",
+		".webp"
+	],
+	"de.soco.software.simuspace.suscore.data.model.DataObjectPDFDTO": [
+		".pdf"
+	],
+	"de.soco.software.simuspace.suscore.data.model.DataObjectMovieDTO": [
+		".mp4",
+		".mkv",
+		".webm",
+		".flv",
+		".avi"
+	]
+}

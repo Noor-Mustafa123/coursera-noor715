@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:cxf="http://cxf.apache.org/blueprint/core"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd
+             http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd">
+
+	<!-- ############################################# Internal Services Expose ############################################# -->
+
+	<service id="permissionManagerService" interface="de.soco.software.simuspace.suscore.permissions.manager.PermissionManager"
+		ref="permissionManager" />
+
+	<service id="classDAOService" interface="de.soco.software.simuspace.suscore.permissions.dao.AclClassDAO" ref="classDAO" />
+
+	<!-- ########################### External Services Imports ################################ -->
+
+	<reference id="userCommonManagerService" interface="de.soco.software.simuspace.suscore.data.manager.base.UserCommonManager" />
+	<reference id="susDAO" interface="de.soco.software.simuspace.suscore.data.common.dao.SuSGenericObjectDAO" />
+	<reference id="selectionManager" interface="de.soco.software.simuspace.suscore.core.manager.SelectionManager" />
+
+	<reference id="customSessionDAO" interface="de.soco.software.simuspace.suscore.interceptors.shiro.dao.CustomSessionDAO" />
+
+	<reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+
+	<reference id="jobDao" interface="de.soco.software.simuspace.suscore.data.common.dao.JobDAO" />
+
+	<!-- ############################################# Suscore BUS ############################################# -->
+
+	<cxf:bus id="suscore_bus">
+		<cxf:inInterceptors>
+			<ref component-id="susLoggingInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref component-id="susLoggingOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+
+	<!-- ############################################# Services Exports ############################################# -->
+
+
+	<!-- ############################################# Jax RS Server ############################################# -->
+	<jaxrs:server id="permSusCoreService" address="/system/permissions">
+		<jaxrs:serviceBeans>
+			<ref component-id="permissionServiceBean" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ############################################# Beans ############################################# -->
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+	<bean id="susLoggingInInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingInInterceptor" />
+
+	<bean id="susLoggingOutInterceptor" class="de.soco.software.simuspace.suscore.interceptors.SusLoggingOutInterceptor" />
+
+	<!-- ############################################# Permission Beans ############################################# -->
+	<bean id="permissionServiceBean" class="de.soco.software.simuspace.suscore.permissions.service.rest.impl.PermissionServiceImpl">
+		<property name="permissionManager" ref="permissionManager" />
+	</bean>
+
+	<bean id="permissionManager" class="de.soco.software.simuspace.suscore.permissions.manager.impl.PermissionManagerImpl">
+		<property name="classDAO" ref="classDAO" />
+		<property name="objectIdentityDAO" ref="objectIdentityDAO" />
+		<property name="entryDAO" ref="entryDAO" />
+		<property name="userCommonManager" ref="userCommonManagerService" />
+		<property name="susDAO" ref="susDAO" />
+		<property name="selectionManager" ref="selectionManager" />
+		<property name="customSessionDAO" ref="customSessionDAO" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="jobDao" ref="jobDao" />
+	</bean>
+
+	<bean id="classDAO" class="de.soco.software.simuspace.suscore.permissions.dao.impl.AclClassDAOImpl">
+	</bean>
+
+	<bean id="objectIdentityDAO" class="de.soco.software.simuspace.suscore.permissions.dao.impl.AclObjectIdentityDAOImpl">
+	</bean>
+
+	<bean id="entryDAO" class="de.soco.software.simuspace.suscore.permissions.dao.impl.AclEntryDAOImpl">
+	</bean>
+
+</blueprint>

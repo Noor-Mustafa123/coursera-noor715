@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-licensing</artifactId>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-permission</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+	<!-- <Import-Package> de.soco.software.simuspace.suscore.data.simflow.server.entity.impl, javax.persistence;version="[1.1.0,2.2]", javax.persistence.criteria;version="[1.1.0,2.2]", 
+		org.*,com.*,ch.*,io.*,javax.*,* </Import-Package> -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Import-Package>
+							de.soco.software.simuspace.suscore.data.simflow.server.entity.impl,
+							javax.*,org.*,com.*,*
+						</Import-Package>
+						<Export-Package>
+							de.soco.software.simuspace.suscore.license.manager,
+							de.soco.software.simuspace.suscore.license.model
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

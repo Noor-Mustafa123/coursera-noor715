@@ -1,0 +1,11 @@
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/ProjectDashboardDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcJobFileDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/LicenseDashboardDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcFemzipDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcJobPendingMessageDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/constants/HpcJobConstants.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/DateRangeDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcJobPlotDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcDashBoardDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcJobDTO.java
+/home/sces82/GIT/simuspace-be/simuspace-dashboard/susdash-core/src/main/java/de/soco/software/simuspace/susdash/core/model/HpcJobPropertiesDTO.java

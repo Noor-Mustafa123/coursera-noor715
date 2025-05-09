@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-user</artifactId>
+	<packaging>bundle</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+
+	</properties>
+	<dependencies>
+		<!-- <dependency> <groupId>de.soco.software.simuspace</groupId> <artifactId>suscore-licensing</artifactId> <version>${project.version}</version> 
+			</dependency> -->
+
+		<!-- <dependency> <groupId>de.soco.software.simuspace</groupId> <artifactId>suscore-permission</artifactId> <version>${project.version}</version> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>de.soco.software.simuspace</groupId> <artifactId>suscore-object</artifactId> <version>${project.version}</version> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-licensing</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-auth-connect-ldap</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-auth-connect-active-directory </artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-document</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-interceptors</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>5.1.4</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<instructions>
+						<Export-Package>
+							de.soco.software.simuspace.suscore.user.dao,
+							de.soco.software.simuspace.suscore.user.dao.impl,
+							de.soco.software.simuspace.suscore.user.manager,
+							de.soco.software.simuspace.suscore.user.manager.impl,
+							de.soco.software.simuspace.suscore.user.model
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+
+		</plugins>
+	</build>
+</project>

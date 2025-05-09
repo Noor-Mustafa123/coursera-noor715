@@ -1,0 +1,109 @@
+{
+  "conversioncommand": "${karaf.script}/ceetron_python3.8_modules/Examples/export_cae_model_to_cug_db.py -i [input] -o [ouput] -c [configFile]",
+  "outputPath": "<path_to_sim_fe_static>/cee/",
+  "serverPath": "https://<server_address>/cee",
+  "formate": [{
+      "name": "NastranResult-3d",
+      "defaultConfig": {
+        "type": "NASTRAN (OP2)",
+        "isResult": true,
+        "currentStateIndex": 0,
+        "partName": null,
+        "returnOnlyInfo": false,
+        "scalarResult": "All Displacement(Real)",
+        "vectorResult": null,
+        "displacementResult": null,
+        "isAnimation": true,
+        "colorBarRange": null,
+        "colorScheme": "NORMAL",
+        "numberOfContours": 0,
+        "colorScale": [],
+        "colorValues": []
+      }
+    },
+    {
+      "name": "OptistructResult-3d",
+      "defaultConfig": {
+        "type": "OPTISTRUCT (H3D)",
+        "isResult": true,
+        "currentStateIndex": 0,
+        "partName": null,
+        "returnOnlyInfo": false,
+        "scalarResult": "vonMises Stress[Shell Bot]",
+        "vectorResult": null,
+        "displacementResult": null,
+        "isAnimation": true,
+        "colorBarRange": null,
+        "colorScheme": "NORMAL",
+        "numberOfContours": 0,
+        "colorScale": [],
+        "colorValues": []
+      }
+    },
+    {
+      "name": "AbaqusStandardResult-3d",
+      "defaultConfig": {
+        "type": "ABAQUS STANDARD (ODB)",
+        "isResult": true,
+        "currentStateIndex": 0,
+        "partName": null,
+        "returnOnlyInfo": false,
+        "scalarResult": "Equivalent, Plastic Strain[Shell Top]",
+        "vectorResult": null,
+        "displacementResult": null,
+        "isAnimation": true,
+        "colorBarRange": null,
+        "colorScheme": "CUSTOM",
+        "numberOfContours": 10,
+        "colorScale": [
+          [0.50000, 0.50000, 0.50000],
+          [0.00000, 0.00000, 1.00000],
+          [0.00000, 1.00000, 1.00000],
+          [0.00000, 0.98039, 0.60392],
+          [0.00000, 1.00000, 0.00000],
+          [0.67843, 1.00000, 0.18431],
+          [1.00000, 1.00000, 0.00000],
+          [1.00000, 0.27059, 0.00000],
+          [1.00000, 0.00000, 0.00000],
+          [1.00000, 0.07843, 0.57647]
+        ],
+        "colorValues": [0, 0.010, 0.012, 0.015, 0.017, 0.020, 0.022, 0.025, 0.027, 0.030, 0.051]
+      }
+    },
+    {
+      "name": "LsDynaResult-3d",
+      "defaultConfig": {
+        "type": "LS DYNA (d3plot)",
+        "isResult": true,
+        "currentStateIndex": 0,
+        "partName": null,
+        "returnOnlyInfo": false,
+        "scalarResult": "vonMises Stress[Shell Bot]",
+        "vectorResult": null,
+        "displacementResult": null,
+        "isAnimation": true,
+        "colorBarRange": null,
+        "colorScheme": "NORMAL",
+        "numberOfContours": 0,
+        "colorScale": [],
+        "colorValues": []
+      }
+    },
+    {
+      "name": "default",
+      "defaultConfig": {
+        "type": "DEFAULT",
+        "isResult": false,
+        "currentStateIndex": 0,
+        "partName": null,
+        "returnOnlyInfo": false,
+        "scalarResult": null,
+        "vectorResult": null,
+        "displacementResult": null,
+        "isAnimation": false,
+        "colorBarRange": null,
+        "colorScheme": null
+      }
+    }
+  ]
+}

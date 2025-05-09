@@ -1,0 +1,22 @@
+{
+"name":"Test Data Object name",
+  "xUnit": "x",
+  "yUnit": "y",
+  "xDimension": "X",
+  "yDimension": "Y",
+  "type": "area",
+  "curve": [
+    [
+      6730,
+      8.56986293245
+    ],
+    [
+      6731,
+      -72.1410043446
+    ],
+    [
+      6732,
+      -4.62325785056
+    ]
+  ]
+}

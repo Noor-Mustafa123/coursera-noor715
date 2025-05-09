@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd">
+
+	<!-- ################################ Internal Services Expose ################################# -->
+
+	<!-- ################################ External Services Imports ################################ -->
+
+	<!-- ################################ Simuspace BUS ############################################ -->
+
+	<!-- ################################ Services Exports ######################################### -->
+
+	<!-- ################################ Jax RS Server ############################################ -->
+
+	<jaxrs:server id="susCoreDocumentService" address="/core/location">
+		<jaxrs:serviceBeans>
+			<ref component-id="locationService" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref component-id="jsonProvider" />
+		</jaxrs:providers>
+	</jaxrs:server>
+
+	<!-- ################################ Permission Beans ######################################### -->
+
+	<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+
+	</bean>
+
+	<bean id="locationService" class="de.soco.software.simuspace.suscore.core.location.service.rest.impl.LocationCoreServiceImpl">
+		<property name="locationManager" ref="locationCoreManager" />
+	</bean>
+
+	<bean id="locationCoreManager" class="de.soco.software.simuspace.suscore.core.location.manager.impl.LocationCoreManagerImpl"
+		init-method="initLocation">
+	</bean>
+
+	<bean id="transferBean" class="de.soco.software.simuspace.suscore.core.location.service.rest.impl.TransferServiceImpl">
+		<property name="coreManager" ref="locationCoreManager" />
+	</bean>
+
+	<bean id="transferStagingBean" class="de.soco.software.simuspace.suscore.core.location.service.rest.impl.TransferStagingServiceImpl">
+		<property name="coreManager" ref="locationCoreManager" />
+	</bean>
+
+	<!-- services for transfer to location -->
+	<!-- whiteboard servlet pattern defines the service path whiteboard servlet name defines unique name for the servlet -->
+	<service id="transferService" interface="javax.servlet.http.HttpServlet" ref="transferBean">
+		<service-properties>
+			<entry key="osgi.http.whiteboard.servlet.pattern" value="/api/core/location/upload/*" />
+			<entry key="osgi.http.whiteboard.servlet.name" value="TransferServiceImpl" />
+		</service-properties>
+	</service>
+
+
+	<!-- whiteboard servlet pattern defines the service path whiteboard servlet name defines unique name for the servlet -->
+	<service id="transferStagingService" interface="javax.servlet.http.HttpServlet" ref="transferStagingBean">
+		<service-properties>
+			<entry key="osgi.http.whiteboard.servlet.pattern" value="/api/core/location/stagingupload/*" />
+			<entry key="osgi.http.whiteboard.servlet.name" value="TransferStagingServiceImpl" />
+		</service-properties>
+	</service>
+
+</blueprint>
