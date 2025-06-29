@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.soco.software.simuspace</groupId>
+		<artifactId>simuspace-suscore</artifactId>
+		<version>3.0.0</version>
+	</parent>
+	<artifactId>suscore-transfer</artifactId>
+	<packaging>bundle</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.soco.software.simuspace</groupId>
+			<artifactId>suscore-user</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework</groupId> -->
+		<!-- <artifactId>spring-web</artifactId> -->
+		<!-- <version>3.0.4.RELEASE</version> -->
+		<!-- </dependency> -->
+
+
+	</dependencies>
+</project>
